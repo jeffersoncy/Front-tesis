@@ -41,6 +41,18 @@ export const MENU: MenuItem[] = [
                 label: 'MENUITEMS.DASHBOARD.LIST.REALESTATE',
                 link: '/real-estate',
                 parentId: 2
+            },
+            {
+              id: 8,
+              label: 'MENUITEMS.DASHBOARD.LIST.GRAPHS',
+              link: '/tesis-graphs',
+              parentId: 2
+            },
+            {
+              id: 9,
+              label: 'MENUITEMS.DASHBOARD.LIST.MAPS',
+              link: '/tesis-maps',
+              parentId: 2
             }
         ]
     },
@@ -709,7 +721,7 @@ export const MENU: MenuItem[] = [
                 link: '/advance-ui/sweetalert',
                 parentId: 112
             },
-          
+
             {
                 id: 115,
                 label: 'MENUITEMS.ADVANCEUI.LIST.SCROLLBAR',

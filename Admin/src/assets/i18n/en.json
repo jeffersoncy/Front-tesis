@@ -10,7 +10,9 @@
         "CRM": "CRM",
         "ECOMMERCE": "Ecommerce",
         "LEARNING": "Learning",
-        "REALESTATE": "Real Estate"
+        "REALESTATE": "Real Estate",
+        "GRAPHS": "Graphs",
+        "MAPS": "Maps"
       }
     },
     "APPS": {
