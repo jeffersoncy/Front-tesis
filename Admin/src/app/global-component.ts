@@ -19,4 +19,9 @@ export const GlobalComponent = {
 
     // Customers Api
     customer: 'apps/customer',
+
+    //Api back tesis
+    API_TESIS: 'http://127.0.0.1:8000/',
+    registro: 'registros',
+    predict: 'predecir',
 }
