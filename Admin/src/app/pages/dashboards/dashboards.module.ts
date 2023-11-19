@@ -37,6 +37,8 @@ import { CrmComponent } from './crm/crm.component';
 import { IndexComponent } from './index/index.component';
 import { LearningComponent } from './learning/learning.component';
 import { RealEstateComponent } from './real-estate/real-estate.component';
+import { TesisGraphsComponent } from './tesis-graphs/tesis-graphs.component';
+import { TesisMapsComponent } from './tesis-maps/tesis-maps.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { RealEstateComponent } from './real-estate/real-estate.component';
     CrmComponent,
     IndexComponent,
     LearningComponent,
-    RealEstateComponent
+    RealEstateComponent,
+    TesisGraphsComponent,
+    TesisMapsComponent
   ],
   imports: [
     CommonModule,
