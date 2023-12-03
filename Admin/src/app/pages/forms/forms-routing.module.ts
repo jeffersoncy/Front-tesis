@@ -12,6 +12,7 @@ import { WizardComponent } from './wizard/wizard.component';
 import { EditorsComponent } from './editors/editors.component';
 import { UploadComponent } from './upload/upload.component';
 import { LayoutComponent } from './layout/layout.component';
+import { TesisFormComponent } from './tesis-form/tesis-form.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'layouts',
     component: LayoutComponent
+  },
+  {
+    path: 'tesis-predict',
+    component: TesisFormComponent
   }
 ];
 

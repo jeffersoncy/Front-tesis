@@ -842,6 +842,12 @@ export const MENU: MenuItem[] = [
                 label: 'MENUITEMS.FORMS.LIST.FORMLAYOUTS',
                 link: '/forms/layouts',
                 parentId: 125
+            },
+            {
+              id: 138,
+              label: 'MENUITEMS.FORMS.LIST.TESISFORM',
+              link: '/forms/tesis-predict',
+              parentId: 125
             }
         ]
     },

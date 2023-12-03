@@ -169,7 +169,8 @@
         "WIZARD": "Wizard",
         "EDITORS": "Editors",
         "FILEUPLOADS": "File Uploads",
-        "FORMLAYOUTS": "Form Layouts"
+        "FORMLAYOUTS": "Form Layouts",
+        "TESISFORM": "Predict"
       }
     },
     "TABLES": {

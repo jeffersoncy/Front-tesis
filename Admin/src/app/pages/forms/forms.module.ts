@@ -57,6 +57,7 @@ import { WizardComponent } from './wizard/wizard.component';
 import { EditorsComponent } from './editors/editors.component';
 import { UploadComponent } from './upload/upload.component';
 import { LayoutComponent } from './layout/layout.component';
+import { TesisFormComponent } from './tesis-form/tesis-form.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -78,7 +79,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     WizardComponent,
     EditorsComponent,
     UploadComponent,
-    LayoutComponent
+    LayoutComponent,
+    TesisFormComponent
   ],
   imports: [
     CommonModule,
