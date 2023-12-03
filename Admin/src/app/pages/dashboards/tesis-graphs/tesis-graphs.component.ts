@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Registro } from 'src/app/core/models/registro';
 import { TesisService } from 'src/app/core/services/tesis.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { TesisService } from 'src/app/core/services/tesis.service';
 })
 
 export class TesisGraphsComponent implements OnInit{
+
+  public registros:Array<Registro> = []
 
   constructor(
     private _tesisService:TesisService
@@ -19,7 +22,8 @@ export class TesisGraphsComponent implements OnInit{
 
   cargarRegistros(){
     this._tesisService.getRegistros().subscribe(res =>{
-      console.log(res);
+      this.registros = res
+      console.log(this.registros);
     },
     error =>{
       console.log("Error al obtener lista de registros");

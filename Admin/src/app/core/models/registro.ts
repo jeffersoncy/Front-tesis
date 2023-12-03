@@ -1,2 +1,44 @@
 export class Registro {
+
+  departamento?: string;
+  residentes_hogar?: number;
+  d2_04_num_hijos?: number;
+  per_edad_tipo?: string;
+  estrato_tipo?: string;
+  situacion_tipo?: string;
+  frecuencia_consumo_marihuana_tipo?: string;
+  frecuencia_consumo_cocaina_tipo?: string;
+  frecuencia_consumo_basuco_tipo?: string;
+  per_sexo_tipo?: string;
+  vive_padre_hogar_tipo?: string;
+  vive_madre_hogar_tipo?: string;
+  vivienda_tipo?: string;
+  d_01_aporta_dinero_hogar_tipo?: string;
+  d_08_estado_salud_tipo?: string;
+  d_09_deprimido_tipo?: string;
+  d_10_poco_interes_tipo?: string;
+  d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo?: string;
+  d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo?: string;
+  d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo?: string;
+  d_12_b_presenta_problema_consumo_sp_barrio_tipo?: string;
+  d_12_c_presenta_problema_expendio_sp_barrio_tipo?: string;
+  d2_01_etnia_tipo?: string;
+  d2_03_estado_civil_tipo?: string;
+  d2_05_nivel_educativo_tipo?: string;
+  g_01_familiares_consumen_sp_tipo?: string;
+  g_02_amigos_consumen_sp_tipo?: string;
+  g_03_curiosidad_probar_sp_tipo?: string;
+  g_04_probaria_sp_tipo?: string;
+  g_05_posibilidad_probar_sp_tipo?: string;
+  g_06_a_posibilidad_conseguir_marihuana_tipo?: string;
+  g_06_b_posibilidad_conseguir_cocaina_tipo?: string;
+  g_06_c_posibilidad_conseguir_basuco_tipo?: string;
+  g_07_alguien_ofrecio_comprar_probar_sp_tipo?: string;
+  g_01_a_num_familiares_consumen_sp_imp_tipo?: string;
+  g_02_a_num_amigos_consumen_sp_imp_tipo?: string;
+  g_08_a_ofrecieron_marihuana_imp_tipo?: string;
+  g_08_b_ofrecieron_cocaina_imp_tipo?: string;
+  g_08_c_ofrecieron_basuco_imp_tipo?: string;
+  CatRiesgo?: number;
+
 }

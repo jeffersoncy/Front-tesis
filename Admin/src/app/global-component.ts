@@ -23,5 +23,7 @@ export const GlobalComponent = {
     //Api back tesis
     API_TESIS: 'http://127.0.0.1:8000/',
     registro: 'registros',
+    filtro: 'filtro?value=',
+    num_riesgo:'num_riesgo',
     predict: 'predecir',
 }

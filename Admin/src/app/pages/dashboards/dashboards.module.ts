@@ -39,6 +39,7 @@ import { LearningComponent } from './learning/learning.component';
 import { RealEstateComponent } from './real-estate/real-estate.component';
 import { TesisGraphsComponent } from './tesis-graphs/tesis-graphs.component';
 import { TesisMapsComponent } from './tesis-maps/tesis-maps.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { TesisMapsComponent } from './tesis-maps/tesis-maps.component';
     NgxEchartsModule.forRoot({ echarts }),
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    FlatpickrModule.forRoot()
+    FlatpickrModule.forRoot(),
+    GoogleChartsModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

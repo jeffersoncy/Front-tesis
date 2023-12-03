@@ -41,6 +41,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@nicky-lenaers/ngx-scroll-to": "^14.0.0",
+    "angular-google-charts": "^2.2.3",
     "angular-ng-autocomplete": "^2.0.12",
     "angular-ng-stepper": "^2.0.0",
     "angularx-flatpickr": "^7.3.0",
@@ -78,7 +79,7 @@
     "rxjs": "~7.8.1",
     "simplebar-angular": "3.2.4",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.6.13",
+    "sweetalert2": "^11.10.1",
     "tslib": "^2.6.0",
     "zone.js": "0.13.1"
   },
