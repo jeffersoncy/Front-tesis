@@ -29,5 +29,8 @@ export class TesisService {
     return this.http.post
   }*/
 
+  predictUser(registro:Registro) {
+
+  }
 
 }
