@@ -529,3 +529,52 @@
   </div> <!-- end col -->
 </div>
 <!--end row-->
+
+
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card">
+          <div class="card-header">
+              <h4 class="card-title mb-0">Tooltips</h4>
+          </div><!-- end card header -->
+
+          <div class="card-body">
+              <p class="text-muted">If your form layout allows it, you can swap the
+                  <code>.valid|invalid-feedback</code> classes for <code>.valid|invalid-tooltip</code> classes to
+                  display validation feedback in a styled tooltip. Be sure to have a parent with
+                  <code>position: relative</code> on it for tooltip positioning. In the example below, our column
+                  classes have this already, but your project may require an alternative setup.
+              </p>
+
+              <form class="row g-3 needs-validation" novalidate (ngSubmit)="formSubmit()"
+                  [formGroup]="tooltipvalidationform">
+
+                  <div class="col-md-6 position-relative">
+                      <label for="validationTooltip03" class="form-label">City</label>
+                      <input type="text" class="form-control" id="validationTooltip03"
+                          [ngClass]="{'is-invalid': formsubmit && formData['city'].errors}" required>
+                      <div class="invalid-tooltip">
+                          Please provide a valid city.
+                      </div>
+                  </div>
+                  <div class="col-md-6 position-relative">
+                      <label for="validationTooltip04" class="form-label">State</label>
+                      <select class="form-select" id="validationTooltip04"
+                          [ngClass]="{'is-invalid': formsubmit && formData['state'].errors}" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option>...</option>
+                      </select>
+                      <div class="invalid-tooltip">
+                          Please select a valid state.
+                      </div>
+                  </div>
+
+                  <div class="col-12">
+                      <button class="btn btn-primary" type="submit">Submit form</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div> <!-- end col -->
+
+</div>

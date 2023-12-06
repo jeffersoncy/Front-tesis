@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TesisService } from 'src/app/core/services/tesis.service';
 
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+
 import { chatMessagesData } from './data';
 
 @Component({
@@ -11,14 +13,17 @@ import { chatMessagesData } from './data';
 export class TesisFormComponent implements OnInit{
 
   selectedAccount = 'This is a placeholder';
-  public Default = chatMessagesData;
+
 
   breadCrumbItems!: Array<{}>;
-  selectedCountry: any;
-  selectedFlag: any;
+
+  tooltipvalidationform!: UntypedFormGroup;
+  submit!: boolean;
+  formsubmit!: boolean;
 
   constructor(
-    private _tesisService:TesisService
+    private _tesisService:TesisService,
+    private formBuilder: UntypedFormBuilder
   ){}
 
   ngOnInit(): void {
@@ -27,28 +32,24 @@ export class TesisFormComponent implements OnInit{
       { label: 'Form Advanced', active: true }
     ];
 
-    this.selectedCountry = {
-      "flagImg": "assets/images/flags/us.svg",
-      "countryName": "United States of America",
-      "countryCode": "+1"
-    }
+    this.tooltipvalidationform = this.formBuilder.group({
+      city: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+      state: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]],
+    });
 
-    this.selectedFlag = {
-      "flagImg": "assets/images/flags/us.svg",
-      "countryName": "United States of America",
-      "countryCode": "+1"
-    }
   }
 
-  selectValue(data: any) {
-    this.selectedCountry = data
+  /**
+   * Bootstrap tooltip form validation submit method
+   */
+  formSubmit() {
+    this.formsubmit = true;
   }
 
-  selectCode(data: any) {
-    this.selectedFlag = data
+  /**
+   * returns tooltip validation form
+   */
+  get formData() {
+    return this.tooltipvalidationform.controls;
   }
-
-  selectEvent(item: any) { }
-  onChangeSearch(search: string) { }
-  onFocused(e: any) { }
 }
