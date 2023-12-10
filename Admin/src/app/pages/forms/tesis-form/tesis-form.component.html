@@ -1,201 +1,279 @@
-<app-breadcrumbs title="Formulario para prediccion" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
+<app-breadcrumbs title="Formulario para prediccion"></app-breadcrumbs>
 
 <div class="row">
   <div class="col-lg-12">
       <div class="card">
           <div class="card-header">
-              <h4 class="card-title mb-0">Data inicial</h4>
+              <h4 class="card-title mb-0">Informacion incial</h4>
           </div><!-- end card header -->
 
           <div class="card-body">
 
-              <form action="javascript:void(0);">
-                  <div class="row">
-                    <div class="col-lg-6">
+              <form class="row g-3 needs-validation" [formGroup]="gesPredictForm">
+
+                  <div class="col-lg-6">
+                    <div>
+                      <label for="departamento" class="form-label">Seleccione su departamento</label>
+                      <select class="form-select" id="departamento"
+                      [ngClass]="{ 'is-invalid' : validoFormulario && f['departamento'].errors }" formControlName="departamento">
+                        <option *ngFor="let depto of listaDepartamentos" [value]="depto.valor">{{ depto.label }}</option>
+                      </select>
+                      <div class="invalid-feedback" *ngIf="f['departamento'].errors">
+                        Debe seleccionar un departamento
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
                       <div>
-                          <label class="form-label">Seleccione su departamento</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione su departamento </option>
-                            <option value="Antioquia">Antioquia</option>
-                            <option value="Cundinamarca">Cundinamarca</option>
-                            <option value="Caldas">Caldas</option>
+                        <div class="mb-3">
+                          <label for="d2_04_num_hijos" class="form-label">¿Cuántos hijos tiene?</label>
+                          <input type="number" class="form-control" placeholder="Ingrese el numero de hijos" id="d2_04_num_hijos"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d2_04_num_hijos'].errors }" formControlName="d2_04_num_hijos">
+                          <div class="invalid-feedback" *ngIf="f['d2_04_num_hijos'].errors">
+                            Debe ingresar un numero
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="estrato_tipo" class="form-label">¿Qué estrato tiene?</label>
+                        <select class="form-select" id="estrato_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['estrato_tipo'].errors }" formControlName="estrato_tipo">
+                          <option value="Estrato bajo">Estrato bajo(Estrato 1 y 2)</option>
+                          <option value="Estrato medio">Estrato medio(Estrato 3 y 4)</option>
+                          <option value="Estrato alto">Estrato alto(Estrato 5, 6 o mayor a 6)</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['estrato_tipo'].errors">
+                          Debe seleccionar un tipo de estrato
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="per_sexo_tipo" class="form-label">Tipo de sexo</label>
+                        <select class="form-select" id="per_sexo_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['per_sexo_tipo'].errors }" formControlName="per_sexo_tipo">
+                          <option value="Hombre">Hombre</option>
+                          <option value="Mujer">Mujer</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['per_sexo_tipo'].errors">
+                          Debe seleccionar una opción
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="vive_padre_hogar_tipo" class="form-label">¿Su padre vive en su hogar?</label>
+                        <select class="form-select" id="vive_padre_hogar_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['vive_padre_hogar_tipo'].errors }" formControlName="vive_padre_hogar_tipo">
+                          <option value="vive_padre_hogar_Si">Si</option>
+                          <option value="vive_padre_hogar_No">No</option>
+                          <option value="vive_padre_hogar_Fallecido">Fallecido</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['vive_padre_hogar_tipo'].errors">
+                          Debe seleccionar una opción
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="d_01_aporta_dinero_hogar_tipo" class="form-label">¿Aporta dinero en su hogar?</label>
+                        <select class="form-select" id="d_01_aporta_dinero_hogar_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['d_01_aporta_dinero_hogar_tipo'].errors }" formControlName="d_01_aporta_dinero_hogar_tipo">
+                          <option value="d_01_Si">Si</option>
+                          <option value="d_01_No">No</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['d_01_aporta_dinero_hogar_tipo'].errors">
+                          Debe seleccionar una opción
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="d2_03_estado_civil_tipo" class="form-label">¿Cuál es su estado civil?</label>
+                        <select class="form-select" id="d2_03_estado_civil_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['d2_03_estado_civil_tipo'].errors }" formControlName="d2_03_estado_civil_tipo">
+                          <option value="d2_03_Soltero">Soltero</option>
+                          <option value="d2_03_Union_libre">Union libre</option>
+                          <option value="d2_03_Casado">Casado</option>
+                          <option value="d2_03_Separado_Divorciado">Separado - Divorciado</option>
+                          <option value="d2_03_Viudo">Viudo</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['d2_03_estado_civil_tipo'].errors">
+                          Debe seleccionar un tipo de estado civil
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-lg-6">
+
+                    <div>
+                      <div class="mb-3">
+                          <label for="residentes_hogar" class="form-label">¿Con cuántas personas vive usted?</label>
+                          <input type="number" class="form-control" placeholder="Ingrese el numero de residentes" id="residentes_hogar"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['residentes_hogar'].errors }" formControlName="residentes_hogar">
+                          <div class="invalid-feedback" *ngIf="f['residentes_hogar'].errors">
+                            Debe ingresar un valor
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="per_edad_tipo" class="form-label">¿En qué edad o etapa se encuentra?</label>
+                        <select class="form-select" id="per_edad_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['per_edad_tipo'].errors }" formControlName="per_edad_tipo">
+                          <option value="Adolecente">Adolecente(Edad menor o igual a 18 años)</option>
+                          <option value="Joven">Joven(Edad mayor o igual a 19 años y menor o igual a 27 años )</option>
+                          <option value="Adulto">Adulto(Edad mayor o igual a 28 años y menor o igual a 59 años )</option>
+                          <option value="Persona mayor">Persona mayor(Edad mayor o igual a 60 años)</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['per_edad_tipo'].errors">
+                          Debe seleccionar una opción
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="situacion_tipo" class="form-label">¿En que situación se encuentra actualmente?</label>
+                        <select class="form-select" id="situacion_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['situacion_tipo'].errors }" formControlName="situacion_tipo">
+                          <option value="Estudiando">Estudiando</option>
+                          <option value="Buscando trabajo">Buscando trabajo</option>
+                          <option value="Trabajando">Trabajando</option>
+                          <option value="Otros">Otros</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['situacion_tipo'].errors">
+                          Debe seleccionar una opción
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="vivienda_tipo" class="form-label">¿Con qué tipo de vivienda cuenta?</label>
+                        <select class="form-select" id="vivienda_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['vivienda_tipo'].errors }" formControlName="vivienda_tipo">
+                          <option value="Apartamento">Apartamento</option>
+                          <option value="Casa">Casa</option>
+                          <option value="Cuarto">Cuarto</option>
+                          <option value="Vivienda_indigena">Vivienda indigena</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['vivienda_tipo'].errors">
+                          Debe seleccionar un tipo de vivienda
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="vive_madre_hogar_tipo" class="form-label">¿Su madre vive en su hogar?</label>
+                        <select class="form-select" id="vive_madre_hogar_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['vive_madre_hogar_tipo'].errors }" formControlName="vive_madre_hogar_tipo">
+                          <option value="vive_padre_hogar_Si">Si</option>
+                          <option value="vive_padre_hogar_No">No</option>
+                          <option value="vive_padre_hogar_Fallecida">Fallecida</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['vive_madre_hogar_tipo'].errors">
+                          Debe seleccionar una opción
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="d2_01_etnia_tipo" class="form-label">¿A qué etnia pertenece?</label>
+                        <select class="form-select" id="d2_01_etnia_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['d2_01_etnia_tipo'].errors }" formControlName="d2_01_etnia_tipo">
+                          <option value="d2_01_Ninguno">Ninguno</option>
+                          <option value="d2_01_Indigena">Indigena</option>
+                          <option value="d2_01_Negro_Mulato_Afrodescendinte_Afrocolombiano">Negro - Mulato - Afrodescendiente - Afrocolombiano</option>
+                          <option value="d2_01_Razial_archipielago_San_Andres_Providencia">Razial - Archipielago San Andres Providencia</option>
+                          <option value="d2_01_Palanquero_San_Basilio">Palenquero - San Basilio</option>
+                          <option value="d2_01_Gitano/ROM">Gitano/ROM</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['d2_01_etnia_tipo'].errors">
+                          Debe seleccionar un tipo de etnia
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-3">
+                      <div>
+                        <label for="d2_05_nivel_educativo_tipo" class="form-label">¿Cuál es su nivel educativo?</label>
+                        <select class="form-select" id="d2_05_nivel_educativo_tipo"
+                        [ngClass]="{ 'is-invalid' : validoFormulario && f['d2_05_nivel_educativo_tipo'].errors }" formControlName="d2_05_nivel_educativo_tipo">
+                          <option value="d2_05_Ninguno">Ninguno</option>
+                          <option value="d2_05_Preescolar">Preescolar</option>
+                          <option value="d2_05_Basica_primaria">Basica primaria</option>
+                          <option value="d2_05_Basica_secundaria">Basica secuandaria</option>
+                          <option value="d2_05_Media">Media</option>
+                          <option value="d2_05_Tecnico/Tecnologo">Tecnico/Tecnologo</option>
+                          <option value="d2_05_Universitario">Universitario</option>
+                          <option value="d2_05_Postgrado">Postgrado</option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="f['d2_05_nivel_educativo_tipo'].errors">
+                          Debe seleccionar un tipo nivel educativo
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <h4 class="card-title mt-3 mb-0">Información por consumo</h4>
+
+                    <div class="col-lg-6 mt-3">
+                      <div>
+                          <label for="frecuencia_consumo_marihuana_tipo" class="form-label">¿Con qué frecuencia consumió o ha consumido marihuana?</label>
+                          <select class="form-select" id="frecuencia_consumo_marihuana_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['frecuencia_consumo_marihuana_tipo'].errors }" formControlName="frecuencia_consumo_marihuana_tipo">
+                            <option value="Nunca">Nunca</option>
+                            <option value="Alguna vez en su vida">Alguna vez en su vida</option>
+                            <option value="Una vez en el año">Una vez en el año</option>
+                            <option value="Algunas veces durante los últimos 12 meses">Algunas veces durante los últimos 12 meses</option>
+                            <option value="Algunas veces mensualmente">Algunas veces mensualmente</option>
+                            <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
+                            <option value="Diariamente">Diariamente</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['frecuencia_consumo_marihuana_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <div class="mb-3">
-                              <label for="num_hijos" class="form-label">¿Cuántos hijos tiene?</label>
-                              <input type="number" class="form-control" placeholder="Ingrese el numero de hijos"
-                                  id="num_hijos">
+                          <label for="frecuencia_consumo_cocaina_tipo" class="form-label">¿Con qué frecuencia consumió o ha consumido cocaína?</label>
+                          <select class="form-select" id="frecuencia_consumo_cocaina_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['frecuencia_consumo_cocaina_tipo'].errors }" formControlName="frecuencia_consumo_cocaina_tipo">
+                            <option value="Nunca">Nunca</option>
+                            <option value="Alguna vez en su vida">Alguna vez en su vida</option>
+                            <option value="Una vez en el año">Una vez en el año</option>
+                            <option value="Algunas veces durante los últimos 12 meses">Algunas veces durante los últimos 12 meses</option>
+                            <option value="Algunas veces mensualmente">Algunas veces mensualmente</option>
+                            <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
+                            <option value="Diariamente">Diariamente</option>
+                          </select>
+                          <div class="invalid-feedback" *ngIf="f['frecuencia_consumo_cocaina_tipo'].errors">
+                            Debe seleccionar una opción
                           </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Qué estrato tiene?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="Estrato bajo">Estrato bajo(Estrato 1 y 2)</option>
-                            <option value="Estrato medio">Estrato medio(Estrato 3 y 4)</option>
-                            <option value="Estrato alto">Estrato alto(Estrato 5, 6 o mayor a 6)</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">Tipo de sexo</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="Hombre">Hombre</option>
-                            <option value="Mujer">Mujer</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Su padre vive en su hogar?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="vive_padre_hogar_Si">Si</option>
-                            <option value="vive_padre_hogar_No">No</option>
-                            <option value="vive_padre_hogar_Fallecido">Fallecido</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Aporta dinero en su hogar?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="d_01_Si">Si</option>
-                            <option value="d_01_No">No</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Cuál es su estado civil?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="d2_03_Soltero">Soltero</option>
-                            <option value="d2_03_Union_libre">Union libre</option>
-                            <option value="d2_03_Casado">Casado</option>
-                            <option value="d2_03_Separado_Divorciado">Separado - Divorciado</option>
-                            <option value="d2_03_Viudo">Viudo</option>
-                          </select>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="col-lg-6">
-
-                      <div>
-                        <div class="mb-3">
-                            <label for="residentes_hogar" class="form-label">¿Con cuántas personas vive usted?</label>
-                            <input type="number" class="form-control" placeholder="Ingrese el numero de residentes"
-                                id="residentes_hogar">
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿En qué edad o etapa se encuentra?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción </option>
-                            <option value="Adolecente">Adolecente(Edad menor o igual a 18 años)</option>
-                            <option value="Joven">Joven(Edad mayor o igual a 19 años y menor o igual a 27 años )</option>
-                            <option value="Adulto">Adulto(Edad mayor o igual a 28 años y menor o igual a 59 años )</option>
-                            <option value="Persona mayor">Persona mayor(Edad mayor o igual a 60 años)</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿En que situación se encuentra actualmente?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="Estudiando">Estudiando</option>
-                            <option value="Buscando trabajo">Buscando trabajo</option>
-                            <option value="Trabajando">Trabajando</option>
-                            <option value="Otros">Otros</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Con qué tipo de vivienda cuenta?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="Apartamento">Apartamento</option>
-                            <option value="Casa">Casa</option>
-                            <option value="Cuarto">Cuarto</option>
-                            <option value="Vivienda_indigena">Vivienda indigena</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Su madre vive en su hogar?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="vive_padre_hogar_Si">Si</option>
-                            <option value="vive_padre_hogar_No">No</option>
-                            <option value="vive_padre_hogar_Fallecida">Fallecida</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿A qué etnia pertenece?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="d2_01_Ninguno">Ninguno</option>
-                            <option value="d2_01_Indigena">Indigena</option>
-                            <option value="d2_01_Negro_Mulato_Afrodescendinte_Afrocolombiano">Negro - Mulato - Afrodescendiente - Afrocolombiano</option>
-                            <option value="d2_01_Razial_archipielago_San_Andres_Providencia">Razial - Archipielago San Andres Providencia</option>
-                            <option value="d2_01_Palanquero_San_Basilio">Palenquero - San Basilio</option>
-                            <option value="d2_01_Gitano/ROM">Gitano/ROM</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Cuál es su nivel educativo?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opcion</option>
-                            <option value="d2_05_Ninguno">Ninguno</option>
-                            <option value="d2_05_Preescolar">Preescolar</option>
-                            <option value="d2_05_Basica_primaria">Basica primaria</option>
-                            <option value="d2_05_Basica_secundaria">Basica secuandaria</option>
-                            <option value="d2_05_Media">Media</option>
-                            <option value="d2_05_Tecnico/Tecnologo">Tecnico/Tecnologo</option>
-                            <option value="d2_05_Universitario">Universitario</option>
-                            <option value="d2_05_Postgrado">Postgrado</option>
-                          </select>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <h4 class="card-title mb-0">Data por consumo</h4>
-
-                    <div class="col-lg-6 mt-3">
-                      <div>
-                          <label class="form-label">¿Con qué frecuencia consumió o ha consumido marihuana?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Selecione una opcion</option>
+                          <label for="frecuencia_consumo_basuco_tipo" class="form-label">¿Con qué frecuencia consumió o ha consumido basuco?</label>
+                          <select class="form-select" id="frecuencia_consumo_basuco_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['frecuencia_consumo_basuco_tipo'].errors }" formControlName="frecuencia_consumo_basuco_tipo">
                             <option value="Nunca">Nunca</option>
                             <option value="Alguna vez en su vida">Alguna vez en su vida</option>
                             <option value="Una vez en el año">Una vez en el año</option>
@@ -204,165 +282,150 @@
                             <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
                             <option value="Diariamente">Diariamente</option>
                           </select>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Con qué frecuencia consumió o ha consumido cocaína?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Selecione una opcion</option>
-                            <option value="Nunca">Nunca</option>
-                            <option value="Alguna vez en su vida">Alguna vez en su vida</option>
-                            <option value="Una vez en el año">Una vez en el año</option>
-                            <option value="Algunas veces durante los últimos 12 meses">Algunas veces durante los últimos 12 meses</option>
-                            <option value="Algunas veces mensualmente">Algunas veces mensualmente</option>
-                            <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
-                            <option value="Diariamente">Diariamente</option>
-                          </select>
+                          <div class="invalid-feedback" *ngIf="f['frecuencia_consumo_basuco_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Con qué frecuencia consumió o ha consumido basuco?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Selecione una opcion</option>
-                            <option value="Nunca">Nunca</option>
-                            <option value="Alguna vez en su vida">Alguna vez en su vida</option>
-                            <option value="Una vez en el año">Una vez en el año</option>
-                            <option value="Algunas veces durante los últimos 12 meses">Algunas veces durante los últimos 12 meses</option>
-                            <option value="Algunas veces mensualmente">Algunas veces mensualmente</option>
-                            <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
-                            <option value="Diariamente">Diariamente</option>
+                          <label for="d_12_b_presenta_problema_consumo_sp_barrio_tipo" class="form-label">¿En su barrio se presenta el consumo de sustancias psicoactivas?</label>
+                          <select class="form-select" id="d_12_b_presenta_problema_consumo_sp_barrio_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_12_b_presenta_problema_consumo_sp_barrio_tipo'].errors }" formControlName="d_12_b_presenta_problema_consumo_sp_barrio_tipo">
+                            <option value="d_12_b_Si">Si</option>
+                            <option value="d_12_b_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['d_12_b_presenta_problema_consumo_sp_barrio_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
-
+                      <div class="mt-3">
+                        <div>
+                          <label for="d_12_c_presenta_problema_expendio_sp_barrio_tipo" class="form-label">¿En su barrio se presenta el expendido de sustancias psicoactivas?</label>
+                          <select class="form-select" id="d_12_c_presenta_problema_expendio_sp_barrio_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_12_c_presenta_problema_expendio_sp_barrio_tipo'].errors }" formControlName="d_12_c_presenta_problema_expendio_sp_barrio_tipo">
+                            <option value="d_12_c_Si">Si</option>
+                            <option value="d_12_c_No">No</option>
+                          </select>
+                          <div class="invalid-feedback" *ngIf="f['d_12_c_presenta_problema_expendio_sp_barrio_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
+                        </div>
+                      </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Conoce el riesgo que corre una persona al consumir marihuana frecuentemente?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo" class="form-label">¿Conoce el riesgo que corre una persona al consumir marihuana frecuentemente?</label>
+                          <select class="form-select" id="d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo'].errors }" formControlName="d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo">
                             <option value="d_11_h_Gran_riesgo">Riesgo alto</option>
                             <option value="d_11_h_Riesgo_moderado">Riesgo moderado</option>
                             <option value="d_11_h_Riesgo_leve">Riesgo leve</option>
                             <option value="d_11_h_Ningun_riesgo">Ningun riesgo</option>
                             <option value="d_11_h_No_conoce_riesgo">No conoce el riesgo</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Conoce el riesgo que corre una persona al consumir basuco frecuentemente?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="d_11_n_Gran_riesgo">Riesgo alto</option>
-                            <option value="d_11_n_Riesgo_moderado">Riesgo moderado</option>
-                            <option value="d_11_n_Riesgo_leve">Riesgo leve</option>
-                            <option value="d_11_n_Ningun_riesgo">Ningun riesgo</option>
-                            <option value="d_11_n_No_conoce_riesgo">No conoce el riesgo</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Conoce el riesgo que corre una persona al consumir cocaina frecuentemente?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo" class="form-label">¿Conoce el riesgo que corre una persona al consumir cocaina frecuentemente?</label>
+                          <select class="form-select" id="d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo'].errors }" formControlName="d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo">
                             <option value="d_11_k_Gran_riesgo">Riesgo alto</option>
                             <option value="d_11_k_Riesgo_moderado">Riesgo moderado</option>
                             <option value="d_11_k_Riesgo_leve">Riesgo leve</option>
                             <option value="d_11_k_Ningun_riesgo">Ningun riesgo</option>
                             <option value="d_11_k_No_conoce_riesgo">No conoce el riesgo</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Ha sentido curiosidad por probar sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="g_03_Si">Si</option>
-                            <option value="g_03_No">No</option>
+                          <label for="d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo" class="form-label">¿Conoce el riesgo que corre una persona al consumir basuco frecuentemente?</label>
+                          <select class="form-select" id="d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo'].errors }" formControlName="d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo">
+                            <option value="d_11_n_Gran_riesgo">Riesgo alto</option>
+                            <option value="d_11_n_Riesgo_moderado">Riesgo moderado</option>
+                            <option value="d_11_n_Riesgo_leve">Riesgo leve</option>
+                            <option value="d_11_n_Ningun_riesgo">Ningun riesgo</option>
+                            <option value="d_11_n_No_conoce_riesgo">No conoce el riesgo</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Probaria sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_04_probaria_sp_tipo" class="form-label">¿Probaria sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_04_probaria_sp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_04_probaria_sp_tipo'].errors }" formControlName="g_04_probaria_sp_tipo">
                             <option value="g_04_Si">Si</option>
                             <option value="g_04_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_04_probaria_sp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Que tan facil le seria conseguir marihuana?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_06_a_posibilidad_conseguir_marihuana_tipo" class="form-label">¿Que tan facil le seria conseguir marihuana?</label>
+                          <select class="form-select" id="g_06_a_posibilidad_conseguir_marihuana_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_06_a_posibilidad_conseguir_marihuana_tipo'].errors }" formControlName="g_06_a_posibilidad_conseguir_marihuana_tipo">
                             <option value="g_06_a_No_conoce_facilidad_dificultad">No conoce la facilidad</option>
                             <option value="g_06_a_No_podria_conseguir">No podria conseguir</option>
                             <option value="g_06_a_Seria_facil">Seria facil conseguir</option>
                             <option value="g_06_a_Seria_dificil">Seria dificil conseguir</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_06_a_posibilidad_conseguir_marihuana_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Que tan facil le seria conseguir cocaina?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_06_b_posibilidad_conseguir_cocaina_tipo" class="form-label">¿Que tan facil le seria conseguir cocaina?</label>
+                          <select class="form-select" id="g_06_b_posibilidad_conseguir_cocaina_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_06_b_posibilidad_conseguir_cocaina_tipo'].errors }" formControlName="g_06_b_posibilidad_conseguir_cocaina_tipo">
                             <option value="g_06_b_No_conoce_facilidad_dificultad">No conoce la facilidad</option>
                             <option value="g_06_b_No_podria_conseguir">No podria conseguir</option>
                             <option value="g_06_b_Seria_facil">Seria facil conseguir</option>
                             <option value="g_06_b_Seria_dificil">Seria dificil conseguir</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_06_b_posibilidad_conseguir_cocaina_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Que tan facil le seria conseguir basuco?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_06_c_posibilidad_conseguir_basuco_tipo" class="form-label">¿Que tan facil le seria conseguir basuco?</label>
+                          <select class="form-select" id="g_06_c_posibilidad_conseguir_basuco_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_06_c_posibilidad_conseguir_basuco_tipo'].errors }" formControlName="g_06_c_posibilidad_conseguir_basuco_tipo">
                             <option value="g_06_c_No_conoce_facilidad_dificultad">No conoce la facilidad</option>
                             <option value="g_06_c_No_podria_conseguir">No podria conseguir</option>
                             <option value="g_06_c_Seria_facil">Seria facil conseguir</option>
                             <option value="g_06_c_Seria_dificil">Seria dificil conseguir</option>
                           </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Alguien le ha ofrecido comprar o probar sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="g_07_Si">Si</option>
-                            <option value="g_07_No">No</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Cuantos familiares consumen sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="g_01_a_No_aplica">No aplica</option>
-                            <option value="g_01_a_Uno">Uno</option>
-                            <option value="g_01_a_Dos_o_mas">Dos o mas</option>
-                          </select>
+                          <div class="invalid-feedback" *ngIf="f['g_06_c_posibilidad_conseguir_basuco_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
@@ -371,207 +434,206 @@
                     <div class="col-lg-6 mt-3">
 
                       <div>
-                        <label class="form-label">¿Cuál es su estado de salud?</label>
-                        <select class="form-select mb-3" aria-label="Default select example">
-                          <option selected>Seleccione una opción</option>
+                        <label for="d_08_estado_salud_tipo" class="form-label">¿Cuál es su estado de salud?</label>
+                        <select class="form-select" id="d_08_estado_salud_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_08_estado_salud_tipo'].errors }" formControlName="d_08_estado_salud_tipo">
                           <option value="d_08_Muy_bueno">Muy bueno</option>
                           <option value="d_08_Bueno">Bueno</option>
                           <option value="d_08_Regular">Regular</option>
                           <option value="d_08_Malo">Malo</option>
                           <option value="d_08_Muy_malo">Muy malo</option>
                         </select>
+                        <div class="invalid-feedback" *ngIf="f['d_08_estado_salud_tipo'].errors">
+                          Debe seleccionar una opción
+                        </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Ha estado deprimido?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="d_09_deprimido_tipo" class="form-label">¿Ha estado deprimido?</label>
+                          <select class="form-select" id="d_09_deprimido_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_09_deprimido_tipo'].errors }" formControlName="d_09_deprimido_tipo">
                             <option value="d_09_Si">Si</option>
                             <option value="d_09_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['d_09_deprimido_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Ha sentido poco interes en las actividades que le gusta realizar?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="d_10_poco_interes_tipo" class="form-label">¿Ha sentido poco interes en las actividades que le gusta realizar?</label>
+                          <select class="form-select" id="d_10_poco_interes_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d_10_poco_interes_tipo'].errors }" formControlName="d_10_poco_interes_tipo">
                             <option value="d_10_Si">Si</option>
                             <option value="d_10_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['d_10_poco_interes_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿En su barrio se presenta el consumo de sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="d_12_b_Si">Si</option>
-                            <option value="d_12_b_No">No</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿En su barrio se presenta el expendido de sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="d_12_c_Si">Si</option>
-                            <option value="d_12_c_No">No</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="mt-3">
-                        <div>
-                          <label class="form-label">¿Tiene familiares que consuman sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_01_familiares_consumen_sp_tipo" class="form-label">¿Tiene familiares que consuman sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_01_familiares_consumen_sp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_01_familiares_consumen_sp_tipo'].errors }" formControlName="g_01_familiares_consumen_sp_tipo">
                             <option value="g_01_Si">Si</option>
                             <option value="g_01_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_01_familiares_consumen_sp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Tiene amigos que consuman sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_01_a_num_familiares_consumen_sp_imp_tipo" class="form-label">¿Cuantos familiares consumen sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_01_a_num_familiares_consumen_sp_imp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_01_a_num_familiares_consumen_sp_imp_tipo'].errors }" formControlName="g_01_a_num_familiares_consumen_sp_imp_tipo">
+                            <option value="g_01_a_No_aplica">No aplica</option>
+                            <option value="g_01_a_Uno">Uno</option>
+                            <option value="g_01_a_Dos_o_mas">Dos o mas</option>
+                          </select>
+                          <div class="invalid-feedback" *ngIf="f['g_01_a_num_familiares_consumen_sp_imp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-3">
+                        <div>
+                          <label for="g_02_amigos_consumen_sp_tipo" class="form-label">¿Tiene amigos que consuman sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_02_amigos_consumen_sp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_02_amigos_consumen_sp_tipo'].errors }" formControlName="g_02_amigos_consumen_sp_tipo">
                             <option value="g_02_Si">Si</option>
                             <option value="g_02_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_02_amigos_consumen_sp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Ha tenido la posibilidad de probar sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_02_a_num_amigos_consumen_sp_imp_tipo" class="form-label">¿Cuantos amigos consumen sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_02_a_num_amigos_consumen_sp_imp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_02_a_num_amigos_consumen_sp_imp_tipo'].errors }" formControlName="g_02_a_num_amigos_consumen_sp_imp_tipo">
+                            <option value="g_02_a_No_aplica">No aplica</option>
+                            <option value="g_02_a_Uno">Uno</option>
+                            <option value="g_02_a_Dos_o_mas">Dos o mas</option>
+                          </select>
+                          <div class="invalid-feedback" *ngIf="f['g_02_a_num_amigos_consumen_sp_imp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-3">
+                        <div>
+                          <label for="g_05_posibilidad_probar_sp_tipo" class="form-label">¿Ha tenido la posibilidad de probar sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_05_posibilidad_probar_sp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_05_posibilidad_probar_sp_tipo'].errors }" formControlName="g_05_posibilidad_probar_sp_tipo">
                             <option value="g_05_Si">Si</option>
                             <option value="g_05_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_05_posibilidad_probar_sp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Hace cuanto le ofrecieron marihuana?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_07_alguien_ofrecio_comprar_probar_sp_tipo" class="form-label">¿Alguien le ha ofrecido comprar o probar sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_07_alguien_ofrecio_comprar_probar_sp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_07_alguien_ofrecio_comprar_probar_sp_tipo'].errors }" formControlName="g_07_alguien_ofrecio_comprar_probar_sp_tipo">
+                            <option value="g_07_Si">Si</option>
+                            <option value="g_07_No">No</option>
+                          </select>
+                          <div class="invalid-feedback" *ngIf="f['g_07_alguien_ofrecio_comprar_probar_sp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-3">
+                        <div>
+                          <label for="g_08_a_ofrecieron_marihuana_imp_tipo" class="form-label">¿Hace cuanto le ofrecieron marihuana?</label>
+                          <select class="form-select" id="g_08_a_ofrecieron_marihuana_imp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_08_a_ofrecieron_marihuana_imp_tipo'].errors }" formControlName="g_08_a_ofrecieron_marihuana_imp_tipo">
                             <option value="g_08_a_No_aplica">No aplica</option>
                             <option value="g_08_a_Nunca_me_han_ofrecido">Nunca me han ofrecido</option>
                             <option value="g_08_a_Mas_12_meses">Mas de 12 meses</option>
                             <option value="g_08_a_Mas_30_dias_Menos_12_meses">Mas de 30 dias y menos de 12 meses</option>
                             <option value="g_08_a_Ultimos_30_dias">Ultimos 30 dias</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_08_a_ofrecieron_marihuana_imp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Hace cuanto le ofrecieron cocaina?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_08_b_ofrecieron_cocaina_imp_tipo" class="form-label">¿Hace cuanto le ofrecieron cocaina?</label>
+                          <select class="form-select" id="g_08_b_ofrecieron_cocaina_imp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_08_b_ofrecieron_cocaina_imp_tipo'].errors }" formControlName="g_08_b_ofrecieron_cocaina_imp_tipo">
                             <option value="g_08_b_No_aplica">No aplica</option>
                             <option value="g_08_b_Nunca_me_han_ofrecido">Nunca me han ofrecido</option>
                             <option value="g_08_b_Mas_12_meses">Mas de 12 meses</option>
                             <option value="g_08_b_Mas_30_dias_Menos_12_meses">Mas de 30 dias y menos de 12 meses</option>
                             <option value="g_08_b_Ultimos_30_dias">Ultimos 30 dias</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_08_b_ofrecieron_cocaina_imp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Hace cuanto le ofrecieron basuco?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
+                          <label for="g_08_c_ofrecieron_basuco_imp_tipo" class="form-label">¿Hace cuanto le ofrecieron basuco?</label>
+                          <select class="form-select" id="g_08_c_ofrecieron_basuco_imp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_08_c_ofrecieron_basuco_imp_tipo'].errors }" formControlName="g_08_c_ofrecieron_basuco_imp_tipo">
                             <option value="g_08_c_No_aplica">No aplica</option>
                             <option value="g_08_c_Nunca_me_han_ofrecido">Nunca me han ofrecido</option>
                             <option value="g_08_c_Mas_12_meses">Mas de 12 meses</option>
                             <option value="g_08_c_Mas_30_dias_Menos_12_meses">Mas de 30 dias y menos de 12 meses</option>
                             <option value="g_08_c_Ultimos_30_dias">Ultimos 30 dias</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_08_c_ofrecieron_basuco_imp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                       <div class="mt-3">
                         <div>
-                          <label class="form-label">¿Cuantos amigos consumen sustancias psicoactivas?</label>
-                          <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Seleccione una opción</option>
-                            <option value="g_02_a_No_aplica">No aplica</option>
-                            <option value="g_02_a_Uno">Uno</option>
-                            <option value="g_02_a_Dos_o_mas">Dos o mas</option>
+                          <label for="g_03_curiosidad_probar_sp_tipo" class="form-label">¿Ha sentido curiosidad por probar sustancias psicoactivas?</label>
+                          <select class="form-select" id="g_03_curiosidad_probar_sp_tipo"
+                          [ngClass]="{ 'is-invalid' : validoFormulario && f['g_03_curiosidad_probar_sp_tipo'].errors }" formControlName="g_03_curiosidad_probar_sp_tipo">
+                            <option value="g_03_Si">Si</option>
+                            <option value="g_03_No">No</option>
                           </select>
+                          <div class="invalid-feedback" *ngIf="f['g_03_curiosidad_probar_sp_tipo'].errors">
+                            Debe seleccionar una opción
+                          </div>
                         </div>
                       </div>
 
                     </div>
 
-                      <div class="col-lg-12">
-                          <div class="text-end">
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                          </div>
-                      </div>
-                      <!--end col-->
-                  </div>
-                  <!--end row-->
-              </form>
-          </div>
-      </div>
-  </div> <!-- end col -->
-</div>
-<!--end row-->
 
 
-<div class="row">
-  <div class="col-lg-12">
-      <div class="card">
-          <div class="card-header">
-              <h4 class="card-title mb-0">Tooltips</h4>
-          </div><!-- end card header -->
-
-          <div class="card-body">
-              <p class="text-muted">If your form layout allows it, you can swap the
-                  <code>.valid|invalid-feedback</code> classes for <code>.valid|invalid-tooltip</code> classes to
-                  display validation feedback in a styled tooltip. Be sure to have a parent with
-                  <code>position: relative</code> on it for tooltip positioning. In the example below, our column
-                  classes have this already, but your project may require an alternative setup.
-              </p>
-
-              <form class="row g-3 needs-validation" novalidate (ngSubmit)="formSubmit()"
-                  [formGroup]="tooltipvalidationform">
-
-                  <div class="col-md-6 position-relative">
-                      <label for="validationTooltip03" class="form-label">City</label>
-                      <input type="text" class="form-control" id="validationTooltip03"
-                          [ngClass]="{'is-invalid': formsubmit && formData['city'].errors}" required>
-                      <div class="invalid-tooltip">
-                          Please provide a valid city.
-                      </div>
-                  </div>
-                  <div class="col-md-6 position-relative">
-                      <label for="validationTooltip04" class="form-label">State</label>
-                      <select class="form-select" id="validationTooltip04"
-                          [ngClass]="{'is-invalid': formsubmit && formData['state'].errors}" required>
-                          <option selected disabled value="">Choose...</option>
-                          <option>...</option>
-                      </select>
-                      <div class="invalid-tooltip">
-                          Please select a valid state.
-                      </div>
-                  </div>
-
-                  <div class="col-12">
-                      <button class="btn btn-primary" type="submit">Submit form</button>
-                  </div>
+                <div class="col-12">
+                  <button class="btn btn-primary" type="button" (click)="predecir()">Predecir</button>
+                </div>
               </form>
           </div>
       </div>

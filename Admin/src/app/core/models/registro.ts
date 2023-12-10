@@ -39,6 +39,4 @@ export class Registro {
   g_08_a_ofrecieron_marihuana_imp_tipo?: string;
   g_08_b_ofrecieron_cocaina_imp_tipo?: string;
   g_08_c_ofrecieron_basuco_imp_tipo?: string;
-  CatRiesgo?: number;
-
 }
