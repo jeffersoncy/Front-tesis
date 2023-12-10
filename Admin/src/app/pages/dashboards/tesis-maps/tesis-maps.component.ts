@@ -59,7 +59,7 @@ export class TesisMapsComponent implements OnInit{
   ngOnInit(): void {
     this.obtenerListaDepartamentos()
     this.cargarRegistros('todos');
-    this.cargarConteoNivelRiesgo();
+    this.cargarConteoNivelRiesgo('todos');
   }
 
   obtenerListaDepartamentos():void{
@@ -107,8 +107,8 @@ export class TesisMapsComponent implements OnInit{
     this.cargarRegistros(tipo_filtro);
   }
 
-  cargarConteoNivelRiesgo(){
-    this._tesisService.getConteoRiesgo('todos').subscribe(res =>{
+  cargarConteoNivelRiesgo(filtro_depto:string){
+    this._tesisService.getConteoRiesgo(filtro_depto).subscribe(res =>{
 
       let array_data_nivel_tipo = []
       let array_data_nivel_conteo = []
@@ -230,31 +230,7 @@ export class TesisMapsComponent implements OnInit{
       }
     }
 
-
-
-    this._tesisService.getConteoRiesgo(auxDeptoSelect).subscribe(res =>{
-
-      let array_data_nivel_tipo = []
-      let array_data_nivel_conteo = []
-      let array_data = []
-      for (let nivel in res) {
-        if (res.hasOwnProperty(nivel)) {
-          array_data_nivel_tipo.push(nivel);
-          array_data_nivel_conteo.push(Number(res[nivel]))
-          let data_depto = [nivel,res[nivel]];
-          array_data.push(data_depto);
-        }
-      }
-
-      this.pieChartData = array_data
-      this.data_nivel_conteo = array_data_nivel_conteo
-      this.data_nivel_tipo = array_data_nivel_tipo
-
-      this._mainChart('["--tb-primary-bg-subtle", "--tb-light", "--tb-primary"]');
-    },
-    error =>{
-      swal.fire('Error', 'Error al cargar los datos por nivel de riesgo:' + error, 'error');
-    });
+    this.cargarConteoNivelRiesgo(auxDeptoSelect)
 
   }
 
