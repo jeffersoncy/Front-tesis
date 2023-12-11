@@ -90,7 +90,6 @@ export class TesisFormComponent implements OnInit{
           this.listaDepartamentos.push(departamento)
         }
       }
-      console.log(this.listaDepartamentos);
     },
     error =>{
       console.log("Error al obtener lista de registros");
