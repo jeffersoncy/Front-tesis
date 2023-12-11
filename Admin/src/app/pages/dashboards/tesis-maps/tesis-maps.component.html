@@ -34,19 +34,35 @@
 <div class="row">
   <div class="col-xl-12">
       <div class="card card-height-100">
-          <div class="card-header d-flex align-items-center">
-              <h5 class="card-title mb-0 flex-grow-1">Conteo de personas segun el nivel de reisgo por consumo de SPI</h5>
-          </div>
+        <div class="card-header d-flex align-items-center">
+          <h5 class="card-title mb-0 flex-grow-1">Conteo de personas segun el nivel de reisgo por consumo de SPI({{titulo}})</h5>
+        </div>
           <!--end card-header-->
-          <div class="card-body">
-              <div class="row">
-                  <div class="col-lg-6">
-                      <div>
-                          <div echarts [options]="mainChart" id="main" style="height: 300px; width: 600px; margin-left: 15px;"></div>
-                      </div>
-                  </div>
-              </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <div class="col-lg-6 ">
+              <select [(ngModel)]="depatamentoSeleccionado" class="form-select" id="departamento" (change)="realizarFiltro()">
+                <option selected value="">Seleccione un departamento</option>
+                <option *ngFor="let depto of listaDepartamentos" [value]="depto.valor">{{ depto.label }}</option>
+              </select>
+            </div>
           </div>
+
+
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div>
+                <div echarts [options]="mainChart" id="main" style="height: 300px; width: 600px; margin-left: 15px;"></div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div>
+                <google-chart [type]="peiType" [data]="pieChartData" [columns]="pieColumns" [options]="pieChartOptions" [width]="pieWidth" [height]="pieHeight"></google-chart>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
   </div>
   <!-- /col-->

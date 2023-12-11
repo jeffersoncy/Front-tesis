@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ChartType } from 'angular-google-charts';
+import { Departamento } from 'src/app/core/models/departamento';
 import { TesisService } from 'src/app/core/services/tesis.service';
 
 import swal from 'sweetalert2';
@@ -11,12 +12,17 @@ import swal from 'sweetalert2';
   styleUrls: ['./tesis-maps.component.scss']
 })
 export class TesisMapsComponent implements OnInit{
+  public titulo = "Todos los departamentos";
+  public listaDepartamentos !: Array<Departamento>;
+  depatamentoSeleccionado:string = "";
 
   mainChart: any;
 
   type = ChartType.GeoChart
+  peiType = ChartType.PieChart
 
   columns = ['Province', 'Population'];
+  pieColumns = ['Task', 'Hours per Day'];
 
   width = 1292;
   height = 798;
@@ -35,15 +41,46 @@ export class TesisMapsComponent implements OnInit{
     datalessRegionColor: '#9DE1A0',
   };
 
+  public pieChartData:any;
+
+  pieChartOptions = {
+    chartArea: { width: '80%', height: '80%' }
+  };
+
+  pieWidth = 600;
+  pieHeight = 300;
+
   constructor(
     private _tesisService:TesisService
-  ) {}
+  ) {
+    this.listaDepartamentos = new Array<Departamento>();
+  }
 
   ngOnInit(): void {
+    this.obtenerListaDepartamentos()
     this.cargarRegistros('todos');
-    this.cargarConteoNivelRiesgo();
+    this.cargarConteoNivelRiesgo('todos');
+  }
 
-
+  obtenerListaDepartamentos():void{
+    this._tesisService.getDepartamentos().subscribe(res =>{
+      //console.log(res);
+      //console.log(typeof(res));
+      for (let depto in res) {
+        if (res.hasOwnProperty(depto)) {
+          //console.log("Llave:" + depto + " Valor:" + res[depto]);
+          let departamento:Departamento = new Departamento();
+          departamento.valor = depto
+          departamento.label = res[depto]
+          this.listaDepartamentos.push(departamento)
+        }
+      }
+      console.log(this.listaDepartamentos);
+    },
+    error =>{
+      console.log("Error al obtener lista de registros");
+      console.log("Error:" + error);
+    });
   }
 
   cargarRegistros(tipo_filtro:string){
@@ -70,24 +107,24 @@ export class TesisMapsComponent implements OnInit{
     this.cargarRegistros(tipo_filtro);
   }
 
-  cargarConteoNivelRiesgo(){
-    this._tesisService.getConteoRiesgo().subscribe(res =>{
+  cargarConteoNivelRiesgo(filtro_depto:string){
+    this._tesisService.getConteoRiesgo(filtro_depto).subscribe(res =>{
 
       let array_data_nivel_tipo = []
       let array_data_nivel_conteo = []
+      let array_data = []
       for (let nivel in res) {
         if (res.hasOwnProperty(nivel)) {
           //let data_depto = [depto,res[depto]];
           array_data_nivel_tipo.push(nivel);
           array_data_nivel_conteo.push(Number(res[nivel]))
+          let data_depto = [nivel,res[nivel]];
+          array_data.push(data_depto);
         }
       }
-
+      this.pieChartData = array_data
       this.data_nivel_conteo = array_data_nivel_conteo
       this.data_nivel_tipo = array_data_nivel_tipo
-
-      console.log(this.data_nivel_tipo);
-      console.log(this.data_nivel_conteo);
 
       this._mainChart('["--tb-primary-bg-subtle", "--tb-light", "--tb-primary"]');
     },
@@ -175,6 +212,26 @@ export class TesisMapsComponent implements OnInit{
         }
       }
     });
+  }
+
+  realizarFiltro(){
+    console.log("Departamento seleccionado:" + this.depatamentoSeleccionado);
+    let auxDeptoSelect = this.depatamentoSeleccionado;
+    if (this.depatamentoSeleccionado === '') {
+      this.titulo = 'Todos los departamentos'
+      auxDeptoSelect = 'todos'
+    } else {
+      for (let index = 0; index < this.listaDepartamentos.length; index++) {
+        const departamento = this.listaDepartamentos[index];
+        if (departamento.valor === this.depatamentoSeleccionado) {
+          this.titulo = departamento.label!;
+        }
+
+      }
+    }
+
+    this.cargarConteoNivelRiesgo(auxDeptoSelect)
+
   }
 
 }

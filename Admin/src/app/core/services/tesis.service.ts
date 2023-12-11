@@ -21,13 +21,20 @@ export class TesisService {
     return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.filtro + tipo_filtro)
   }
 
-  getConteoRiesgo(): Observable<any>{
-    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.num_riesgo)
+  getConteoRiesgo(departamento : string): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.num_riesgo + departamento)
+  }
+
+  getDepartamentos(): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.departamentos)
   }
 
   /*predictUser(Object obj): Observable<any> {
     return this.http.post
   }*/
 
+  predictUser(registro:Registro) {
+
+  }
 
 }
