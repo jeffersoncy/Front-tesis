@@ -132,7 +132,7 @@
                         <label for="per_edad_tipo" class="form-label">¿En qué edad o etapa se encuentra?</label>
                         <select class="form-select" id="per_edad_tipo"
                         [ngClass]="{ 'is-invalid' : validoFormulario && f['per_edad_tipo'].errors }" formControlName="per_edad_tipo">
-                          <option value="Adolecente">Adolecente(Edad menor o igual a 18 años)</option>
+                          <option value="Adolescente">Adolecente(Edad menor o igual a 18 años)</option>
                           <option value="Joven">Joven(Edad mayor o igual a 19 años y menor o igual a 27 años )</option>
                           <option value="Adulto">Adulto(Edad mayor o igual a 28 años y menor o igual a 59 años )</option>
                           <option value="Persona mayor">Persona mayor(Edad mayor o igual a 60 años)</option>
@@ -180,9 +180,9 @@
                         <label for="vive_madre_hogar_tipo" class="form-label">¿Su madre vive en su hogar?</label>
                         <select class="form-select" id="vive_madre_hogar_tipo"
                         [ngClass]="{ 'is-invalid' : validoFormulario && f['vive_madre_hogar_tipo'].errors }" formControlName="vive_madre_hogar_tipo">
-                          <option value="vive_padre_hogar_Si">Si</option>
-                          <option value="vive_padre_hogar_No">No</option>
-                          <option value="vive_padre_hogar_Fallecida">Fallecida</option>
+                          <option value="vive_madre_hogar_Si">Si</option>
+                          <option value="vive_madre_hogar_No">No</option>
+                          <option value="vive_madre_hogar_Fallecida">Fallecida</option>
                         </select>
                         <div class="invalid-feedback" *ngIf="f['vive_madre_hogar_tipo'].errors">
                           Debe seleccionar una opción

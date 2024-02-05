@@ -58,7 +58,7 @@ export class TesisMapsComponent implements OnInit{
 
   ngOnInit(): void {
     this.obtenerListaDepartamentos()
-    this.cargarRegistros('todos');
+    this.cargarRegistros('riesgo_muy_alto');
     this.cargarConteoNivelRiesgo('todos');
   }
 
