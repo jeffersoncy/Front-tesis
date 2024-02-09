@@ -29,6 +29,22 @@ export class TesisService {
     return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.departamentos)
   }
 
+  getConteoDepartamentos(): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_depto)
+  }
+
+  getConteoNivelEduXFrecConsumoMarihuana(): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_niv_eduXfrecMarih)
+  }
+
+  getConteoNivelEduXFrecConsumoCocaina(): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_niv_eduXfrecCocaina)
+  }
+
+  getConteoNivelEduXFrecConsumoBazuco(): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_niv_eduXfrecBazuco)
+  }
+
   /*predictUser(Object obj): Observable<any> {
     return this.http.post
   }*/

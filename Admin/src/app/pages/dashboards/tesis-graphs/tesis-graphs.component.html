@@ -1,1 +1,223 @@
 <p>tesis-graphs works!</p>
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Basic Bar Chart</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="basicBarChart.series" [chart]="basicBarChart.chart"
+                    [dataLabels]="basicBarChart.dataLabels" [plotOptions]="basicBarChart.plotOptions"
+                    [xaxis]="basicBarChart.xaxis" [colors]="basicBarChart.colors" dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+    <!-- end col -->
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Custom DataLabelss Bar</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="customDataLabelsChart.series" [chart]="customDataLabelsChart.chart"
+                    [dataLabels]="customDataLabelsChart.dataLabels" [stroke]="customDataLabelsChart.stroke"
+                    [colors]="customDataLabelsChart.colors" [title]="customDataLabelsChart.title"
+                    [subtitle]="customDataLabelsChart.subtitle" [plotOptions]="customDataLabelsChart.plotOptions"
+                    [yaxis]="customDataLabelsChart.yaxis" [xaxis]="customDataLabelsChart.xaxis"
+                    [tooltip]="customDataLabelsChart.tooltip" dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Stacked Bar Charts</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="stackedBarChart.series" [chart]="stackedBarChart.chart"
+                    [dataLabels]="stackedBarChart.dataLabels" [plotOptions]="stackedBarChart.plotOptions"
+                    [xaxis]="stackedBarChart.xaxis" [stroke]="stackedBarChart.stroke" [fill]="stackedBarChart.fill"
+                    [yaxis]="stackedBarChart.yaxis" [title]="stackedBarChart.title" [tooltip]="stackedBarChart.tooltip"
+                    [legend]="stackedBarChart.legend" [colors]="stackedBarChart.colors" dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+    <!-- end col -->
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Educación vs Frecuencia de consumo en Marihuana</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="stacked100BarChartMarihuana.series" [chart]="stacked100BarChartMarihuana.chart"
+                    [dataLabels]="stacked100BarChartMarihuana.dataLabels" [plotOptions]="stacked100BarChartMarihuana.plotOptions"
+                    [xaxis]="stacked100BarChartMarihuana.xaxis" [stroke]="stacked100BarChartMarihuana.stroke"
+                    [fill]="stacked100BarChartMarihuana.fill" [title]="stacked100BarChartMarihuana.title"
+                    [tooltip]="stacked100BarChartMarihuana.tooltip" [legend]="stacked100BarChartMarihuana.legend"
+                    [colors]="stacked100BarChartMarihuana.colors" dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+    <!-- end col -->
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Educación vs Frecuencia de consumo en Cocaína</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="stacked100BarChartCocaina.series" [chart]="stacked100BarChartCocaina.chart"
+                    [dataLabels]="stacked100BarChartCocaina.dataLabels" [plotOptions]="stacked100BarChartCocaina.plotOptions"
+                    [xaxis]="stacked100BarChartCocaina.xaxis" [stroke]="stacked100BarChartCocaina.stroke"
+                    [fill]="stacked100BarChartCocaina.fill" [title]="stacked100BarChartCocaina.title"
+                    [tooltip]="stacked100BarChartCocaina.tooltip" [legend]="stacked100BarChartCocaina.legend"
+                    [colors]="stacked100BarChartCocaina.colors" dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+    <!-- end col -->
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Educación vs Frecuencia de consumo en Bazuco</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="stacked100BarChartBazuco.series" [chart]="stacked100BarChartBazuco.chart"
+                    [dataLabels]="stacked100BarChartBazuco.dataLabels" [plotOptions]="stacked100BarChartBazuco.plotOptions"
+                    [xaxis]="stacked100BarChartBazuco.xaxis" [stroke]="stacked100BarChartBazuco.stroke"
+                    [fill]="stacked100BarChartBazuco.fill" [title]="stacked100BarChartBazuco.title"
+                    [tooltip]="stacked100BarChartBazuco.tooltip" [legend]="stacked100BarChartBazuco.legend"
+                    [colors]="stacked100BarChartBazuco.colors" dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div><!-- end card -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Riesgo vs edad</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="patternedChart.series" [chart]="patternedChart.chart"
+                    [dataLabels]="patternedChart.dataLabels" [plotOptions]="patternedChart.plotOptions"
+                    [yaxis]="patternedChart.yaxis" [legend]="patternedChart.legend" [xaxis]="patternedChart.xaxis"
+                    [stroke]="patternedChart.stroke" [tooltip]="patternedChart.tooltip" [fill]="patternedChart.fill"
+                    [states]="patternedChart.states" [title]="patternedChart.title" [colors]="patternedChart.colors"
+                    dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end col -->
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Riesgo vs departamento </h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="patternedChart.series" [chart]="patternedChart.chart"
+                    [dataLabels]="patternedChart.dataLabels" [plotOptions]="patternedChart.plotOptions"
+                    [yaxis]="patternedChart.yaxis" [legend]="patternedChart.legend" [xaxis]="patternedChart.xaxis"
+                    [stroke]="patternedChart.stroke" [tooltip]="patternedChart.tooltip" [fill]="patternedChart.fill"
+                    [states]="patternedChart.states" [title]="patternedChart.title" [colors]="patternedChart.colors"
+                    dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Riesgo vs Departamento </h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="patternedChart.series" [chart]="patternedChart.chart"
+                    [dataLabels]="patternedChart.dataLabels" [plotOptions]="patternedChart.plotOptions"
+                    [yaxis]="patternedChart.yaxis" [legend]="patternedChart.legend" [xaxis]="patternedChart.xaxis"
+                    [stroke]="patternedChart.stroke" [tooltip]="patternedChart.tooltip" [fill]="patternedChart.fill"
+                    [states]="patternedChart.states" [title]="patternedChart.title" [colors]="patternedChart.colors"
+                    dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end col -->
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Riesgo vs Situación actual personas</h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <apx-chart [series]="patternedChart.series" [chart]="patternedChart.chart"
+                    [dataLabels]="patternedChart.dataLabels" [plotOptions]="patternedChart.plotOptions"
+                    [yaxis]="patternedChart.yaxis" [legend]="patternedChart.legend" [xaxis]="patternedChart.xaxis"
+                    [stroke]="patternedChart.stroke" [tooltip]="patternedChart.tooltip" [fill]="patternedChart.fill"
+                    [states]="patternedChart.states" [title]="patternedChart.title" [colors]="patternedChart.colors"
+                    dir="ltr"></apx-chart>
+            </div><!-- end card-body -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Grouped Bar Chart</h4>
+                </div><!-- end card header -->
+
+                <div class="card-body">
+                    <apx-chart [series]="groupedBarChart.series" [chart]="groupedBarChart.chart"
+                        [dataLabels]="groupedBarChart.dataLabels" [plotOptions]="groupedBarChart.plotOptions"
+                        [xaxis]="groupedBarChart.xaxis" [stroke]="groupedBarChart.stroke"
+                        [colors]="groupedBarChart.colors" dir="ltr"></apx-chart>
+                </div><!-- end card-body -->
+            </div><!-- end card -->
+        </div>
+        <!-- end col -->
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Bar with Images</h4>
+                </div><!-- end card header -->
+
+                <div class="card-body">
+                    <div class="live-preview">
+                        <apx-chart [series]="barWithImageChart.series" [chart]="barWithImageChart.chart"
+                            [dataLabels]="barWithImageChart.dataLabels" [stroke]="barWithImageChart.stroke"
+                            [colors]="barWithImageChart.colors" [title]="barWithImageChart.title"
+                            [grid]="barWithImageChart.grid" [plotOptions]="barWithImageChart.plotOptions"
+                            [yaxis]="barWithImageChart.yaxis" [fill]="barWithImageChart.fill"
+                            [labels]="barWithImageChart.labels" dir="ltr"></apx-chart>
+                    </div>
+                </div><!-- end card-body -->
+            </div><!-- end card -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
