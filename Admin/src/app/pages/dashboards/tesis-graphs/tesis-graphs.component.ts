@@ -45,6 +45,11 @@ export class TesisGraphsComponent implements OnInit{
   public data_valores_frec_consumo_bazuco:any;
   public data_claves_nivel_edu_bazuco:any;
 
+  public data_claves_riesgo_sexo_tipo:any;
+  public data_valores_riesgo_sexo_tipo:any;
+  public data_claves_sexo_tipo:any;
+
+
   constructor(
     private _tesisService:TesisService, private myElement: ElementRef
   ){
@@ -65,6 +70,7 @@ export class TesisGraphsComponent implements OnInit{
     this.cargarConteoNivelEduXFrecConsumoMarihuana();
     this.cargarConteoNivelEduXFrecConsumoCocaina();
     this.cargarConteoNivelEduXFrecConsumoBazuco();
+    this.cargarConteoRiesgoXsexoTipo();
     // Chart Color Data Get Function
     this._basicBarChart('["--tb-success"]');
     this._customDataLabelsChart('["--tb-primary", "--tb-secondary", "--tb-success", "--tb-info", "--tb-warning", "--tb-danger", "--tb-dark", "--tb-primary", "--tb-success", "--tb-secondary"]');
@@ -586,54 +592,21 @@ export class TesisGraphsComponent implements OnInit{
   /**
   * Bar with Negative Values
   */
+ 
+  /*this.data_claves_riesgo_sexo_tipo = array_data_claves_riesgo;
+  this.data_valores_riesgo_sexo_tipo = array_claves_unicas_sexo_tipo;
+  this.data_claves_sexo_tipo = arrayAgrupadoPorClave;*/
+
   private _barWithNegativeChart(colors: any) {
     colors = this.getChartColorsArray(colors);
     this.barWithNegativeChart = {
       series: [{
-        name: "Males",
-        data: [
-          0.4,
-          0.65,
-          0.76,
-          0.88,
-          1.5,
-          2.1,
-          2.9,
-          3.8,
-          3.9,
-          4.2,
-          4,
-          4.3,
-          4.1,
-          4.2,
-          4.5,
-          3.9,
-          3.5,
-          3,
-        ],
+        name: this.data_claves_sexo_tipo[0],
+        data: this.data_valores_riesgo_sexo_tipo[0],
       },
       {
-        name: "Females",
-        data: [
-          -0.8,
-          -1.05,
-          -1.06,
-          -1.18,
-          -1.4,
-          -2.2,
-          -2.85,
-          -3.7,
-          -3.96,
-          -4.22,
-          -4.3,
-          -4.4,
-          -4.1,
-          -4,
-          -4.1,
-          -3.4,
-          -3.1,
-          -2.8,
-        ],
+        name: this.data_claves_sexo_tipo[1],
+        data: this.data_valores_riesgo_sexo_tipo[1],
       },
       ],
       chart: {
@@ -666,10 +639,10 @@ export class TesisGraphsComponent implements OnInit{
         },
       },
       yaxis: {
-        min: -5,
-        max: 5,
+        min: -2500,
+        max: 2500,
         title: {
-          text: "Age",
+          text: "Riesgo",
           style: {
             fontWeight: 600,
           },
@@ -687,34 +660,15 @@ export class TesisGraphsComponent implements OnInit{
         },
       },
       title: {
-        text: "Mauritius population pyramid 2011",
+        text: "Riesgo de consumo de sustancias psicoactivas vs tipo de sexo",
         style: {
           fontWeight: 600,
         },
       },
       xaxis: {
-        categories: [
-          "85+",
-          "80-84",
-          "75-79",
-          "70-74",
-          "65-69",
-          "60-64",
-          "55-59",
-          "50-54",
-          "45-49",
-          "40-44",
-          "35-39",
-          "30-34",
-          "25-29",
-          "20-24",
-          "15-19",
-          "10-14",
-          "5-9",
-          "0-4",
-        ],
+        categories: this.data_claves_riesgo_sexo_tipo,
         title: {
-          text: "Percent",
+          text: "Nro. de personas",
         },
         labels: {
 
@@ -1375,4 +1329,63 @@ export class TesisGraphsComponent implements OnInit{
       swal.fire('Error', 'Error cargando los datos de nivel educativo por frecuencia consumo bazuco:' + error, 'error');
     });
   }
+
+  cargarConteoRiesgoXsexoTipo(){
+    this._tesisService.getConteoRiesgoTipoSexo().subscribe(res =>{
+      let array_data_claves_riesgo = [];
+      let array_data_valores_riesgo: number[][] = [];
+      let array_claves_sexo_tipo: string[] = [];
+
+      for (let riesgo in res) {
+        if (res.hasOwnProperty(riesgo)) {
+          array_data_claves_riesgo.push(riesgo);
+          array_data_valores_riesgo.push(Object.values(res[riesgo]));
+          array_claves_sexo_tipo.push(...Object.keys(res[riesgo]));
+        }
+      }
+
+       // Crear un conjunto para eliminar duplicados
+      let conjuntoClavesUnicas = new Set(array_claves_sexo_tipo);
+
+      // Convertir el conjunto de vuelta a un array
+      let array_claves_unicas_sexo_tipo = Array.from(conjuntoClavesUnicas); 
+
+      // Se Crea un objeto para almacenar las agrupaciones por clave
+      let objetoAgrupadoPorClave: { [clave: string]: number[] } = {};
+  
+      array_claves_unicas_sexo_tipo.forEach(clave => {
+        // Se obtiene el índice de la clave en el array
+      let indiceClave = array_claves_sexo_tipo.indexOf(clave);
+  
+        // Se Verifica si la clave ya existe en el objeto
+        if (objetoAgrupadoPorClave[clave]) {
+          // Si existe, agregar los valores correspondientes
+          objetoAgrupadoPorClave[clave].push(...array_data_valores_riesgo.map(valores => valores[indiceClave]));
+        } else {
+          // Si no existe, crear un nuevo array con los valores
+          objetoAgrupadoPorClave[clave] = array_data_valores_riesgo.map(valores => valores[indiceClave]);
+        }
+      });
+
+      // Convertir el objeto a un array de arrays
+      let arrayAgrupadoPorClave = Object.values(objetoAgrupadoPorClave);
+  
+      arrayAgrupadoPorClave[1] = arrayAgrupadoPorClave[1].map(x => -x);
+
+      console.log('Array agrupado por clave: ', arrayAgrupadoPorClave);
+      console.log('Valor de miVariable data clave riesgo: ', array_data_claves_riesgo);
+      console.log('Valor de miVariable data valores riesgo : ', array_data_valores_riesgo);
+      console.log('Valor de miVariable data sexo tipo sexo tipo: ', array_claves_unicas_sexo_tipo);
+
+      this.data_claves_riesgo_sexo_tipo = array_data_claves_riesgo;
+      this.data_claves_sexo_tipo = array_claves_unicas_sexo_tipo;
+      this.data_valores_riesgo_sexo_tipo = arrayAgrupadoPorClave;
+
+      this._barWithNegativeChart('["--tb-primary", "--tb-success"]');
+    },
+    error =>{
+      swal.fire('Error', 'Error cargando los datos de nivel educativo por frecuencia consumo bazuco:' + error, 'error');
+    });
+  }
+
 }

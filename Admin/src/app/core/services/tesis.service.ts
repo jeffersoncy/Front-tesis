@@ -53,4 +53,8 @@ export class TesisService {
 
   }
 
+  getConteoRiesgoTipoSexo(): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_riesgoXsexoTipo)
+  }
+
 }
