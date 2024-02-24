@@ -61,14 +61,6 @@ export const MENU: MenuItem[] = [
         isTitle: true
     },
     {
-        id: 12,
-        label: 'MENUITEMS.APPS.LIST.ECOMMERCE',
-        icon: 'ph-storefront',
-        parentId: 8,
-        subItems: [
-        ]
-    },
-    {
         id: 24,
         label: 'MENUITEMS.APPS.LIST.LEARNING',
         icon: 'ph-graduation-cap',
