@@ -74,8 +74,8 @@ export class TopbarComponent {
     const val = this.listLang.filter(x => x.lang === this.cookieValue);
     this.countryName = val.map(element => element.text);
     if (val.length === 0) {
-      if (this.flagvalue === undefined) { this.valueset = 'assets/images/flags/sp.svg'; }
-      this.countryName = 'Española'
+      if (this.flagvalue === undefined) { this.valueset = 'assets/images/flags/en.svg'; }
+      this.countryName = 'English'
     } else {
       this.flagvalue = val.map(element => element.flag);
     }
