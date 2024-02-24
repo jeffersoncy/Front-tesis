@@ -16,7 +16,6 @@
     "APPS": {
       "TEXT": "应用",
       "LIST": {
-        "CALENDAR": "日历",
         "CHAT": "聊天",
         "EMAIL": "电子邮件",
         "ECOMMERCE": "电子商务",

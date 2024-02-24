@@ -18,8 +18,6 @@
     "APPS": {
       "TEXT": "aplicaciones",
       "LIST": {
-        "CALENDAR": "Calendario",
-        "CHAT": "Charlar",
         "EMAIL": "Correo electrónico",
         "ECOMMERCE": "Comercio electrónico",
         "PRODUCTS": "Productos",

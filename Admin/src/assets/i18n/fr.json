@@ -16,7 +16,6 @@
     "APPS": {
       "TEXT": "applications",
       "LIST": {
-        "CALENDAR": "Calendrier",
         "CHAT": "Discuter",
         "EMAIL": "E-mail",
         "ECOMMERCE": "Commerce électronique",

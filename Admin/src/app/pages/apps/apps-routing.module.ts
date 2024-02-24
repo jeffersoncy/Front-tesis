@@ -10,10 +10,6 @@ import { WidgetsComponent } from './widgets/widgets.component';
 
 const routes: Routes = [
     {
-        path: "calendar",
-        component: CalendarComponent
-    },
-    {
         path: "chat",
         component: ChatComponent
     },

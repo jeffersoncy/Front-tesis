@@ -61,13 +61,6 @@ export const MENU: MenuItem[] = [
         isTitle: true
     },
     {
-        id: 9,
-        label: 'MENUITEMS.APPS.LIST.CALENDAR',
-        icon: 'ph-calendar',
-        link: '/apps/calendar',
-        parentId: 8
-    },
-    {
         id: 10,
         label: 'MENUITEMS.APPS.LIST.CHAT',
         icon: 'ph-chats',
