@@ -61,32 +61,6 @@ export const MENU: MenuItem[] = [
         isTitle: true
     },
     {
-        id: 39,
-        label: 'MENUITEMS.APPS.LIST.INVOICES',
-        icon: 'ph-file-text',
-        parentId: 8,
-        subItems: [
-            {
-                id: 40,
-                label: 'MENUITEMS.APPS.LIST.LISTVIEW',
-                link: '/invoices/list',
-                parentId: 39
-            },
-            {
-                id: 41,
-                label: 'MENUITEMS.APPS.LIST.OVERVIEW',
-                link: '/invoices/overview',
-                parentId: 39
-            },
-            {
-                id: 42,
-                label: 'MENUITEMS.APPS.LIST.CREATEINVOICE',
-                link: '/invoices/create',
-                parentId: 39
-            }
-        ]
-    },
-    {
         id: 43,
         label: 'MENUITEMS.APPS.LIST.SUPPORTTICKETS',
         icon: 'ph-ticket',
