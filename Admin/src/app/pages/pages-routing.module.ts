@@ -18,12 +18,6 @@ const routes: Routes = [
     path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule)
   },
   {
-    path: 'tickets', loadChildren: () => import('./tickets/tickets.module').then(m => m.TicketsModule)
-  },
-  {
-    path: 'real-estate', loadChildren: () => import('./real-estate/real-estate.module').then(m => m.RealEstateModule)
-  },
-  {
     path: 'icons', loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule)
   },
   {
