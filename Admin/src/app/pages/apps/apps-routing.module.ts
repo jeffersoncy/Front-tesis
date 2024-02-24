@@ -1,25 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Component
-import { ChatComponent } from './chat/chat.component';
-import { EmailComponent } from './email/email.component';
-import { FileManagerComponent } from './file-manager/file-manager.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 
 const routes: Routes = [
-    {
-        path: "chat",
-        component: ChatComponent
-    },
-    {
-        path: "email",
-        component: EmailComponent
-    },
-    {
-        path: "file-manager",
-        component: FileManagerComponent
-    },
     {
         path: "widgets",
         component: WidgetsComponent

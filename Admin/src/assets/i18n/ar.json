@@ -16,8 +16,6 @@
     "APPS": {
       "TEXT": "تطبيقات",
       "LIST": {
-        "CHAT": "محادثة",
-        "EMAIL": "بريد إلكتروني",
         "ECOMMERCE": "التجارة الإلكترونية",
         "PRODUCTS": "منتجات",
         "PRODUCTGRID": "شبكة المنتجات",
@@ -30,7 +28,6 @@
         "CHECKOUT": "الدفع",
         "SELLERS": "الباعة",
         "SELLEROVERVIEW": "نظرة عامة على البائع",
-        "FILEMANAGER": "مدير الملفات",
         "LEARNING": "تعلُّم",
         "COURSES": "الدورات",
         "LISTVIEW": "عرض القائمة",

@@ -62,20 +62,6 @@ export const MENU: MenuItem[] = [
         isTitle: true
     },
     {
-        id: 10,
-        label: 'MENUITEMS.APPS.LIST.CHAT',
-        icon: 'ph-chats',
-        link: '/apps/chat',
-        parentId: 8
-    },
-    {
-        id: 11,
-        label: 'MENUITEMS.APPS.LIST.EMAIL',
-        icon: 'ph-envelope',
-        link: '/apps/email',
-        parentId: 8,
-    },
-    {
         id: 12,
         label: 'MENUITEMS.APPS.LIST.ECOMMERCE',
         icon: 'ph-storefront',
@@ -149,13 +135,6 @@ export const MENU: MenuItem[] = [
                 parentId: 12
             }
         ]
-    },
-    {
-        id: 23,
-        label: 'MENUITEMS.APPS.LIST.FILEMANAGER',
-        icon: 'ph-folder-open',
-        link: '/apps/file-manager',
-        parentId: 8,
     },
     {
         id: 24,
