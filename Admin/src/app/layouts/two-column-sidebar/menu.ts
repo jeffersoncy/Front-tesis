@@ -68,42 +68,6 @@ export const MENU: MenuItem[] = [
         collapseid: 'sidebarAuth',
         subItems: [
             {
-                id: 62,
-                label: 'MENUITEMS.AUTHENTICATION.LIST.SIGNIN',
-                link: '/auth/signin',
-                parentId: 61,
-            },
-            {
-                id: 63,
-                label: 'MENUITEMS.AUTHENTICATION.LIST.SIGNUP',
-                link: '/auth/signup',
-                parentId: 61,
-            },
-            {
-                id: 64,
-                label: 'MENUITEMS.AUTHENTICATION.LIST.PASSWORDRESET',
-                link: '/auth/pass-reset',
-                parentId: 61,
-            },
-            {
-                id: 65,
-                label: 'MENUITEMS.AUTHENTICATION.LIST.PASSWORDCREATE',
-                link: '/auth/pass-change',
-                parentId: 61,
-            },
-            {
-                id: 66,
-                label: 'MENUITEMS.AUTHENTICATION.LIST.LOCKSCREEN',
-                link: '/auth/lockscreen',
-                parentId: 61
-            },
-            {
-                id: 67,
-                label: 'MENUITEMS.AUTHENTICATION.LIST.LOGOUT',
-                link: '/auth/logout',
-                parentId: 61
-            },
-            {
                 id: 68,
                 label: 'MENUITEMS.AUTHENTICATION.LIST.SUCCESSMESSAGE',
                 link: '/auth/success-msg',
@@ -409,33 +373,6 @@ export const MENU: MenuItem[] = [
                 label: 'MENUITEMS.ADVANCEUI.LIST.SCROLLSPY',
                 link: '/advance-ui/scrollspy',
                 parentId: 112
-            }
-        ]
-    },
-    {
-        id: 120,
-        label: 'MENUITEMS.CUSTOMUI.TEXT',
-        badge: 'MENUITEMS.CUSTOMUI.BADGE',
-        collapseid: 'sidebarCustom',
-        icon: "ph-wrench",
-        subItems: [
-            {
-                id: 121,
-                label: 'MENUITEMS.CUSTOMUI.LIST.RIBBONS',
-                link: '/custom-ui/ribbons',
-                parentId: 120
-            },
-            {
-                id: 122,
-                label: 'MENUITEMS.CUSTOMUI.LIST.PROFILE',
-                link: '/custom-ui/profile',
-                parentId: 120
-            },
-            {
-                id: 123,
-                label: 'MENUITEMS.CUSTOMUI.LIST.COUNTER',
-                link: '/custom-ui/counter',
-                parentId: 120
             }
         ]
     },

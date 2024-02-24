@@ -30,9 +30,6 @@ const routes: Routes = [
     path: 'forms', loadChildren: () => import('./forms/forms.module').then(m => m.FormModule)
   },
   {
-    path: 'custom-ui', loadChildren: () => import('./custom-ui/custom-ui.module').then(m => m.CustomUiModule)
-  },
-  {
     path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule)
   },
 ];
