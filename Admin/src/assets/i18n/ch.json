@@ -16,9 +16,6 @@
     "APPS": {
       "TEXT": "应用",
       "LIST": {
-        "CALENDAR": "日历",
-        "CHAT": "聊天",
-        "EMAIL": "电子邮件",
         "ECOMMERCE": "电子商务",
         "PRODUCTS": "产品",
         "PRODUCTGRID": "产品网格",
@@ -31,7 +28,6 @@
         "CHECKOUT": "查看",
         "SELLERS": "卖家",
         "SELLEROVERVIEW": "卖家概览",
-        "FILEMANAGER": "文件管理器",
         "LEARNING": "学习",
         "COURSES": "培训班",
         "LISTVIEW": "列表显示",

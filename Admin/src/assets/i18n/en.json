@@ -18,9 +18,6 @@
     "APPS": {
       "TEXT": "Apps",
       "LIST": {
-        "CALENDAR": "Calendar",
-        "CHAT": "Chat",
-        "EMAIL": "Email",
         "ECOMMERCE": "Ecommerce",
         "PRODUCTS": "Products",
         "PRODUCTGRID": "Products Grid",
@@ -33,7 +30,6 @@
         "CHECKOUT": "Checkout",
         "SELLERS": "Sellers",
         "SELLEROVERVIEW": "Seller Overview",
-        "FILEMANAGER": "File Manager",
         "LEARNING": "Learning",
         "COURSES": "Courses",
         "LISTVIEW": "List View",

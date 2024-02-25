@@ -16,9 +16,6 @@
     "APPS": {
       "TEXT": "App",
       "LIST": {
-        "CALENDAR": "Calendario",
-        "CHAT": "Chiacchierata",
-        "EMAIL": "E-mail",
         "ECOMMERCE": "E-commerce",
         "PRODUCTS": "Prodotti",
         "PRODUCTGRID": "Griglia prodotti",
@@ -31,7 +28,6 @@
         "CHECKOUT": "Guardare",
         "SELLERS": "Venditrici",
         "SELLEROVERVIEW": "Panoramica del venditore",
-        "FILEMANAGER": "Gestore file",
         "LEARNING": "Apprendimento",
         "COURSES": "Corsi",
         "LISTVIEW": "Visualizzazione elenco",

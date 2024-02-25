@@ -47,11 +47,6 @@ import { DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
 
 // Component
-import { CalendarComponent } from './calendar/calendar.component';
-
-import { ChatComponent } from './chat/chat.component';
-import { EmailComponent } from './email/email.component';
-import { FileManagerComponent } from './file-manager/file-manager.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -63,10 +58,6 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 
 @NgModule({
   declarations: [
-    CalendarComponent,
-    ChatComponent,
-    EmailComponent,
-    FileManagerComponent,
     WidgetsComponent,],
   imports: [
     CommonModule,
