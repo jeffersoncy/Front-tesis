@@ -15,9 +15,6 @@ const routes: Routes = [
     path: 'advance-ui', loadChildren: () => import('./advanceui/advanceui.module').then(m => m.AdvanceuiModule)
   },
   {
-    path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule)
-  },
-  {
     path: 'icons', loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule)
   },
   {

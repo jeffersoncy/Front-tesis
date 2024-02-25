@@ -640,31 +640,6 @@ export const MENU: MenuItem[] = [
         ]
     },
     {
-        id: 165,
-        label: 'MENUITEMS.MAPS.TEXT',
-        icon: 'ph-map-trifold',
-        subItems: [
-            {
-                id: 166,
-                label: 'MENUITEMS.MAPS.LIST.GOOGLE',
-                link: '/maps/google',
-                parentId: 165
-            },
-            {
-                id: 167,
-                label: 'MENUITEMS.MAPS.LIST.VECTOR',
-                link: '/maps/vector',
-                parentId: 165
-            },
-            {
-                id: 167,
-                label: 'MENUITEMS.MAPS.LIST.LEAFLET',
-                link: '/maps/leaflet',
-                parentId: 165
-            }
-        ]
-    },
-    {
         id: 168,
         label: 'MENUITEMS.MULTILEVEL.TEXT',
         icon: 'bi bi-share',
