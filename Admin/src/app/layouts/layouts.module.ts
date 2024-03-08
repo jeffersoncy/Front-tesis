@@ -18,7 +18,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 // Spinner
-import { NgxSpinnerModule } from "ngx-spinner";
+//import { NgxSpinnerModule } from "ngx-spinner";
 
 
 // component
@@ -56,8 +56,7 @@ import { HorizontalTopbarComponent } from './horizontal-topbar/horizontal-topbar
     // NgxAsideModule,
     FormsModule,
     ReactiveFormsModule,
-    ModalModule,
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+    ModalModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [LanguageService],

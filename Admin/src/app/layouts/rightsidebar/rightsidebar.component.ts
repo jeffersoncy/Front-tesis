@@ -1,7 +1,7 @@
 import { Component, ViewChild, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { EventService } from '../../core/services/event.service';
 import { Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
+//import { NgxSpinnerService } from 'ngx-spinner';
 import { Store } from '@ngrx/store';
 import { RootReducerState } from 'src/app/store';
 import { getLayout, getLayoutTheme, getLayoutWidth, getLayoutmode, getPosition, getPreloader, getSidebarcolor, getSidebarsize, getTopbar, getsidebarimage, getsidebarview } from 'src/app/store/layouts/layout-selector';
@@ -39,7 +39,8 @@ export class RightsidebarComponent {
 
   @Output() settingsButtonClicked = new EventEmitter();
 
-  constructor(private eventService: EventService, private router: Router, private spinner: NgxSpinnerService, public store: Store<RootReducerState>, public renderer: Renderer2) { }
+  //constructor(private eventService: EventService, private router: Router, private spinner: NgxSpinnerService, public store: Store<RootReducerState>, public renderer: Renderer2) { }
+  constructor(private eventService: EventService, private router: Router, public store: Store<RootReducerState>, public renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.initialAppState = initialState;
@@ -86,7 +87,7 @@ export class RightsidebarComponent {
 
   // change theme
   changeTheme(theme: string) {
-    this.spinner.show();
+    //this.spinner.show();
     this.layoutTheme = theme;
     // store
     this.store.dispatch(changeTheme({ theme }));
@@ -94,7 +95,7 @@ export class RightsidebarComponent {
       this.renderer.setAttribute(document.documentElement, 'data-theme', theme);
     })
     setTimeout(() => {
-      this.spinner.hide();
+      //this.spinner.hide();
     }, 1000);
     if (theme == 'minimal') {
       this.renderer.setAttribute(document.documentElement, 'data-sidebar', 'light');

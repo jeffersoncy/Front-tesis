@@ -45,13 +45,13 @@ export class TesisService {
     return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_niv_eduXfrecBazuco)
   }
 
-  /*predictUser(Object obj): Observable<any> {
-    return this.http.post
-  }*/
-
-  predictUser(registro:Registro) {
-
+  predictUser(registro:Registro): Observable<any> {
+    return this.http.post<any>(GlobalComponent.API_TESIS + GlobalComponent.predict, registro);
   }
+
+  /*predictUser(registro:Registro) {
+
+  }*/
 
   getConteoRiesgoTipoSexo(): Observable<any>{
     return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_riesgoXsexoTipo)

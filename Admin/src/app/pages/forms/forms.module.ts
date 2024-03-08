@@ -44,6 +44,8 @@ import { NgStepperModule } from 'angular-ng-stepper';
 // Ck Editer
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 // component
 import { ElementsComponent } from './elements/elements.component';
 import { FormselectComponent } from './formselect/formselect.component';
@@ -83,6 +85,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     TesisFormComponent
   ],
   imports: [
+    NgxSpinnerModule.forRoot(),
     CommonModule,
     FormsRoutingModule,
     SharedModule,

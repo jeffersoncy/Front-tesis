@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TesisService } from 'src/app/core/services/tesis.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Registro } from '../../../core/models/registro';
 import { Departamento } from 'src/app/core/models/departamento';
+import { CdkStepper } from '@angular/cdk/stepper';
+import { HttpErrorResponse } from '@angular/common/http';
+import swal from 'sweetalert2'
+import { NgxSpinnerService } from "ngx-spinner";
+import { Caracteristica } from 'src/app/core/models/caracteristica';
 
 @Component({
   selector: 'app-tesis-form',
@@ -11,12 +16,16 @@ import { Departamento } from 'src/app/core/models/departamento';
   styleUrls: ['./tesis-form.component.scss']
 })
 export class TesisFormComponent implements OnInit{
-
+  @ViewChild(CdkStepper) stepper!: CdkStepper;
   selectedAccount = 'This is a placeholder';
 
   public validoFormulario !: boolean;
+  public botonSiguiente : boolean = false;
   public registro!:Registro;
   public listaDepartamentos !: Array<Departamento>;
+  public loading : boolean = false;
+  public prediccion : string = "";
+  public caracteristicas:Caracteristica[] = [];
 
   public gesPredictForm !: FormGroup;
 
@@ -25,7 +34,8 @@ export class TesisFormComponent implements OnInit{
 
   constructor(
     private _tesisService:TesisService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private spinner: NgxSpinnerService
   ){
     this.listaDepartamentos = new Array<Departamento>();
     this.gesPredictForm = this.formBuilder.group({
@@ -116,17 +126,45 @@ export class TesisFormComponent implements OnInit{
 
 
   predecir() : void {
-
     this.validoFormulario = true;
     if(this.gesPredictForm.invalid){
       return
     }
+    this.loading = true;
+    this.spinner.show()
     this.registro = this.gesPredictForm.value
+
+    this._tesisService.predictUser(this.registro).subscribe(res => {
+      console.log("Respuesta al predecirrrr:");
+      console.log(res);
+      this.prediccion = res.prediccion
+      console.log("Ayudaaaaaaaaaaaaaaaaaa");
+
+      console.log(typeof(res.caracteristicas));
+
+      for (const clave in res.caracteristicas) {
+        if (Object.prototype.hasOwnProperty.call(res.caracteristicas, clave)) {
+          const value = res.caracteristicas[clave];
+          console.log("Llave: " + clave);
+          console.log("Valor: " + value);
+        }
+      }
+      this.loading = false;
+      this.spinner.hide();
+      this.stepper.next();
+    })
+
+
     //let dataForm = JSON.stringify(this.gesPredictForm.value)
     //const departamento = this.gesPredictForm.get('departamento')?.value;
     //console.log(departamento);
-    console.log(this.registro);
+  }
 
+  public showSpinner(): void {
+    this.spinner.show();
 
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 5000);
   }
 }
