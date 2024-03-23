@@ -27,9 +27,10 @@ export const GlobalComponent = {
     num_riesgo:'num_riesgo?value=',
     predict: 'predecir',
     departamentos:'departamentos',
+    lista_variables: 'lista_variables',
 
-    conteo_depto:'conteo_depto',
-    conteo_niv_eduXfrecMarih: 'conteo_nivel_edu_marihuana',
+    conteo_depto:'conteo_depto?',
+    conteo_niv_eduXfrecMarih: 'conteo_nivel_edu_marihuana?',
     conteo_niv_eduXfrecCocaina: 'conteo_nivel_edu_cocaina',
     conteo_niv_eduXfrecBazuco: 'conteo_nivel_edu_bazuco',
     conteo_riesgoXsexoTipo: 'conteo_riesgo_sexo_tipo'
