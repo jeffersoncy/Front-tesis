@@ -1,4 +1,6 @@
 export class Caracteristica {
-  nombre?: string;
-  valor?: string;
+  clave?: string;
+  significado?: string;
+  porcentaje?:number;
+
 }

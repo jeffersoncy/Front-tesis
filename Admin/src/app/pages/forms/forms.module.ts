@@ -46,6 +46,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 
+//Tabs
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 // component
 import { ElementsComponent } from './elements/elements.component';
 import { FormselectComponent } from './formselect/formselect.component';
@@ -60,6 +63,8 @@ import { EditorsComponent } from './editors/editors.component';
 import { UploadComponent } from './upload/upload.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TesisFormComponent } from './tesis-form/tesis-form.component';
+
+import { GoogleChartsModule } from 'angular-google-charts';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -91,6 +96,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     SharedModule,
     NgSelectModule,
     FormsModule,
+    TabsModule.forRoot(),
     ReactiveFormsModule,
     UiSwitchModule,
     TimepickerModule,
@@ -106,7 +112,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     NgxEditorModule,
     BsDropdownModule.forRoot(),
     DropzoneModule,
-    FlatpickrModule.forRoot()
+    FlatpickrModule.forRoot(),
+    GoogleChartsModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

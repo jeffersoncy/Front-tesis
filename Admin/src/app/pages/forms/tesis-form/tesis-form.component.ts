@@ -9,6 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import swal from 'sweetalert2'
 import { NgxSpinnerService } from "ngx-spinner";
 import { Caracteristica } from 'src/app/core/models/caracteristica';
+import { ChartType } from 'angular-google-charts';
 
 @Component({
   selector: 'app-tesis-form',
@@ -21,16 +22,31 @@ export class TesisFormComponent implements OnInit{
 
   public validoFormulario !: boolean;
   public botonSiguiente : boolean = false;
+  public mostrarCaracteristicas : boolean = false;
   public registro!:Registro;
   public listaDepartamentos !: Array<Departamento>;
   public loading : boolean = false;
   public prediccion : string = "";
+  public sig_prediccion : string = "";
   public caracteristicas:Caracteristica[] = [];
 
   public gesPredictForm !: FormGroup;
 
   submit!: boolean;
   formsubmit!: boolean;
+
+  peiType = ChartType.PieChart
+  pieColumns = ['Task', 'Hours per Day'];
+  //public pieChartData:any;
+  pieChartData = [
+    ['Work', 25],
+    ['Prueba', 75]
+  ];
+  pieChartOptions = {
+    chartArea: { width: '70%', height: '70%' }
+  };
+  pieWidth = 600;
+  pieHeight = 300;
 
   constructor(
     private _tesisService:TesisService,
@@ -138,20 +154,35 @@ export class TesisFormComponent implements OnInit{
       console.log("Respuesta al predecirrrr:");
       console.log(res);
       this.prediccion = res.prediccion
-      console.log("Ayudaaaaaaaaaaaaaaaaaa");
+      this.sig_prediccion = res.significado
+      //console.log("Ayudaaaaaaaaaaaaaaaaaa");
 
-      console.log(typeof(res.caracteristicas));
+      //console.log(typeof(res.caracteristicas));
 
-      for (const clave in res.caracteristicas) {
+      /*for (const clave in res.caracteristicas) {
         if (Object.prototype.hasOwnProperty.call(res.caracteristicas, clave)) {
           const value = res.caracteristicas[clave];
           console.log("Llave: " + clave);
           console.log("Valor: " + value);
         }
+        console.log(clave);
+
+      }*/
+      for (let index = 0; index < res.caracteristicas.length; index++) {
+        let dataObjeto = res.caracteristicas[index];
+        let objCaracteristica:Caracteristica = new Caracteristica;
+        objCaracteristica.clave = dataObjeto.clave
+        objCaracteristica.porcentaje = dataObjeto.porcentaje
+        objCaracteristica.significado = dataObjeto.significado
+        this.caracteristicas.push(objCaracteristica)
       }
+      console.log(this.caracteristicas);
+
+
       this.loading = false;
       this.spinner.hide();
       this.stepper.next();
+      this.mostrarCaracteristicas = true;
     })
 
 
