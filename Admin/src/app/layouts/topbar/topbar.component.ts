@@ -5,7 +5,6 @@ import { LanguageService } from 'src/app/core/services/language.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
-import { cartList } from 'src/app/pages/ecommerce/cart/data';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { notification } from './data';
 
@@ -57,12 +56,6 @@ export class TopbarComponent {
 
   ngOnInit(): void {
     this.element = document.documentElement;
-
-    this.cartData = cartList
-    this.cartData.map((x: any) => {
-      x['total'] = (x['qty'] * x['price']).toFixed(2)
-      this.subtotal += parseFloat(x['total'])
-    })
     this.subtotal = this.subtotal.toFixed(2)
     this.discount = (this.subtotal * this.discountRate).toFixed(2)
     this.tax = (this.subtotal * this.taxRate).toFixed(2);
@@ -105,20 +98,6 @@ export class TopbarComponent {
   qty: number = 0;
   increment(qty: any, i: any, id: any) {
     this.subtotal = 0;
-    if (id == '0' && qty > 1) {
-      qty--;
-      this.cartData[i].qty = qty
-      this.cartData[i].total = (this.cartData[i].qty * this.cartData[i].price).toFixed(2)
-    }
-    if (id == '1') {
-      qty++;
-      this.cartData[i].qty = qty
-      this.cartData[i].total = (this.cartData[i].qty * this.cartData[i].price).toFixed(2)
-    }
-
-    this.cartData.map((x: any) => {
-      this.subtotal += parseFloat(x['total'])
-    })
 
     this.subtotal = this.subtotal.toFixed(2)
     this.discount = (this.subtotal * this.discountRate).toFixed(2)
@@ -134,12 +113,10 @@ export class TopbarComponent {
   confirmDelete() {
     this.removeCartModal?.hide()
 
-    this.subtotal -= this.cartData[this.deleteid].total
     this.subtotal = this.subtotal.toFixed(2)
     this.discount = (this.subtotal * this.discountRate).toFixed(2)
     this.tax = (this.subtotal * this.taxRate).toFixed(2);
     this.totalsum = (parseFloat(this.subtotal) + parseFloat(this.tax) + parseFloat(this.shippingRate) - parseFloat(this.discount)).toFixed(2)
-    this.cartData.splice(this.deleteid, 1)
   }
 
   /**

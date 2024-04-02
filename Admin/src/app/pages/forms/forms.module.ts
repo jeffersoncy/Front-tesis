@@ -50,18 +50,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 // component
-import { ElementsComponent } from './elements/elements.component';
-import { FormselectComponent } from './formselect/formselect.component';
-import { CheckboxesComponent } from './checkboxes/checkboxes.component';
-import { PickersComponent } from './pickers/pickers.component';
-import { InputmaskComponent } from './inputmask/inputmask.component';
-import { AdvanceComponent } from './advance/advance.component';
-import { RangerComponent } from './ranger/ranger.component';
-import { ValidationComponent } from './validation/validation.component';
-import { WizardComponent } from './wizard/wizard.component';
-import { EditorsComponent } from './editors/editors.component';
-import { UploadComponent } from './upload/upload.component';
-import { LayoutComponent } from './layout/layout.component';
 import { TesisFormComponent } from './tesis-form/tesis-form.component';
 
 import { GoogleChartsModule } from 'angular-google-charts';
@@ -75,18 +63,6 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 
 @NgModule({
   declarations: [
-    ElementsComponent,
-    FormselectComponent,
-    CheckboxesComponent,
-    PickersComponent,
-    InputmaskComponent,
-    AdvanceComponent,
-    RangerComponent,
-    ValidationComponent,
-    WizardComponent,
-    EditorsComponent,
-    UploadComponent,
-    LayoutComponent,
     TesisFormComponent
   ],
   imports: [

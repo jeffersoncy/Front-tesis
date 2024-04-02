@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Component
-import { AnalyticsComponent } from './analytics/analytics.component';
-import { CrmComponent } from './crm/crm.component';
 import { IndexComponent } from './index/index.component';
-import { LearningComponent } from './learning/learning.component';
-import { RealEstateComponent } from './real-estate/real-estate.component';
 import { TesisGraphsComponent } from './tesis-graphs/tesis-graphs.component';
 import { TesisMapsComponent } from './tesis-maps/tesis-maps.component';
 
@@ -15,22 +11,6 @@ const routes: Routes = [
   {
     path: "",
     component: IndexComponent
-  },
-  {
-    path: "analytics",
-    component: AnalyticsComponent
-  },
-  {
-    path: "crm",
-    component: CrmComponent
-  },
-  {
-    path: "learning",
-    component: LearningComponent
-  },
-  {
-    path: "real-estate",
-    component: RealEstateComponent
   },
   {
     path: "tesis-graphs",
