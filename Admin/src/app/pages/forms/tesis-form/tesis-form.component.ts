@@ -10,6 +10,7 @@ import swal from 'sweetalert2'
 import { NgxSpinnerService } from "ngx-spinner";
 import { Caracteristica } from 'src/app/core/models/caracteristica';
 import { ChartType } from 'angular-google-charts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tesis-form',
@@ -51,7 +52,8 @@ export class TesisFormComponent implements OnInit{
   constructor(
     private _tesisService:TesisService,
     private formBuilder: FormBuilder,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
   ){
     this.listaDepartamentos = new Array<Departamento>();
     this.gesPredictForm = this.formBuilder.group({
@@ -197,5 +199,22 @@ export class TesisFormComponent implements OnInit{
     setTimeout(() => {
       this.spinner.hide();
     }, 5000);
+  }
+  public reiniciarForm(): void {
+    /*this.mostrarCaracteristicas = false
+    this.prediccion = ""
+    this.caracteristicas = []
+
+    if (this.stepper) {
+      this.stepper.selectedIndex = 0;
+    }*/
+
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      const currentUrl = this.router.url;
+      this.router.navigateByUrl(currentUrl).then(() => {
+        this.router.navigated = false;
+        this.router.navigate([this.router.url]);
+      });
+
   }
 }

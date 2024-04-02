@@ -734,7 +734,9 @@
                                     <div *ngIf="prediccion == 'Riesgo bajo' || prediccion == 'Riesgo muy bajo'">
                                       <img src="../../../../assets/images/tesis/riesgo_m_b.png" style="width:200px;height:200px">
                                     </div>
+                                    <br/>
                                     <h1>{{ prediccion }}</h1>
+                                    <br/>
                                     <p class="text-muted">{{ sig_prediccion }}</p>
                                 </div>
                             </div>
@@ -758,7 +760,10 @@
   <div class="col-xxl-10">
     <div class="card">
         <div class="card-body">
-            <h5 class="mb-3" >Caracteristicas mas influyentes</h5>
+            <div class="col-md-12" style="display: flex;justify-content: center;align-items: center;">
+              <h4 class="mb-3" >Caracteristicas mas influyentes</h4>
+            </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <tabset [vertical]="true" type="pills" class="nav flex-row nav-pills flex-nowrap d-block d-md-flex mb-2 mb-md-0 text-center gap-3">
@@ -779,6 +784,10 @@
                         </tab>
                     </tabset>
                 </div><!-- end col -->
+                <!-- <div class="col-md-12" class="d-flex align-items-start gap-3 mt-4"> -->
+                <div class="col-md-12" style="display: flex;justify-content: center;align-items: center;">
+                  <button type="button" class="btn btn-success mt-3" (click)="reiniciarForm()">Volver a predecir</button>
+                </div>
             </div>
             <!--end row-->
         </div><!-- end card-body -->
