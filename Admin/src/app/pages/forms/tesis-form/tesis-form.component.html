@@ -36,6 +36,7 @@
                                       [ngClass]="{ 'is-invalid' : validoFormulario && f['departamento'].errors }" formControlName="departamento">
                                         <option *ngFor="let depto of listaDepartamentos" [value]="depto.valor">{{ depto.label }}</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Departamento en el que vive actualmente.</small>
                                       <div class="invalid-feedback" *ngIf="f['departamento'].errors">
                                         Debe seleccionar un departamento
                                       </div>
@@ -47,6 +48,7 @@
                                           <label for="d2_04_num_hijos" class="form-label">¿Cuántos hijos tiene?</label>
                                           <input type="number" class="form-control" placeholder="Ingrese el numero de hijos" id="d2_04_num_hijos"
                                           [ngClass]="{ 'is-invalid' : validoFormulario && f['d2_04_num_hijos'].errors }" formControlName="d2_04_num_hijos">
+                                          <small id="etiqquetaHelp" class="form-text text-muted">Número de hijos vivos que tiene usted.</small>
                                           <div class="invalid-feedback" *ngIf="f['d2_04_num_hijos'].errors">
                                             Debe ingresar un numero
                                           </div>
@@ -64,6 +66,7 @@
                                           <option value="Estrato medio">Estrato medio(Estrato 3 y 4)</option>
                                           <option value="Estrato alto">Estrato alto(Estrato 5, 6 o mayor a 6)</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Estrato social en el que se encuentra actualmente.</small>
                                         <div class="invalid-feedback" *ngIf="f['estrato_tipo'].errors">
                                           Debe seleccionar un tipo de estrato
                                         </div>
@@ -78,6 +81,7 @@
                                           <option value="Hombre">Hombre</option>
                                           <option value="Mujer">Mujer</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Sexo con el que se identifica (Hombre o Mujer).</small>
                                         <div class="invalid-feedback" *ngIf="f['per_sexo_tipo'].errors">
                                           Debe seleccionar una opción
                                         </div>
@@ -93,6 +97,7 @@
                                           <option value="vive_padre_hogar_No">No</option>
                                           <option value="vive_padre_hogar_Fallecido">Fallecido</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">En su hogar vive o no su padre.</small>
                                         <div class="invalid-feedback" *ngIf="f['vive_padre_hogar_tipo'].errors">
                                           Debe seleccionar una opción
                                         </div>
@@ -107,6 +112,7 @@
                                           <option value="d_01_Si">Si</option>
                                           <option value="d_01_No">No</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Aporta o no economicamente a su hogar.</small>
                                         <div class="invalid-feedback" *ngIf="f['d_01_aporta_dinero_hogar_tipo'].errors">
                                           Debe seleccionar una opción
                                         </div>
@@ -124,6 +130,7 @@
                                           <option value="d2_03_Separado_Divorciado">Separado - Divorciado</option>
                                           <option value="d2_03_Viudo">Viudo</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Estado civil en el que se encuentra.</small>
                                         <div class="invalid-feedback" *ngIf="f['d2_03_estado_civil_tipo'].errors">
                                           Debe seleccionar un tipo de estado civil
                                         </div>
@@ -139,6 +146,7 @@
                                           <label for="residentes_hogar" class="form-label">¿Con cuántas personas vive usted?</label>
                                           <input type="number" class="form-control" placeholder="Ingrese el numero de residentes" id="residentes_hogar"
                                           [ngClass]="{ 'is-invalid' : validoFormulario && f['residentes_hogar'].errors }" formControlName="residentes_hogar">
+                                          <small id="etiqquetaHelp" class="form-text text-muted">Número de personas que residen en su hogar.</small>
                                           <div class="invalid-feedback" *ngIf="f['residentes_hogar'].errors">
                                             Debe ingresar un valor
                                           </div>
@@ -155,6 +163,7 @@
                                           <option value="Adulto">Adulto(Edad mayor o igual a 28 años y menor o igual a 59 años )</option>
                                           <option value="Persona mayor">Persona mayor(Edad mayor o igual a 60 años)</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Etapa de desarrollo o edad en la que se encuentra.</small>
                                         <div class="invalid-feedback" *ngIf="f['per_edad_tipo'].errors">
                                           Debe seleccionar una opción
                                         </div>
@@ -171,6 +180,7 @@
                                           <option value="Trabajando">Trabajando</option>
                                           <option value="Otros">Otros</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Actividad con la que ocupa usted mayormente su tiempo.</small>
                                         <div class="invalid-feedback" *ngIf="f['situacion_tipo'].errors">
                                           Debe seleccionar una opción
                                         </div>
@@ -187,6 +197,7 @@
                                           <option value="Cuarto">Cuarto</option>
                                           <option value="Vivienda_indigena">Vivienda indigena</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Tipo de vivenda en la que vive actualmente.</small>
                                         <div class="invalid-feedback" *ngIf="f['vivienda_tipo'].errors">
                                           Debe seleccionar un tipo de vivienda
                                         </div>
@@ -202,6 +213,7 @@
                                           <option value="vive_madre_hogar_No">No</option>
                                           <option value="vive_madre_hogar_Fallecida">Fallecida</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">En su hogar vive o no su madre.</small>
                                         <div class="invalid-feedback" *ngIf="f['vive_madre_hogar_tipo'].errors">
                                           Debe seleccionar una opción
                                         </div>
@@ -220,6 +232,7 @@
                                           <option value="d2_01_Palanquero_San_Basilio">Palenquero - San Basilio</option>
                                           <option value="d2_01_Gitano/ROM">Gitano/ROM</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Etnia a la que pertenece.</small>
                                         <div class="invalid-feedback" *ngIf="f['d2_01_etnia_tipo'].errors">
                                           Debe seleccionar un tipo de etnia
                                         </div>
@@ -240,6 +253,7 @@
                                           <option value="d2_05_Universitario">Universitario</option>
                                           <option value="d2_05_Postgrado">Postgrado</option>
                                         </select>
+                                        <small id="etiqquetaHelp" class="form-text text-muted">Mayor nivel educativo en el que se encuentra o que ya curso.</small>
                                         <div class="invalid-feedback" *ngIf="f['d2_05_nivel_educativo_tipo'].errors">
                                           Debe seleccionar un tipo nivel educativo
                                         </div>
@@ -280,6 +294,7 @@
                                         <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
                                         <option value="Diariamente">Diariamente</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Frecuencia con la que consume marihuana.</small>
                                       <div class="invalid-feedback" *ngIf="f['frecuencia_consumo_marihuana_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -298,6 +313,7 @@
                                         <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
                                         <option value="Diariamente">Diariamente</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Frecuencia con la que consume cocaina.</small>
                                       <div class="invalid-feedback" *ngIf="f['frecuencia_consumo_cocaina_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -317,6 +333,7 @@
                                         <option value="Algunas veces semanalmente">Algunas veces semanalmente</option>
                                         <option value="Diariamente">Diariamente</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Frecuencia con la que consume basuco.</small>
                                       <div class="invalid-feedback" *ngIf="f['frecuencia_consumo_basuco_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -331,6 +348,7 @@
                                         <option value="d_12_b_Si">Si</option>
                                         <option value="d_12_b_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">En su barrio se presenta o no se presenta el consumo de sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['d_12_b_presenta_problema_consumo_sp_barrio_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -345,6 +363,7 @@
                                         <option value="d_12_c_Si">Si</option>
                                         <option value="d_12_c_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">En su barrio se presenta o no se presenta el expendido de sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['d_12_c_presenta_problema_expendio_sp_barrio_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -362,6 +381,7 @@
                                         <option value="d_11_h_Ningun_riesgo">Ningun riesgo</option>
                                         <option value="d_11_h_No_conoce_riesgo">No conoce el riesgo</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Conocimiento sobre el riesgo de consumir marihuana de forma frecuente.</small>
                                       <div class="invalid-feedback" *ngIf="f['d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -379,6 +399,7 @@
                                         <option value="d_11_k_Ningun_riesgo">Ningun riesgo</option>
                                         <option value="d_11_k_No_conoce_riesgo">No conoce el riesgo</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Conocimiento sobre el riesgo de consumir cocaina de forma frecuente.</small>
                                       <div class="invalid-feedback" *ngIf="f['d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -396,6 +417,7 @@
                                         <option value="d_11_n_Ningun_riesgo">Ningun riesgo</option>
                                         <option value="d_11_n_No_conoce_riesgo">No conoce el riesgo</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Conocimiento sobre el riesgo de consumir basuco de forma frecuente.</small>
                                       <div class="invalid-feedback" *ngIf="f['d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -410,6 +432,7 @@
                                         <option value="g_04_Si">Si</option>
                                         <option value="g_04_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Decision por probar sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_04_probaria_sp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -426,6 +449,7 @@
                                         <option value="g_06_a_Seria_facil">Seria facil conseguir</option>
                                         <option value="g_06_a_Seria_dificil">Seria dificil conseguir</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Facilidad o posibilidad para poder conseguir marihuana.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_06_a_posibilidad_conseguir_marihuana_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -442,6 +466,7 @@
                                         <option value="g_06_b_Seria_facil">Seria facil conseguir</option>
                                         <option value="g_06_b_Seria_dificil">Seria dificil conseguir</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Facilidad o posibilidad para poder conseguir cocaina.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_06_b_posibilidad_conseguir_cocaina_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -458,6 +483,7 @@
                                         <option value="g_06_c_Seria_facil">Seria facil conseguir</option>
                                         <option value="g_06_c_Seria_dificil">Seria dificil conseguir</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Facilidad o posibilidad para poder conseguir basuco.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_06_c_posibilidad_conseguir_basuco_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -472,6 +498,7 @@
                                         <option value="g_03_Si">Si</option>
                                         <option value="g_03_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Ha sentido o no curiosidad por probar sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_03_curiosidad_probar_sp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -492,6 +519,7 @@
                                       <option value="d_08_Malo">Malo</option>
                                       <option value="d_08_Muy_malo">Muy malo</option>
                                     </select>
+                                    <small id="etiqquetaHelp" class="form-text text-muted">Estado de salud con el que cuenta actualmente.</small>
                                     <div class="invalid-feedback" *ngIf="f['d_08_estado_salud_tipo'].errors">
                                       Debe seleccionar una opción
                                     </div>
@@ -505,6 +533,7 @@
                                         <option value="d_09_Si">Si</option>
                                         <option value="d_09_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Se ha sentido o no deprimido</small>
                                       <div class="invalid-feedback" *ngIf="f['d_09_deprimido_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -519,6 +548,7 @@
                                         <option value="d_10_Si">Si</option>
                                         <option value="d_10_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Poco interes al realizar las cosas que le gustan hacer.</small>
                                       <div class="invalid-feedback" *ngIf="f['d_10_poco_interes_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -533,6 +563,7 @@
                                         <option value="g_01_Si">Si</option>
                                         <option value="g_01_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Sus familiares consumen o no consumen sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_01_familiares_consumen_sp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -548,6 +579,7 @@
                                         <option value="g_01_a_Uno">Uno</option>
                                         <option value="g_01_a_Dos_o_mas">Dos o mas</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Numero de familiares que consumen sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_01_a_num_familiares_consumen_sp_imp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -562,6 +594,7 @@
                                         <option value="g_02_Si">Si</option>
                                         <option value="g_02_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Sus amigos consumen o no consumen sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_02_amigos_consumen_sp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -577,6 +610,7 @@
                                         <option value="g_02_a_Uno">Uno</option>
                                         <option value="g_02_a_Dos_o_mas">Dos o mas</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Numero de amigos que consumen sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_02_a_num_amigos_consumen_sp_imp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -591,6 +625,7 @@
                                         <option value="g_05_Si">Si</option>
                                         <option value="g_05_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Se le ha presentado la posibilidad o no para probar sustancias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_05_posibilidad_probar_sp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -605,6 +640,7 @@
                                         <option value="g_07_Si">Si</option>
                                         <option value="g_07_No">No</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Le han ofrecido comprar o probar sustencias psicoactivas.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_07_alguien_ofrecio_comprar_probar_sp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -622,6 +658,7 @@
                                         <option value="g_08_a_Mas_30_dias_Menos_12_meses">Mas de 30 dias y menos de 12 meses</option>
                                         <option value="g_08_a_Ultimos_30_dias">Ultimos 30 dias</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Le han ofrecido y hace cuanto tiempo le ofrecieron marihuana.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_08_a_ofrecieron_marihuana_imp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -639,6 +676,7 @@
                                         <option value="g_08_b_Mas_30_dias_Menos_12_meses">Mas de 30 dias y menos de 12 meses</option>
                                         <option value="g_08_b_Ultimos_30_dias">Ultimos 30 dias</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Le han ofrecido y hace cuanto tiempo le ofrecieron cocaina.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_08_b_ofrecieron_cocaina_imp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -656,6 +694,7 @@
                                         <option value="g_08_c_Mas_30_dias_Menos_12_meses">Mas de 30 dias y menos de 12 meses</option>
                                         <option value="g_08_c_Ultimos_30_dias">Ultimos 30 dias</option>
                                       </select>
+                                      <small id="etiqquetaHelp" class="form-text text-muted">Le han ofrecido y hace cuanto tiempo le ofrecieron basuco.</small>
                                       <div class="invalid-feedback" *ngIf="f['g_08_c_ofrecieron_basuco_imp_tipo'].errors">
                                         Debe seleccionar una opción
                                       </div>
@@ -686,7 +725,16 @@
                                     <div class="mb-4">
                                         <lord-icon src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop" colors="primary:#0ab39c,secondary:#405189" style="width:120px;height:120px"></lord-icon>
                                     </div>
-                                    <h4>{{ prediccion }}</h4>
+                                    <div *ngIf="prediccion == 'Riesgo alto' || prediccion == 'Riesgo muy alto'">
+                                      <img src="../../../../assets/images/tesis/riesgo_m_a.png" style="width:200px;height:200px">
+                                    </div>
+                                    <div *ngIf="prediccion == 'Riesgo medio'">
+                                      <img src="../../../../assets/images/tesis/riesgo_m.png" style="width:200px;height:200px">
+                                    </div>
+                                    <div *ngIf="prediccion == 'Riesgo bajo' || prediccion == 'Riesgo muy bajo'">
+                                      <img src="../../../../assets/images/tesis/riesgo_m_b.png" style="width:200px;height:200px">
+                                    </div>
+                                    <h1>{{ prediccion }}</h1>
                                     <p class="text-muted">{{ sig_prediccion }}</p>
                                 </div>
                             </div>
@@ -721,7 +769,7 @@
                                   <google-chart [type]="peiType" [data]="[['Importancia', caracteristica.porcentaje || 0]]" [columns]="pieColumns" [options]="pieChartOptions" [width]="pieWidth" [height]="pieHeight"></google-chart>
                                 </div> -->
                                 <!-- <img src="assets/images/small/img-4.jpg" alt="" width="150" class="rounded"> -->
-                                <h5 class="mb-3" style="font-size: 50px;">{{ caracteristica.porcentaje }} %</h5>
+                                <h5 class="mb-3" style="font-size: 50px;">{{ caracteristica.porcentaje }}</h5>
                               </div>
                               <div class="flex-grow-1 ms-3">
                                   <p class="mb-0">{{ caracteristica.significado }}</p>
