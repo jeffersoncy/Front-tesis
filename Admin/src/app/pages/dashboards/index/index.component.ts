@@ -22,7 +22,7 @@ import { products } from './data';
   providers: [DecimalPipe]
 })
 export class IndexComponent {
-
+  opacidadImagen: number = 0.5;
   marketverviewChart: any;
   columnChart: any;
   mini6Chart: any;
