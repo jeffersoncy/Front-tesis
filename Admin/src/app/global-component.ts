@@ -28,6 +28,7 @@ export const GlobalComponent = {
     predict: 'predecir',
     departamentos:'departamentos',
     lista_variables: 'lista_variables',
+    lista_variables_significado:'lista_variables_significado',
 
     conteo_depto:'conteo_depto?',
     conteo_niv_eduXfrecMarih: 'conteo_nivel_edu_marihuana?',

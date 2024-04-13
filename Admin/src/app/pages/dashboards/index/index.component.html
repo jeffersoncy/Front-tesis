@@ -1,356 +1,53 @@
 <div class="row">
     <div class="col-lg-12">
-        <div class="card" id="contactList" style="height: 600px; position: relative; background-image: url('../../../../assets/images/tesis/ImageIntroduction.jpg'); background-size: cover; overflow: hidden;">
+        <div class="card" id="contactList" style="height: 800px; position: relative; background-image: url('../../../../assets/images/tesis/ImageIntroduction.jpg'); background-size: cover; overflow: hidden;">
             <!-- Capa para aplicar opacidad -->
+
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.2); z-index: 1;"></div>
             <!-- Bloque azul con información rápida -->
-            <div style="position: absolute; top: 20px; left: 0; width: 100%; height: 100px; background-color: #3498db; z-index: 2; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 0 20px;">
+
+            <!-- Contenido dentro de la tarjeta -->
+            <div class="card-body" style="position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+              <div style="position: absolute; top: 20px; left: 0; width: 100%; height: 100px; background-color: #3498db; z-index: 2; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 0 20px;">
                 <!-- Contenido del bloque azul -->
                 <div>
                     <h3 style="color: white;">Información Rápida</h3>
-                    <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro modi repellat nemo numquam. Tenetur possimus nostrum non reprehenderit quidem minus soluta, doloremque facilis quasi nihil voluptatum amet harum? Animi, iure!</p>
+                    <p style="color: white;">El propósito de esta aplicación es proporcionar una herramienta que identifique y apoye a personas que están en riesgo, educar y concientizar al público sobre los riesgos asociados y contribuir al análisis de datos e investigación en el campo de la Inteligencia Artificial. Si desea conocer mas acerca de la aplicacion presione click cobre el boton "Mas información".</p>
                 </div>
                 <!-- Botón de "Más Información" -->
-                <button style="background-color: white; color: #3498db; border: none; border-radius: 5px; padding: 8px 16px; cursor: pointer;">Más Información</button>
+                <button style="background-color: white; color: #3498db; border: none; border-radius: 5px; padding: 8px 16px; cursor: pointer;" (click)="masInfo()">Más Información</button>
             </div>
-            <!-- Contenido dentro de la tarjeta -->
-            <div class="card-body" style="position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                 <br><br><br><br><br><br>
                 <h2 style="color: white; text-align: center;">Información</h2>
-                <p style="color: white; text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro modi repellat nemo numquam. Tenetur possimus nostrum non reprehenderit quidem minus soluta, doloremque facilis quasi nihil voluptatum amet harum? Animi, iure!</p>
+                <p style="color: white; text-align: center; font-size: 16px;">Si desea conocer su pronostico sobre su nivel de riesgo al consumo de sustancias psicoactivas como Marihuana, Cocaina y basuco, presione click sobre el boton "Predecir" y sera dirigido al formulario para conocer su resultado."</p>
                 <!-- Otro contenido aquí si es necesario -->
                 <!-- Botón "Predecir" -->
-                <button style="background-color: #3498db; color: white; border: none; border-radius: 10px; padding: 15px 30px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer;">Predecir</button>
+                <button style="background-color: #3498db; color: white; border: none; border-radius: 10px; padding: 15px 30px; font-size: 18px; font-weight: bold; margin-top: 20px; cursor: pointer;" (click)="dirigirFormulario()">Predecir</button>
                 <br><br><br><br>
                 <!-- Beneficios de la app -->
-    <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
-        <!-- Icono y texto 1 -->
-        <div style="display: flex; align-items: center;">
-            <img src="icono_predeterminado.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
-            <span style="color: white; font-size: 16px;">Información precisa</span>
-        </div>
+                <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+                    <!-- Icono y texto 1 -->
+                    <div style="display: flex; align-items: center;">
+                        <img src="../../../../assets/images/tesis/verify.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
+                        <span style="color: white; font-size: 16px;">Información precisa</span>
+                    </div>
 
-        <!-- Icono y texto 2 -->
-        <div style="display: flex; align-items: center; margin-left: 20px; margin-right: 20px;">
-            <img src="icono_predeterminado.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
-            <span style="color: white; font-size: 16px;">Rápida</span>
-        </div>
+                    <!-- Icono y texto 2 -->
+                    <div style="display: flex; align-items: center; margin-left: 20px; margin-right: 20px;">
+                        <img src="../../../../assets/images/tesis/verify.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
+                        <span style="color: white; font-size: 16px;">Rápida</span>
+                    </div>
 
-        <!-- Icono y texto 3 -->
-        <div style="display: flex; align-items: center;">
-            <img src="icono_predeterminado.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
-            <span style="color: white; font-size: 16px;">Versátil</span>
-        </div>
+                    <!-- Icono y texto 3 -->
+                    <div style="display: flex; align-items: center;">
+                        <img src="../../../../assets/images/tesis/verify.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
+                        <span style="color: white; font-size: 16px;">Versátil</span>
+                    </div>
 
             </div>
-            
+
         </div>
     </div><!--end col-->
 </div><!--end row-->
 
-<div class="row">
-    <div class="col-xl-7 col-lg-6">
-        <div class="card card-height-100">
-            <div class="card-header d-flex">
-                <h5 class="card-title flex-grow-1 mb-0">Video</h5>
-                <div class="flex-shrink-0">
-                    <a href="javascript:void(0);" class="btn btn-subtle-info btn-sm">View More <i class="ph-caret-right align-middle"></i></a>
-                </div>
-            </div>
-            <div class="card-body px-0">
-                <ngx-simplebar class="px-3" style="max-height: 258px;">
-                    <div class="acitivity-timeline acitivity-main">
-                        <div class="acitivity-item d-flex">
-                            <div class="flex-shrink-0 avatar-xs acitivity-avatar">
-                                <div class="avatar-title bg-success-subtle text-success rounded-circle">
-                                    <i class="ph-shopping-cart"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1 lh-base">Purchased by James Price</h6>
-                                <p class="text-muted mb-2">Product noise evolve smartwatch </p>
-                                <small class="mb-0 text-muted">05:57 AM Today</small>
-                            </div>
-                        </div>
-                        <div class="acitivity-item py-3 d-flex">
-                            <div class="flex-shrink-0">
-                                <img src="assets/images/users/48/avatar-2.jpg" alt="" class="avatar-xs rounded-circle acitivity-avatar">
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1 lh-base">Natasha Carey have liked the products</h6>
-                                <p class="text-muted mb-2">Allow users to like products in your WooCommerce store.</p>
-                                <small class="mb-0 text-muted">25 Dec, 2022</small>
-                            </div>
-                        </div>
-                        <div class="acitivity-item py-3 d-flex">
-                            <div class="flex-shrink-0">
-                                <div class="avatar-xs acitivity-avatar">
-                                    <div class="avatar-title rounded-circle bg-secondary-subtle text-secondary">
-                                        <i class="mdi mdi-sale fs-md"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1 lh-base">Today offers by <a routerLink="/ecommerce/seller-overview" class="link-secondary">Digitech Galaxy</a></h6>
-                                <p class="text-muted mb-2">Offer is valid on orders of $230 Or above for selected
-                                    products only.</p>
-                                <small class="mb-0 text-muted">12 Dec, 2022</small>
-                            </div>
-                        </div>
-                        <div class="acitivity-item py-3 d-flex">
-                            <div class="flex-shrink-0">
-                                <div class="avatar-xs acitivity-avatar">
-                                    <div class="avatar-title rounded-circle bg-warning-subtle text-warning">
-                                        <i class="ri-bookmark-fill"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1 lh-base">Favoried Product</h6>
-                                <p class="text-muted mb-2">Esther James have favorited product.</p>
-                                <small class="mb-0 text-muted">25 Nov, 2022</small>
-                            </div>
-                        </div>
-                        <div class="acitivity-item py-3 d-flex">
-                            <div class="flex-shrink-0">
-                                <div class="avatar-xs acitivity-avatar">
-                                    <div class="avatar-title rounded-circle bg-secondary-subtle text-secondary">
-                                        <i class="mdi mdi-sale fs-md"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1 lh-base">Flash sale starting <span class="text-primary">Tomorrow.</span>
-                                </h6>
-                                <p class="text-muted mb-2">Flash sale by <a href="javascript:void(0);" class="link-secondary fw-medium">Zoetic Fashion</a></p>
-                                <small class="mb-0 text-muted">22 Oct, 2022</small>
-                            </div>
-                        </div>
-                        <div class="acitivity-item d-flex">
-                            <div class="flex-shrink-0">
-                                <div class="avatar-xs acitivity-avatar">
-                                    <div class="avatar-title rounded-circle bg-info-subtle text-info">
-                                        <i class="ri-line-chart-line"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1 lh-base">Monthly sales report</h6>
-                                <p class="text-muted mb-2"><span class="text-danger">2 days left</span> notification to
-                                    submit the monthly sales report. <a href="javascript:void(0);" class="link-warning text-decoration-underline">Reports Builder</a></p>
-                                <small class="mb-0 text-muted">15 Oct, 2022</small>
-                            </div>
-                        </div>
-                    </div>
-                </ngx-simplebar>
-            </div>
-        </div>
-    </div><!--end col-->
-    <div class="col-xl-5 col-lg-6">
-        <div class="card" id="contactList">
-            <div class="card-header align-items-center d-flex">
-                <h4 class="card-title mb-0 flex-grow-1">Tabla</h4>
-                <div class="flex-shrink-0">
-                    <div dropdown class="dropdown card-header-dropdown sortble-dropdown">
-                        <a dropdownToggle class="text-reset dropdown-btn" href="javascript:void(0);">
-                            <span class="fw-semibold text-uppercase fs-xs">Sort by:
-                            </span><span class="text-muted dropdown-title">{{sortValue}}</span> <i class="mdi mdi-chevron-down ms-1"></i>
-                        </a>
-                        <div *bsDropdownMenu class="dropdown-menu dropdown-menu-end">
-                            <button class="dropdown-item sort" (click)="onSort('date')">Order Date</button>
-                            <button class="dropdown-item sort" (click)="onSort('orderId')">Order ID</button>
-                            <button class="dropdown-item sort" (click)="onSort('amount')">Amount</button>
-                            <button class="dropdown-item sort" (click)="onSort('status')">Status</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                        <thead class="text-muted table-light">
-                            <tr>
-                                <th scope="col" class="sort cursor-pointer" (click)="onSort('customer')">Customers</th>
-                                <th scope="col" class="sort cursor-pointer" (click)="onSort('product')">Products</th>
-                            </tr>
-                        </thead>
-                        <tbody class="list">
-                            <tr *ngFor="let data of orderList;">
-                                <td class="customer">
-                                    {{data.customer}}
-                                </td>
-                                <td class="products">{{data.product}}</td>
-                            </tr><!-- end tr -->
-                        </tbody><!-- end tbody -->
-                    </table><!-- end table -->
-                    <div class="noresult" style="display: none">
-                        <div class="text-center">
-                            <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#405189,secondary:#0ab39c" style="width:75px;height:75px"></lord-icon>
-                            <h5 class="mt-2">Sorry! No Result Found</h5>
-                            <p class="text-muted mb-0">We've searched more than 150+ transactions We did not find any
-                                transactions for you search.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--end col-->
-</div><!--end row-->
 
-<!-- Modal -->
-<div bsModal #addAmount="bs-modal" class="modal fade" id="addAmount" tabindex="-1" aria-labelledby="addAmountLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title" id="addAmountLabel">Add Amount</h1>
-                <button type="button" class="btn-close" (click)="addAmount.hide()"></button>
-            </div>
-            <div class="modal-body">
-                <form action="#!">
-                    <div class="row g-3">
-                        <div class="col-lg-12">
-                            <div>
-                                <label for="AmountInput" class="form-label">Amount</label>
-                                <input type="number" class="form-control" id="AmountInput" placeholder="$000.00">
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <label class="form-label">Select Method</label>
-                            <div class="row g-3">
-                                <div class="col-lg-4">
-                                    <label class="border rounded w-100 form-label p-2">
-                                        <input class="form-check-input me-1" name="exampleRadios" type="radio" value="" checked>
-                                        Visa
-                                    </label>
-                                </div>
-                                <div class="col-lg-4">
-                                    <label class="border rounded w-100 form-label p-2">
-                                        <input class="form-check-input me-1" name="exampleRadios" type="radio" value="">
-                                        Mastercard
-                                    </label>
-                                </div>
-                                <div class="col-lg-4">
-                                    <label class="border rounded w-100 form-label p-2">
-                                        <input class="form-check-input me-1" name="exampleRadios" type="radio" value="">
-                                        Credit Card
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div>
-                                <label for="cardNumber" class="form-label">Card Number</label>
-                                <input type="number" class="form-control" id="cardNumber" placeholder="xxxx xxxx xxxx xxxx">
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div>
-                                <label for="month" class="form-label">Expiry Date</label>
-                                <div class="row g-3">
-                                    <div class="col-lg-6">
-                                        <input type="number" class="form-control" id="month" placeholder="MM">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="number" class="form-control" id="years" placeholder="YYYY">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div>
-                                <label for="cvv/cvc" class="form-label">CVV/CVC</label>
-                                <input type="number" class="form-control" id="cvv/cvc" placeholder="***">
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div>
-                                <label for="cardHoldersName" class="form-label">Cardholders Name</label>
-                                <input type="text" class="form-control" id="cardHoldersName" placeholder="Enter name">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-ghost-danger" (click)="addAmount.hide()"><i class="ph-x align-middle"></i> Close</button>
-                <button type="button" class="btn btn-primary">Add Amount</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end Modal -->
-
-<!-- Product Modal -->
-<div bsModal #productModal="bs-modal" class="modal fade" id="productModal" tabindex="-1">
-    <div *ngIf="productdetail" class="modal-dialog modal-lg">
-        <div class="modal-content border-0 overflow-hidden">
-            <div class="modal-body p-0 ribbon-box">
-                <div class="ribbon ribbon-danger ribbon-shape trending-ribbon">
-                    <span class="trending-ribbon-text">Trending</span> <i class="ri-flashlight-fill text-white align-bottom float-end ms-1"></i>
-                </div>
-                <div class="row g-0">
-                    <div class="col-lg-5">
-                        <div class="bg-primary-subtle p-5 h-100">
-                            <div class="p-lg-4">
-                                <img src="{{productdetail.img}}" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-lg-7">
-                        <div class="p-4 h-100">
-                            <button type="button" class="btn-close float-end" (click)="productModal.hide()"></button>
-                            <a href="javascript:void(0);">
-                                <h5 class="mb-1">{{productdetail.title}}</h5>
-                            </a>
-                            <p class="text-muted">Fashion & Clothing</p>
-
-                            <h5 class="mb-3">{{productdetail.price}} <del class="text-muted fs-sm fw-normal">$299.99</del></h5>
-
-                            <ul class="list-unstyled hstack gap-2 mb-4">
-                                <li>
-                                    Available Colors
-                                </li>
-                                <li>
-                                    <div class="avatar-xxs">
-                                        <div class="avatar-title rounded bg-primary-subtle"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="avatar-xxs">
-                                        <div class="avatar-title rounded bg-success-subtle"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="avatar-xxs">
-                                        <div class="avatar-title rounded bg-danger-subtle"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="avatar-xxs">
-                                        <div class="avatar-title rounded bg-dark-subtle"></div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="list-unstyled vstack gap-2 mb-4">
-                                <li class=""><i class="bi bi-check2-circle me-2 align-middle text-success"></i>In stock
-                                </li>
-                                <li class=""><i class="bi bi-check2-circle me-2 align-middle text-success"></i>Free
-                                    delivery available</li>
-                                <li class=""><i class="bi bi-check2-circle me-2 align-middle text-success"></i>Sales 10%
-                                    Off Use Code: <b>STEEX10</b></li>
-                            </ul>
-
-                            <div class="hstack gap-2 justify-content-end">
-                                <button class="btn btn-primary"><i class="bi bi-cart align-baseline me-1"></i> Add To
-                                    Cart</button>
-                                <button class="btn btn-subtle-secondary">View Details <i class="bi bi-arrow-right align-baseline ms-1"></i></button>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Product Modal -->

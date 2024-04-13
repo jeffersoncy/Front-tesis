@@ -61,4 +61,8 @@ export class TesisService {
     return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.lista_variables)
   }
 
+  getVariablesSignificado(): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.lista_variables_significado)
+  }
+
 }
