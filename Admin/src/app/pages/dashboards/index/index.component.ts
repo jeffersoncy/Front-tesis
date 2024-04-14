@@ -1,6 +1,8 @@
-import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { TesisService } from 'src/app/core/services/tesis.service';
+import { VariableSignificado } from 'src/app/core/models/variable_significado';
 
 // amCharts imports
 
@@ -12,17 +14,43 @@ import { Router } from '@angular/router';
   providers: [DecimalPipe]
 })
 export class IndexComponent {
-
-  constructor(private router: Router) { }
+  public variablesSignificado: VariableSignificado[] = [];
+  constructor(private _tesisService: TesisService, private router: Router, private elRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.obtenerListaVariables()
   }
 
-  masInfo(){
-    this.router.navigate(['/info'])
+  obtenerListaVariables(): void {
+    this._tesisService.getVariablesSignificado().subscribe(res => {
+      for (let index = 0; index < res.variables.length; index++) {
+        let dataObjeto = res.variables[index];
+        let objVariableSignificado: VariableSignificado = new VariableSignificado;
+        objVariableSignificado.clave = dataObjeto.clave
+        objVariableSignificado.significado = dataObjeto.significado
+        this.variablesSignificado.push(objVariableSignificado)
+      }
+    },
+      error => {
+        console.log("Error al obtener lista de registros");
+        console.log("Error:" + error);
+      });
   }
 
-  dirigirFormulario(){
+  masInfo() {
+    /*const element = this.elRef.nativeElement.querySelector('#informacion');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      window.scrollBy(0, -100); // Ajusta el valor "-100" según lo necesites
+    }*/
+    const element = this.elRef.nativeElement.querySelector('#informacion');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.scrollBy(0, 840);
+    }
+  }
+
+  dirigirFormulario() {
     this.router.navigate(['/forms/tesis-predict'])
   }
 
