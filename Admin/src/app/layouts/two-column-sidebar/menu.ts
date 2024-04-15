@@ -19,12 +19,6 @@ export const MENU: MenuItem[] = [
                 parentId: 2
             },
             {
-              id: 6,
-              label: 'MENUITEMS.DASHBOARD.LIST.INFO',
-              link: '/info',
-              parentId: 2
-            },
-            {
               id: 8,
               label: 'MENUITEMS.DASHBOARD.LIST.GRAPHS',
               link: '/tesis-graphs',

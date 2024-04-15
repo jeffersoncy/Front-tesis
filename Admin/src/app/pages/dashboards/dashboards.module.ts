@@ -36,14 +36,12 @@ import { IndexComponent } from './index/index.component';
 import { TesisGraphsComponent } from './tesis-graphs/tesis-graphs.component';
 import { TesisMapsComponent } from './tesis-maps/tesis-maps.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { InformacionComponent } from './informacion/informacion.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
     TesisGraphsComponent,
-    TesisMapsComponent,
-    InformacionComponent
+    TesisMapsComponent
   ],
   imports: [
     CommonModule,

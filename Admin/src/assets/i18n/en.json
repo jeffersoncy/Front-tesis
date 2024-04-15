@@ -7,7 +7,6 @@
       "TEXT": "Tableros",
       "LIST": {
         "ECOMMERCE": "Inicio",
-        "INFO": "Información",
         "GRAPHS": "Estadisticas entre variables",
         "MAPS": "Mapa de calor"
       }
