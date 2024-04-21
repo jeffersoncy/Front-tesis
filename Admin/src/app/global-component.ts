@@ -21,7 +21,7 @@ export const GlobalComponent = {
     customer: 'apps/customer',
 
     //Api back tesis
-    API_TESIS: 'https://tesis-back-bapw.onrender.com/',
+    API_TESIS: 'http://127.0.0.1:8000/',
     registro: 'registros',
     filtro: 'filtro?value=',
     num_riesgo:'num_riesgo?value=',
