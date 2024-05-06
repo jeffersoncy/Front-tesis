@@ -20,7 +20,8 @@ import { Router } from '@angular/router';
 export class TesisFormComponent implements OnInit{
   @ViewChild(CdkStepper) stepper!: CdkStepper;
   selectedAccount = 'This is a placeholder';
-
+  strokedCircleChart: any;
+  distributedColumnChart: any;
   public validoFormulario !: boolean;
   public botonSiguiente : boolean = false;
   public mostrarCaracteristicas : boolean = false;
@@ -30,8 +31,17 @@ export class TesisFormComponent implements OnInit{
   public prediccion : string = "";
   public sig_prediccion : string = "";
   public caracteristicas:Caracteristica[] = [];
+  public data_porcentajes_caracteristicas:String[] = [];
+  public data_claves_caracteristicas:Number[] = [];
 
   public gesPredictForm !: FormGroup;
+
+  tabActiva = -1;
+
+  seleccionarTab(index: number): void {
+    this.tabActiva = index;
+    this._strokedCircleChart('["--tb-primary"]');
+  }
 
   submit!: boolean;
   formsubmit!: boolean;
@@ -104,6 +114,8 @@ export class TesisFormComponent implements OnInit{
     this.obtenerListaDepartamentos()
     this.validoFormulario = false;
     this.registro = new Registro();
+    this._strokedCircleChart('["--tb-success"]');
+    this._distributedColumnChart('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-dark", "--tb-info"]')
   }
   obtenerListaDepartamentos():void{
     this._tesisService.getDepartamentos().subscribe(res =>{
@@ -157,6 +169,8 @@ export class TesisFormComponent implements OnInit{
       console.log(res);
       this.prediccion = res.prediccion
       this.sig_prediccion = res.significado
+      let array_data_valores_frec_consumo_marihuana: number[][] = [];
+      let array_claves_nivel_edu: string[] = [];
       //console.log("Ayudaaaaaaaaaaaaaaaaaa");
 
       //console.log(typeof(res.caracteristicas));
@@ -174,7 +188,9 @@ export class TesisFormComponent implements OnInit{
         let dataObjeto = res.caracteristicas[index];
         let objCaracteristica:Caracteristica = new Caracteristica;
         objCaracteristica.clave = dataObjeto.clave
+        this.data_claves_caracteristicas.push(dataObjeto.clave)
         objCaracteristica.porcentaje = dataObjeto.porcentaje
+        this.data_porcentajes_caracteristicas.push(dataObjeto.porcentaje)
         objCaracteristica.significado = dataObjeto.significado
         this.caracteristicas.push(objCaracteristica)
       }
@@ -185,6 +201,8 @@ export class TesisFormComponent implements OnInit{
       this.spinner.hide();
       this.stepper.next();
       this.mostrarCaracteristicas = true;
+      this.seleccionarTab(0);
+      this._distributedColumnChart('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-dark", "--tb-info"]')
     })
 
 
@@ -216,5 +234,259 @@ export class TesisFormComponent implements OnInit{
         this.router.navigate([this.router.url]);
       });
 
+  }
+
+  /**
+  * Stroked Circular Gauge
+  */
+  private _strokedCircleChart(colors: any) {
+    console.log("configurabdo")
+    colors = this.getChartColorsArray(colors);
+    console.log(this.tabActiva)
+    if(this.tabActiva != -1){
+      console.log("configurabdo v2")
+      console.log(this.caracteristicas)
+      console.log(Number(this.caracteristicas[this.tabActiva].porcentaje))
+      this.strokedCircleChart = {
+        series: [Number(this.caracteristicas[this.tabActiva].porcentaje)],
+        chart: {
+          height: 226,
+          type: "radialBar",
+          offsetY: -10,
+        },
+        plotOptions: {
+          radialBar: {
+            startAngle: -135,
+            endAngle: 135,
+            dataLabels: {
+              name: {
+                fontSize: "16px",
+                color: undefined,
+                offsetY: 120,
+              },
+              value: {
+                offsetY: 76,
+                fontSize: "22px",
+                color: undefined,
+                formatter: function (val: any) {
+                  return val + "%";
+                },
+              },
+            },
+          },
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            shadeIntensity: 0.15,
+            inverseColors: false,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 50, 65, 91],
+          },
+        },
+        stroke: {
+          dashArray: 4,
+        },
+        labels: ["Porcentaje de incidencia"],
+        colors: colors,
+      };
+    } else {
+      this.strokedCircleChart = {
+        series: [0],
+        chart: {
+          height: 226,
+          type: "radialBar",
+          offsetY: -10,
+        },
+        plotOptions: {
+          radialBar: {
+            startAngle: -135,
+            endAngle: 135,
+            dataLabels: {
+              name: {
+                fontSize: "16px",
+                color: undefined,
+                offsetY: 120,
+              },
+              value: {
+                offsetY: 76,
+                fontSize: "22px",
+                color: undefined,
+                formatter: function (val: any) {
+                  return val + "%";
+                },
+              },
+            },
+          },
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            shadeIntensity: 0.15,
+            inverseColors: false,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 50, 65, 91],
+          },
+        },
+        stroke: {
+          dashArray: 4,
+        },
+        labels: ["Porcentaje de incidencia"],
+        colors: colors,
+      };
+    }
+  
+    const attributeToMonitor = 'data-theme';
+
+    const observer = new MutationObserver(() => {
+     this._strokedCircleChart('["--tb-success"]');
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: [attributeToMonitor]
+    });
+  }
+
+  // Chart Colors Set
+  private getChartColorsArray(colors: any) {
+    colors = JSON.parse(colors);
+    return colors.map(function (value: any) {
+      var newValue = value.replace(" ", "");
+      if (newValue.indexOf(",") === -1) {
+        var color = getComputedStyle(document.documentElement).getPropertyValue(newValue);
+        if (color) {
+          color = color.replace(" ", "");
+          return color;
+        }
+        else return newValue;;
+      } else {
+        var val = value.split(',');
+        if (val.length == 2) {
+          var rgbaColor = getComputedStyle(document.documentElement).getPropertyValue(val[0]);
+          rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
+          return rgbaColor;
+        } else {
+          return newValue;
+        }
+      }
+    });
+  }
+
+  /**
+  * Distributed Columns Charts
+   */
+  private _distributedColumnChart(colors: any) {
+    colors = this.getChartColorsArray(colors);
+    if(this.tabActiva == 1){
+      this.distributedColumnChart = {
+        series: [{
+          data: [21, 22, 10, 28, 16, 21, 13, 30]
+        }],
+        chart: {
+          height: 350,
+          type: 'bar',
+          events: {
+            click: function (chart: any, w: any, e: any) {
+            }
+          }
+        },
+        colors: colors,
+        plotOptions: {
+          bar: {
+            columnWidth: '45%',
+            distributed: true,
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        legend: {
+          show: false
+        },
+        xaxis: {
+          categories: [
+            ['John', 'Doe'],
+            ['Joe', 'Smith'],
+            ['Jake', 'Williams'],
+            'Amber',
+            ['Peter', 'Brown'],
+            ['Mary', 'Evans'],
+            ['David', 'Wilson'],
+            ['Lily', 'Roberts'],
+          ],
+          labels: {
+            style: {
+              colors: colors,
+              fontSize: '12px'
+            }
+          }
+        }
+      };
+    } else {
+      //let series: number[] = this.obtenerListaPorcentajes();
+      console.log(this.data_claves_caracteristicas)
+      console.log(this.data_porcentajes_caracteristicas)
+      this.distributedColumnChart = {
+        series: [{
+          data: this.data_porcentajes_caracteristicas
+        }],
+        chart: {
+          height: 350,
+          type: 'bar',
+          events: {
+            click: function (chart: any, w: any, e: any) {
+            }
+          }
+        },
+        colors: colors,
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '25%',
+            distributed: true,
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        legend: {
+          show: false
+        },
+        xaxis: {
+          categories: this.data_claves_caracteristicas,
+          labels: {
+            style: {
+              colors: colors,
+              fontSize: '10px'
+            }
+          }
+        }
+      };
+    }
+
+    const attributeToMonitor = 'data-theme';
+
+    const observer = new MutationObserver(() => {
+      this._distributedColumnChart('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-dark", "--tb-info"]')
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: [attributeToMonitor]
+    });
+  }
+
+  private obtenerListaPorcentajes(): number[] {
+    let ArrayPorcentajes: number[] = [];
+    for (let index = 0; index < this.caracteristicas.length; index++) {
+      const element = this.caracteristicas[index].porcentaje;
+      if (typeof element === 'number') { // Comprueba si element es un número
+        ArrayPorcentajes.push(element);
+      }
+    }
+    return ArrayPorcentajes;
   }
 }

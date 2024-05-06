@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsRoutingModule } from './forms-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
+// chart
+import { NgApexchartsModule } from "ng-apexcharts";
 
 // Auto Complate
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
@@ -89,7 +91,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     BsDropdownModule.forRoot(),
     DropzoneModule,
     FlatpickrModule.forRoot(),
-    GoogleChartsModule.forRoot()
+    GoogleChartsModule.forRoot(),
+    NgApexchartsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

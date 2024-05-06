@@ -44,16 +44,16 @@
 
                                     <div class="mt-3">
                                       <div>
-                                        <div class="mb-3">
-                                          <label for="d2_04_num_hijos" class="form-label">¿Cuántos hijos tiene?</label>
-                                          <input type="number" class="form-control" placeholder="Ingrese el numero de hijos" id="d2_04_num_hijos"
-                                          [ngClass]="{ 'is-invalid' : validoFormulario && f['d2_04_num_hijos'].errors }" formControlName="d2_04_num_hijos">
-                                          <small id="etiqquetaHelp" class="form-text text-muted">Número de hijos vivos que tiene usted.</small>
-                                          <div class="invalid-feedback" *ngIf="f['d2_04_num_hijos'].errors">
-                                            Debe ingresar un numero
+                                          <div class="mb-3">
+                                              <label for="d2_04_num_hijos" class="form-label">¿Cuántos hijos tiene?</label>
+                                              <input type="number" class="form-control" placeholder="Ingrese el número de hijos" id="d2_04_num_hijos"
+                                                  [ngClass]="{ 'is-invalid' : validoFormulario && f['d2_04_num_hijos'].errors }" formControlName="d2_04_num_hijos" [attr.min]="0">
+                                              <small id="etiqquetaHelp" class="form-text text-muted">Número de hijos vivos que tiene usted.</small>
+                                              <div class="invalid-feedback" *ngIf="f['d2_04_num_hijos'].errors">
+                                                  <span *ngIf="f['d2_04_num_hijos'].errors['required']">Debe ingresar un número.</span>
+                                                  <span *ngIf="f['d2_04_num_hijos'].errors['min']">El número no puede ser negativo.</span>
+                                              </div>
                                           </div>
-                                        </div>
-
                                       </div>
                                     </div>
 
@@ -141,17 +141,16 @@
 
                                   <div class="col-lg-6">
 
-                                    <div>
-                                      <div class="mb-3">
-                                          <label for="residentes_hogar" class="form-label">¿Con cuántas personas vive usted?</label>
-                                          <input type="number" class="form-control" placeholder="Ingrese el numero de residentes" id="residentes_hogar"
-                                          [ngClass]="{ 'is-invalid' : validoFormulario && f['residentes_hogar'].errors }" formControlName="residentes_hogar">
-                                          <small id="etiqquetaHelp" class="form-text text-muted">Número de personas que residen en su hogar.</small>
-                                          <div class="invalid-feedback" *ngIf="f['residentes_hogar'].errors">
-                                            Debe ingresar un valor
-                                          </div>
+                                    <div class="mb-3">
+                                      <label for="residentes_hogar" class="form-label">¿Con cuántas personas vive usted?</label>
+                                      <input type="number" class="form-control" placeholder="Ingrese el número de residentes" id="residentes_hogar"
+                                          [ngClass]="{ 'is-invalid' : validoFormulario && f['residentes_hogar'].errors }" formControlName="residentes_hogar"
+                                          [attr.min]="0">
+                                      <small id="etiquetaHelp" class="form-text text-muted">Número de personas que residen en su hogar.</small>
+                                      <div class="invalid-feedback" *ngIf="f['residentes_hogar'].errors">
+                                          <span *ngIf="f['residentes_hogar'].errors['min']">El número no puede ser negativo.</span>
                                       </div>
-                                    </div>
+                                  </div>
 
                                     <div class="mt-3">
                                       <div>
@@ -760,36 +759,45 @@
   <div class="col-xxl-10">
     <div class="card">
         <div class="card-body">
-            <div class="col-md-12" style="display: flex;justify-content: center;align-items: center;">
-              <h4 class="mb-3" >Caracteristicas mas influyentes</h4>
+          <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+              <h4 class="mb-3">Características mas influyentes</h4>
+              <apx-chart [series]="distributedColumnChart.series" [chart]="distributedColumnChart.chart"
+                         [dataLabels]="distributedColumnChart.dataLabels" [plotOptions]="distributedColumnChart.plotOptions"
+                         [yaxis]="distributedColumnChart.yaxis" [xaxis]="distributedColumnChart.xaxis"
+                         [legend]="distributedColumnChart.legend" [colors]="distributedColumnChart.colors"
+                         [grid]="distributedColumnChart.grid" dir="ltr"></apx-chart>
             </div>
-
+          </div>
+            <!--end row-->
             <div class="row">
-                <div class="col-md-12">
-                    <tabset [vertical]="true" type="pills" class="nav flex-row nav-pills flex-nowrap d-block d-md-flex mb-2 mb-md-0 text-center gap-3">
-                        <tab *ngFor="let caracteristica of caracteristicas" [heading]="caracteristica.clave" heading="Home">
-                            <div class="tab-pane fade show">
-                              <div class="flex-shrink-0 mb-3">
-                                <!-- <div>
-                                  <google-chart [type]="peiType" [data]="[['Importancia', caracteristica.porcentaje || 0]]" [columns]="pieColumns" [options]="pieChartOptions" [width]="pieWidth" [height]="pieHeight"></google-chart>
-                                </div> -->
-                                <!-- <img src="assets/images/small/img-4.jpg" alt="" width="150" class="rounded"> -->
-                                <h5 class="mb-3" style="font-size: 50px;">{{ caracteristica.porcentaje }}</h5>
-                              </div>
-                              <div class="flex-grow-1 ms-3">
-                                  <p class="mb-0">{{ caracteristica.significado }}</p>
-                              </div>
-
-                            </div>
-                        </tab>
-                    </tabset>
-                </div><!-- end col -->
-                <!-- <div class="col-md-12" class="d-flex align-items-start gap-3 mt-4"> -->
+              <div class="col-md-12">
+                <div class="container">
+                  <div class="tabs d-flex flex-column justify-content-center">
+                    <div *ngFor="let caracteristica of caracteristicas; let i = index"
+                         [class.active]="tabActiva === i"
+                         (click)="seleccionarTab(i)">
+                      {{ caracteristica.clave }}
+                    </div>
+                  </div>
+                  
+                  <div class="contenido">
+                    <div>
+                      <apx-chart [series]="strokedCircleChart.series" [chart]="strokedCircleChart.chart"
+                      [plotOptions]="strokedCircleChart.plotOptions" [labels]="strokedCircleChart.labels"
+                      [fill]="strokedCircleChart.fill" [stroke]="strokedCircleChart.stroke" [colors]="strokedCircleChart.colors" dir="ltr"></apx-chart>
+                    </div>
+                    <div *ngIf="tabActiva != -1">
+                        <p class="mb-0">{{ caracteristicas[tabActiva].significado }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div><br><br><br><br>
+              <!-- <div class="col-md-12" class="d-flex align-items-start gap-3 mt-4"> -->
                 <div class="col-md-12" style="display: flex;justify-content: center;align-items: center;">
                   <button type="button" class="btn btn-success mt-3" (click)="reiniciarForm()">Volver a predecir</button>
                 </div>
             </div>
-            <!--end row-->
         </div><!-- end card-body -->
     </div><!-- end card -->
   </div>
