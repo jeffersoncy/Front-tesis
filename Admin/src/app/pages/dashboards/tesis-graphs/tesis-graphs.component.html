@@ -56,11 +56,13 @@
                 <option selected value="">Seleccione una variable</option>
                 <option *ngFor="let variable1 of listaVariables" [value]="variable1.valor">{{ variable1.label }}</option>
             </select>
+            <p *ngIf="descripcionSeleccionada1" style="margin-left: 10px;"> {{ descripcionSeleccionada1 }}</p>
 
             <select [(ngModel)]="variable2_param" class="form-select" id="variable2_param" (change)="consultarDatosParametros()">
                 <option selected value="">Seleccione una variable</option>
                 <option *ngFor="let variable2 of listaVariables" [value]="variable2.valor">{{ variable2.label }}</option>
             </select>
+            <p *ngIf="descripcionSeleccionada2" style="margin-left: 10px;"> {{ descripcionSeleccionada2 }}</p>
 
             <div class="card-body">
                 <apx-chart [series]="stacked100BarChartMarihuana.series" [chart]="stacked100BarChartMarihuana.chart"
@@ -72,6 +74,6 @@
             </div><!-- end card-body -->
         </div><!-- end card -->
     </div>
-    <!-- end col --> 
+    <!-- end col -->
 </div>
 <!-- end row -->

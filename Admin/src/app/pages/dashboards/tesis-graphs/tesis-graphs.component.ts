@@ -28,6 +28,10 @@ export class TesisGraphsComponent implements OnInit{
   basicHeatmapChart: any;
   variable1_param:string = "";
   variable2_param:string = "";
+
+  descripcionSeleccionada1:string = "";
+  descripcionSeleccionada2:string = "";
+
   variable_param:string = "";
 
   public titulo = "Nivel educativo vs Frecuencia consumo marihuana";
@@ -44,11 +48,11 @@ export class TesisGraphsComponent implements OnInit{
   public data_claves_frec_consumo_marihuana:any;
   public data_valores_frec_consumo_marihuana:any;
   public data_claves_nivel_edu_marihuana:any;
-  
+
   public data_claves_frec_consumo_cocaina:any;
   public data_valores_frec_consumo_cocaina:any;
   public data_claves_nivel_edu_cocaina:any;
-  
+
   public data_claves_frec_consumo_bazuco:any;
   public data_valores_frec_consumo_bazuco:any;
   public data_claves_nivel_edu_bazuco:any;
@@ -110,7 +114,7 @@ export class TesisGraphsComponent implements OnInit{
       }
     });
   }
-    
+
     /**
    * Basic Bar Chart
    */
@@ -153,7 +157,7 @@ export class TesisGraphsComponent implements OnInit{
     colors = this.getChartColorsArray(colors);
     this.customDataLabelsChart = {
       series: [{
-        data: this.data_depto_conteo, 
+        data: this.data_depto_conteo,
         //[400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
         //data: this.data_nivel_tipo,
       },],
@@ -347,7 +351,7 @@ export class TesisGraphsComponent implements OnInit{
         },
       },
       xaxis: {
-        categories: this.data_claves_frec_consumo_marihuana, 
+        categories: this.data_claves_frec_consumo_marihuana,
         //[2008, 2009, 2010, 2011, 2012, 2013, 2014],
       },
       tooltip: {
@@ -490,7 +494,7 @@ export class TesisGraphsComponent implements OnInit{
 
       //console.log('Valor de miVariable data nivel tipo: ', this.data_nivel_tipo);
       //console.log('Valor de miVariable data nivel conteo: ', this.data_nivel_conteo);
-      
+
       this._basicBarChart('["--tb-success"]');
       //this._mainChart('["--tb-primary-bg-subtle", "--tb-light", "--tb-primary"]');
     },
@@ -530,15 +534,15 @@ export class TesisGraphsComponent implements OnInit{
       let conjuntoClavesUnicas = new Set(array_claves_nivel_edu);
 
       // Convertir el conjunto de vuelta a un array
-      let array_claves_unicas_nivel_edu = Array.from(conjuntoClavesUnicas); 
+      let array_claves_unicas_nivel_edu = Array.from(conjuntoClavesUnicas);
 
       // Se Crea un objeto para almacenar las agrupaciones por clave
       let objetoAgrupadoPorClave: { [clave: string]: number[] } = {};
-  
+
       array_claves_unicas_nivel_edu.forEach(clave => {
         // Se obtiene el índice de la clave en el array
         let indiceClave = array_claves_nivel_edu.indexOf(clave);
-  
+
         // Se Verifica si la clave ya existe en el objeto
         if (objetoAgrupadoPorClave[clave]) {
           // Si existe, agregar los valores correspondientes
@@ -551,7 +555,7 @@ export class TesisGraphsComponent implements OnInit{
 
       // Convertir el objeto a un array de arrays
       let arrayAgrupadoPorClave = Object.values(objetoAgrupadoPorClave);
-  
+
       //console.log('Array agrupado por clave: ', arrayAgrupadoPorClave);
       //
       //console.log('Valor de miVariable data frecuencia consumo numeros: ', array_data_valores_frec_consumo_marihuana);
@@ -563,7 +567,7 @@ export class TesisGraphsComponent implements OnInit{
 
       this._stacked100BarChartMarihuana('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-info", "--tb-dark", "--tb-gray", "--tb-purple"]');
       this._stackedBarChart('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-info"]');
-    
+
     },
     error =>{
       swal.fire('Error', 'Error cargando los datos de nivel educativo por frecuencia consumo marihuana:' + error, 'error');
@@ -588,15 +592,15 @@ export class TesisGraphsComponent implements OnInit{
       let conjuntoClavesUnicas = new Set(array_claves_sexo_tipo);
 
       // Convertir el conjunto de vuelta a un array
-      let array_claves_unicas_sexo_tipo = Array.from(conjuntoClavesUnicas); 
+      let array_claves_unicas_sexo_tipo = Array.from(conjuntoClavesUnicas);
 
       // Se Crea un objeto para almacenar las agrupaciones por clave
       let objetoAgrupadoPorClave: { [clave: string]: number[] } = {};
-  
+
       array_claves_unicas_sexo_tipo.forEach(clave => {
         // Se obtiene el índice de la clave en el array
       let indiceClave = array_claves_sexo_tipo.indexOf(clave);
-  
+
         // Se Verifica si la clave ya existe en el objeto
         if (objetoAgrupadoPorClave[clave]) {
           // Si existe, agregar los valores correspondientes
@@ -609,7 +613,7 @@ export class TesisGraphsComponent implements OnInit{
 
       // Convertir el objeto a un array de arrays
       let arrayAgrupadoPorClave = Object.values(objetoAgrupadoPorClave);
-  
+
       arrayAgrupadoPorClave[1] = arrayAgrupadoPorClave[1].map(x => -x);
 
       console.log('Array agrupado por clave: ', arrayAgrupadoPorClave);
@@ -636,7 +640,8 @@ export class TesisGraphsComponent implements OnInit{
         this.listaVariables = res.variables.map((variable: any) => {
           return {
             valor: variable.nombreReal,
-            label: variable.nombreFake
+            label: variable.nombreFake,
+            significado: variable.significado
           };
         });
       } else {
@@ -652,10 +657,26 @@ export class TesisGraphsComponent implements OnInit{
   consultarDatosParametros(){
     let auxVariableSelect1 = this.variable1_param;
     let auxVariableSelect2 = this.variable2_param;
+
+    let variableSeleccionada1 = this.listaVariables.find(variable => variable.valor === this.variable1_param);
+    if (variableSeleccionada1) {
+      this.descripcionSeleccionada1 = variableSeleccionada1.significado || '';
+    } else {
+      this.descripcionSeleccionada1 = '';
+    }
+
+    const variableSeleccionada2 = this.listaVariables.find(variable => variable.valor === this.variable2_param);
+    if (variableSeleccionada2) {
+      this.descripcionSeleccionada2 = variableSeleccionada2.significado || '';
+    } else {
+      this.descripcionSeleccionada2 = '';
+    }
+
     if(this.variable1_param != '' && this.variable2_param != ''){
       this.titulo = this.buscarNombreFake(this.variable1_param) + ' vs ' +this.buscarNombreFake(this.variable2_param);
       this.cargarConteoNivelEduXFrecConsumoMarihuana(auxVariableSelect1,auxVariableSelect2)
     }
+
   }
 
   consultarDatosParametro(){
