@@ -517,7 +517,7 @@ export class TesisGraphsComponent implements OnInit{
 
 
   cargarConteoNivelEduXFrecConsumoMarihuana(parVariableSelect1:string,parVariableSelect2:string){
-    this._tesisService.getConteoNivelEduXFrecConsumoMarihuana(parVariableSelect1,parVariableSelect2).subscribe(res =>{
+    this._tesisService.getConteoDosVaraibles(parVariableSelect1,parVariableSelect2).subscribe(res =>{
       let array_data_claves_frec_consumo_marihuana = [];
       let array_data_valores_frec_consumo_marihuana: number[][] = [];
       let array_claves_nivel_edu: string[] = [];

@@ -11,6 +11,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { Caracteristica } from 'src/app/core/models/caracteristica';
 import { ChartType } from 'angular-google-charts';
 import { Router } from '@angular/router';
+import { icon } from 'leaflet';
 
 @Component({
   selector: 'app-tesis-form',
@@ -158,6 +159,12 @@ export class TesisFormComponent implements OnInit{
   predecir() : void {
     this.validoFormulario = true;
     if(this.gesPredictForm.invalid){
+      swal.fire({
+        icon: 'error',
+        title: "Todos los campos del formulario son obligatorios",
+        showConfirmButton: false,
+        timer: 2500
+      });
       return
     }
     this.loading = true;
@@ -192,6 +199,7 @@ export class TesisFormComponent implements OnInit{
         objCaracteristica.porcentaje = dataObjeto.porcentaje
         this.data_porcentajes_caracteristicas.push(dataObjeto.porcentaje)
         objCaracteristica.significado = dataObjeto.significado
+        objCaracteristica.respuesta = dataObjeto.respuesta
         this.caracteristicas.push(objCaracteristica)
       }
       console.log(this.caracteristicas);
@@ -339,7 +347,7 @@ export class TesisFormComponent implements OnInit{
         colors: colors,
       };
     }
-  
+
     const attributeToMonitor = 'data-theme';
 
     const observer = new MutationObserver(() => {

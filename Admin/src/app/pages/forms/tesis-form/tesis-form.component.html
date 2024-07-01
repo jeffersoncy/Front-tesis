@@ -148,6 +148,7 @@
                                           [attr.min]="0">
                                       <small id="etiquetaHelp" class="form-text text-muted">Número de personas que residen en su hogar.</small>
                                       <div class="invalid-feedback" *ngIf="f['residentes_hogar'].errors">
+                                          <span *ngIf="f['residentes_hogar'].errors['required']">Debe ingresar un número.</span>
                                           <span *ngIf="f['residentes_hogar'].errors['min']">El número no puede ser negativo.</span>
                                       </div>
                                   </div>
@@ -780,7 +781,7 @@
                       {{ caracteristica.clave }}
                     </div>
                   </div>
-                  
+
                   <div class="contenido">
                     <div>
                       <apx-chart [series]="strokedCircleChart.series" [chart]="strokedCircleChart.chart"
@@ -789,6 +790,7 @@
                     </div>
                     <div *ngIf="tabActiva != -1">
                         <p class="mb-0">{{ caracteristicas[tabActiva].significado }}</p>
+                        <p class="mb-0">Su respuesta: {{ caracteristicas[tabActiva].respuesta }}</p>
                     </div>
                   </div>
                 </div>

@@ -32,7 +32,7 @@ export const GlobalComponent = {
     lista_variables_significado:'lista_variables_significado',
 
     conteo_depto:'conteo_depto?',
-    conteo_niv_eduXfrecMarih: 'conteo_nivel_edu_marihuana?',
+    conteo_dos_variables: 'conteo_dos_variables?',
     conteo_niv_eduXfrecCocaina: 'conteo_nivel_edu_cocaina',
     conteo_niv_eduXfrecBazuco: 'conteo_nivel_edu_bazuco',
     conteo_riesgoXsexoTipo: 'conteo_riesgo_sexo_tipo'

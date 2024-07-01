@@ -33,8 +33,8 @@ export class TesisService {
     return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_depto + 'filtro_param=' + filtro_param)
   }
 
-  getConteoNivelEduXFrecConsumoMarihuana(filtro1_param: string, filtro2_param: string): Observable<any>{
-    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_niv_eduXfrecMarih + 'filtro1_param=' + filtro1_param + '&filtro2_param=' + filtro2_param )
+  getConteoDosVaraibles(filtro1_param: string, filtro2_param: string): Observable<any>{
+    return this.http.get<any>(GlobalComponent.API_TESIS + GlobalComponent.conteo_dos_variables + 'filtro1_param=' + filtro1_param + '&filtro2_param=' + filtro2_param )
   }
 
   getConteoNivelEduXFrecConsumoCocaina(): Observable<any>{
