@@ -24,6 +24,17 @@ export class TesisFormComponent implements OnInit{
   strokedCircleChart: any;
   distributedColumnChart: any;
   public validoFormulario !: boolean;
+  public validoFormularioP1 !: boolean;
+  public validoFormularioP2 !: boolean;
+
+  public selectNoFamiliares = false;
+  public selectNoAmigos = false;
+
+  public isNoAplicaDisabledFam = false;
+  public isNoAplicaDisabledAmi = false;
+  public isNuncaFrecuencia = false;
+  public isNoAplicaOfer = false;
+
   public botonSiguiente : boolean = false;
   public mostrarCaracteristicas : boolean = false;
   public registro!:Registro;
@@ -68,45 +79,53 @@ export class TesisFormComponent implements OnInit{
   ){
     this.listaDepartamentos = new Array<Departamento>();
     this.gesPredictForm = this.formBuilder.group({
-      departamento: ['', [Validators.required]],
-      residentes_hogar: ['', [Validators.required]],
-      d2_04_num_hijos: ['', [Validators.required]],
-      per_edad_tipo: ['', [Validators.required]],
-      estrato_tipo: ['', [Validators.required]],
-      situacion_tipo: ['', [Validators.required]],
-      frecuencia_consumo_marihuana_tipo: ['', [Validators.required]],
-      frecuencia_consumo_cocaina_tipo: ['', [Validators.required]],
-      frecuencia_consumo_basuco_tipo: ['', [Validators.required]],
-      per_sexo_tipo: ['', [Validators.required]],
-      vive_padre_hogar_tipo: ['', [Validators.required]],
-      vive_madre_hogar_tipo: ['', [Validators.required]],
-      vivienda_tipo: ['', [Validators.required]],
-      d_01_aporta_dinero_hogar_tipo: ['', [Validators.required]],
-      d_08_estado_salud_tipo: ['', [Validators.required]],
-      d_09_deprimido_tipo: ['', [Validators.required]],
-      d_10_poco_interes_tipo: ['', [Validators.required]],
-      d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo: ['', [Validators.required]],
-      d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo: ['', [Validators.required]],
-      d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo: ['', [Validators.required]],
-      d_12_b_presenta_problema_consumo_sp_barrio_tipo: ['', [Validators.required]],
-      d_12_c_presenta_problema_expendio_sp_barrio_tipo: ['', [Validators.required]],
-      d2_01_etnia_tipo: ['', [Validators.required]],
-      d2_03_estado_civil_tipo: ['', [Validators.required]],
-      d2_05_nivel_educativo_tipo: ['', [Validators.required]],
-      g_01_familiares_consumen_sp_tipo: ['', [Validators.required]],
-      g_02_amigos_consumen_sp_tipo: ['', [Validators.required]],
-      g_03_curiosidad_probar_sp_tipo: ['', [Validators.required]],
-      g_04_probaria_sp_tipo: ['', [Validators.required]],
-      g_05_posibilidad_probar_sp_tipo: ['', [Validators.required]],
-      g_06_a_posibilidad_conseguir_marihuana_tipo: ['', [Validators.required]],
-      g_06_b_posibilidad_conseguir_cocaina_tipo: ['', [Validators.required]],
-      g_06_c_posibilidad_conseguir_basuco_tipo: ['', [Validators.required]],
-      g_07_alguien_ofrecio_comprar_probar_sp_tipo: ['', [Validators.required]],
-      g_01_a_num_familiares_consumen_sp_imp_tipo: ['', [Validators.required]],
-      g_02_a_num_amigos_consumen_sp_imp_tipo: ['', [Validators.required]],
-      g_08_a_ofrecieron_marihuana_imp_tipo: ['', [Validators.required]],
-      g_08_b_ofrecieron_cocaina_imp_tipo: ['', [Validators.required]],
-      g_08_c_ofrecieron_basuco_imp_tipo: ['', [Validators.required]],
+      step1: this.formBuilder.group({
+        departamento: ['', [Validators.required]],
+        per_sexo_tipo: ['', [Validators.required]],
+        d2_03_estado_civil_tipo: ['', [Validators.required]],
+        per_edad_tipo: ['', [Validators.required]],
+        d2_04_num_hijos: ['', [Validators.required]],
+        estrato_tipo: ['', [Validators.required]],
+        d2_05_nivel_educativo_tipo: ['', [Validators.required]],
+        d2_01_etnia_tipo: ['', [Validators.required]],
+        d_08_estado_salud_tipo: ['', [Validators.required]],
+        d_09_deprimido_tipo: ['', [Validators.required]],
+        d_10_poco_interes_tipo: ['', [Validators.required]],
+      }),
+      step2: this.formBuilder.group({
+        residentes_hogar: ['', [Validators.required]],
+        vive_padre_hogar_tipo: ['', [Validators.required]],
+        vive_madre_hogar_tipo: ['', [Validators.required]],
+        d_01_aporta_dinero_hogar_tipo: ['', [Validators.required]],
+        vivienda_tipo: ['', [Validators.required]],
+        situacion_tipo: ['', [Validators.required]],
+        g_01_familiares_consumen_sp_tipo: ['', [Validators.required]],
+        g_01_a_num_familiares_consumen_sp_imp_tipo: ['', [Validators.required]],
+        g_02_amigos_consumen_sp_tipo: ['', [Validators.required]],
+        g_02_a_num_amigos_consumen_sp_imp_tipo: ['', [Validators.required]],
+        d_12_b_presenta_problema_consumo_sp_barrio_tipo: ['', [Validators.required]],
+        d_12_c_presenta_problema_expendio_sp_barrio_tipo: ['', [Validators.required]],
+      }),
+      step3: this.formBuilder.group({
+        bandera_frecuencia_consumo: ['', [Validators.required]],
+        frecuencia_consumo_marihuana_tipo: ['', [Validators.required]],
+        frecuencia_consumo_cocaina_tipo: ['', [Validators.required]],
+        frecuencia_consumo_basuco_tipo: ['', [Validators.required]],
+        d_11_h_conocimiento_riesgo_fumar_marihuana_frecuentemente_tipo: ['', [Validators.required]],
+        d_11_k_conocimiento_riesgo_cocaina_frecuentemente_tipo: ['', [Validators.required]],
+        d_11_n_conocimiento_riesgo_fumar_basuco_frecuentemente_tipo: ['', [Validators.required]],
+        g_03_curiosidad_probar_sp_tipo: ['', [Validators.required]],
+        g_04_probaria_sp_tipo: ['', [Validators.required]],
+        g_05_posibilidad_probar_sp_tipo: ['', [Validators.required]],
+        bandera_conseguir_spi: ['', [Validators.required]],
+        g_06_a_posibilidad_conseguir_marihuana_tipo: ['', [Validators.required]],
+        g_06_b_posibilidad_conseguir_cocaina_tipo: ['', [Validators.required]],
+        g_06_c_posibilidad_conseguir_basuco_tipo: ['', [Validators.required]],
+        g_07_alguien_ofrecio_comprar_probar_sp_tipo: ['', [Validators.required]],
+        g_08_a_ofrecieron_marihuana_imp_tipo: ['', [Validators.required]],
+        g_08_b_ofrecieron_cocaina_imp_tipo: ['', [Validators.required]],
+        g_08_c_ofrecieron_basuco_imp_tipo: ['', [Validators.required]],
+      }),
     });
   }
 
@@ -114,6 +133,8 @@ export class TesisFormComponent implements OnInit{
 
     this.obtenerListaDepartamentos()
     this.validoFormulario = false;
+    this.validoFormularioP1 = false;
+    this.validoFormularioP2 = false;
     this.registro = new Registro();
     this._strokedCircleChart('["--tb-success"]');
     this._distributedColumnChart('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-dark", "--tb-info"]')
@@ -148,11 +169,207 @@ export class TesisFormComponent implements OnInit{
   private limpiarFormulario() : void {
     this.gesPredictForm.reset()
     this.validoFormulario = false;
+    this.validoFormularioP1 = false;
+    this.validoFormularioP2 = false;
+  }
+
+  get step1() {
+    return this.gesPredictForm.get('step1') as FormGroup;
+  }
+
+  get step2() {
+    return this.gesPredictForm.get('step2') as FormGroup;
+  }
+
+  get step3() {
+    return this.gesPredictForm.get('step3') as FormGroup;
   }
 
 
   get f(){
     return this.gesPredictForm.controls;
+  }
+
+  avanzarPer(step: FormGroup){
+    this.validoFormulario = true;
+    if (step.invalid) {
+      swal.fire({
+        icon: 'error',
+        title: "Todos los campos del formulario son obligatorios",
+        showConfirmButton: false,
+        timer: 2500
+      });
+      return
+    }
+    this.stepper.next();
+  }
+
+  avanzarConP1(step: FormGroup){
+    this.validoFormularioP1 = true;
+    if (step.invalid) {
+      swal.fire({
+        icon: 'error',
+        title: "Todos los campos del formulario son obligatorios",
+        showConfirmButton: false,
+        timer: 2500
+      });
+      return
+    }
+    this.stepper.next();
+  }
+
+  familiaConsumeChanege(){
+    let valorSeleccionado = this.step2.get('g_01_familiares_consumen_sp_tipo')?.value;
+    console.log("Data al seleccionar: " + valorSeleccionado);
+    if (valorSeleccionado === "g_01_No") {
+      this.step2.get('g_01_a_num_familiares_consumen_sp_imp_tipo')?.setValue("g_01_a_No_aplica");
+      this.step2.get('g_01_a_num_familiares_consumen_sp_imp_tipo')?.disable();
+    }else{
+      this.isNoAplicaDisabledFam = true;
+      this.step2.get('g_01_a_num_familiares_consumen_sp_imp_tipo')?.setValue("");
+      this.step2.get('g_01_a_num_familiares_consumen_sp_imp_tipo')?.enable();
+    }
+  }
+
+  amigosConsumeChanege(){
+    let valorSeleccionado = this.step2.get('g_02_amigos_consumen_sp_tipo')?.value;
+    console.log("Data al seleccionar: " + valorSeleccionado);
+    if (valorSeleccionado === "g_02_No") {
+      this.step2.get('g_02_a_num_amigos_consumen_sp_imp_tipo')?.setValue("g_02_a_No_aplica");
+      this.step2.get('g_02_a_num_amigos_consumen_sp_imp_tipo')?.disable();
+    }else{
+      this.isNoAplicaDisabledAmi = true;
+      this.step2.get('g_02_a_num_amigos_consumen_sp_imp_tipo')?.setValue("");
+      this.step2.get('g_02_a_num_amigos_consumen_sp_imp_tipo')?.enable();
+    }
+  }
+
+  banderaFrecuenciaChanege(){
+    let valorSeleccionado = this.step3.get('bandera_frecuencia_consumo')?.value;
+    console.log("Data al seleccionar: " + valorSeleccionado);
+    if (valorSeleccionado === "bandera_frecuencia_consumo_No") {
+      this.step3.get('frecuencia_consumo_marihuana_tipo')?.setValue("Nunca");
+      this.step3.get('frecuencia_consumo_cocaina_tipo')?.setValue("Nunca");
+      this.step3.get('frecuencia_consumo_basuco_tipo')?.setValue("Nunca");
+      this.step3.get('frecuencia_consumo_marihuana_tipo')?.disable();
+      this.step3.get('frecuencia_consumo_cocaina_tipo')?.disable();
+      this.step3.get('frecuencia_consumo_basuco_tipo')?.disable();
+    }else{
+      this.isNuncaFrecuencia = true;
+      this.step3.get('frecuencia_consumo_marihuana_tipo')?.setValue("");
+      this.step3.get('frecuencia_consumo_cocaina_tipo')?.setValue("");
+      this.step3.get('frecuencia_consumo_basuco_tipo')?.setValue("");
+      this.step3.get('frecuencia_consumo_marihuana_tipo')?.enable();
+      this.step3.get('frecuencia_consumo_cocaina_tipo')?.enable();
+      this.step3.get('frecuencia_consumo_basuco_tipo')?.enable();
+    }
+  }
+
+  banderaConseguirChanege(){
+    let valorSeleccionado = this.step3.get('bandera_conseguir_spi')?.value;
+    console.log("Data al seleccionar: " + valorSeleccionado);
+    if (valorSeleccionado === "bandera_conseguir_spi_No") {
+      this.step3.get('g_06_a_posibilidad_conseguir_marihuana_tipo')?.setValue("g_06_a_No_podria_conseguir");
+      this.step3.get('g_06_b_posibilidad_conseguir_cocaina_tipo')?.setValue("g_06_b_No_podria_conseguir");
+      this.step3.get('g_06_c_posibilidad_conseguir_basuco_tipo')?.setValue("g_06_c_No_podria_conseguir");
+      this.step3.get('g_06_a_posibilidad_conseguir_marihuana_tipo')?.disable();
+      this.step3.get('g_06_b_posibilidad_conseguir_cocaina_tipo')?.disable();
+      this.step3.get('g_06_c_posibilidad_conseguir_basuco_tipo')?.disable();
+    }else{
+      this.step3.get('g_06_a_posibilidad_conseguir_marihuana_tipo')?.setValue("");
+      this.step3.get('g_06_b_posibilidad_conseguir_cocaina_tipo')?.setValue("");
+      this.step3.get('g_06_c_posibilidad_conseguir_basuco_tipo')?.setValue("");
+      this.step3.get('g_06_a_posibilidad_conseguir_marihuana_tipo')?.enable();
+      this.step3.get('g_06_b_posibilidad_conseguir_cocaina_tipo')?.enable();
+      this.step3.get('g_06_c_posibilidad_conseguir_basuco_tipo')?.enable();
+    }
+  }
+
+  ofertSpiChanege(){
+    let valorSeleccionado = this.step3.get('g_07_alguien_ofrecio_comprar_probar_sp_tipo')?.value;
+    console.log("Data al seleccionar: " + valorSeleccionado);
+    if (valorSeleccionado === "g_07_No") {
+      this.step3.get('g_08_a_ofrecieron_marihuana_imp_tipo')?.setValue("g_08_a_No_aplica");
+      this.step3.get('g_08_b_ofrecieron_cocaina_imp_tipo')?.setValue("g_08_b_No_aplica");
+      this.step3.get('g_08_c_ofrecieron_basuco_imp_tipo')?.setValue("g_08_c_No_aplica");
+      this.step3.get('g_08_a_ofrecieron_marihuana_imp_tipo')?.disable();
+      this.step3.get('g_08_b_ofrecieron_cocaina_imp_tipo')?.disable();
+      this.step3.get('g_08_c_ofrecieron_basuco_imp_tipo')?.disable();
+    }else{
+      this.isNoAplicaOfer = true;
+      this.step3.get('g_08_a_ofrecieron_marihuana_imp_tipo')?.setValue("");
+      this.step3.get('g_08_b_ofrecieron_cocaina_imp_tipo')?.setValue("");
+      this.step3.get('g_08_c_ofrecieron_basuco_imp_tipo')?.setValue("");
+      this.step3.get('g_08_a_ofrecieron_marihuana_imp_tipo')?.enable();
+      this.step3.get('g_08_b_ofrecieron_cocaina_imp_tipo')?.enable();
+      this.step3.get('g_08_c_ofrecieron_basuco_imp_tipo')?.enable();
+    }
+  }
+
+  newPredict(step: FormGroup) : void {
+    this.validoFormularioP2 = true;
+    if(step.invalid){
+      swal.fire({
+        icon: 'error',
+        title: "Todos los campos del formulario son obligatorios",
+        showConfirmButton: false,
+        timer: 2500
+      });
+      return
+    }
+    this.loading = true;
+    this.spinner.show()
+
+    const formData = this.gesPredictForm.getRawValue();
+    let flattenedData: { [key: string]: string } = {};
+    for (const step in formData) {
+      if (formData.hasOwnProperty(step)) {
+        const stepData = formData[step];
+        for (const key in stepData) {
+          if (stepData.hasOwnProperty(key)) {
+            flattenedData[key] = stepData[key];
+          }
+        }
+      }
+    }
+
+    console.log(flattenedData);
+
+
+    delete flattenedData['bandera_frecuencia_consumo'];
+    delete flattenedData['bandera_conseguir_spi'];
+
+    this.registro = flattenedData
+
+    this._tesisService.predictUser(this.registro).subscribe(res => {
+      console.log("Respuesta al predecirrrr:");
+      console.log(res);
+      this.prediccion = res.prediccion
+      this.sig_prediccion = res.significado
+      let array_data_valores_frec_consumo_marihuana: number[][] = [];
+      let array_claves_nivel_edu: string[] = [];
+
+      for (let index = 0; index < res.caracteristicas.length; index++) {
+        let dataObjeto = res.caracteristicas[index];
+        let objCaracteristica:Caracteristica = new Caracteristica;
+        objCaracteristica.clave = dataObjeto.clave
+        this.data_claves_caracteristicas.push(dataObjeto.clave)
+        objCaracteristica.porcentaje = dataObjeto.porcentaje
+        this.data_porcentajes_caracteristicas.push(dataObjeto.porcentaje)
+        objCaracteristica.significado = dataObjeto.significado
+        objCaracteristica.respuesta = dataObjeto.respuesta
+        this.caracteristicas.push(objCaracteristica)
+      }
+      console.log(this.caracteristicas);
+
+
+      this.loading = false;
+      this.spinner.hide();
+      this.stepper.next();
+      this.mostrarCaracteristicas = true;
+      this.seleccionarTab(0);
+      this._distributedColumnChart('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-dark", "--tb-info"]')
+    })
   }
 
 
