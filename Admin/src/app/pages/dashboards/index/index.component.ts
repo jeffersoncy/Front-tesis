@@ -50,6 +50,10 @@ export class IndexComponent {
     }
   }
 
+  dirigirInfoComponente(){
+    this.router.navigate(['/info-app'])
+  }
+
   dirigirFormulario() {
     this.router.navigate(['/forms/tesis-predict'])
   }

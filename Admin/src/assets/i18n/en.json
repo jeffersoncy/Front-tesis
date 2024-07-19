@@ -7,6 +7,7 @@
       "TEXT": "Tableros",
       "LIST": {
         "ECOMMERCE": "Inicio",
+        "INFO": "Información de la app",
         "GRAPHS": "Estadisticas entre variables",
         "MAPS": "Mapa de calor"
       }
@@ -18,7 +19,7 @@
       }
     },
     "COMPONENTS": {
-      "TEXT": "Componentes"
+      "TEXT": "Interactue con el modelo predictivo"
     },
     "FORMS": {
       "TEXT": "Formularios",
