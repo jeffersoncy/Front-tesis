@@ -636,21 +636,6 @@
 
                                 <div class="mt-3">
                                   <div>
-                                    <label for="bandera_conseguir_spi" class="form-label">¿Podria conseguir algun tipo de sustancia psicoactiva?</label>
-                                    <select class="form-select" id="bandera_conseguir_spi"
-                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('bandera_conseguir_spi')?.errors }" formControlName="bandera_conseguir_spi" (change)="banderaConseguirChanege()">
-                                      <option value="bandera_conseguir_spi_Si">Si</option>
-                                      <option value="bandera_conseguir_spi_No">No</option>
-                                    </select>
-                                    <small id="etiqquetaHelp" class="form-text text-muted">Indique la facilidad con la que podria conseguir marihuana, cocaina o basuco</small>
-                                    <div class="invalid-feedback" *ngIf="step3.get('bandera_conseguir_spi')?.errors">
-                                      Debe seleccionar una opción
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div class="mt-3">
-                                  <div>
                                     <label for="g_06_a_posibilidad_conseguir_marihuana_tipo" class="form-label">¿Qué tan fácil le sería conseguir marihuana?</label>
                                     <select class="form-select" id="g_06_a_posibilidad_conseguir_marihuana_tipo"
                                     [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_06_a_posibilidad_conseguir_marihuana_tipo')?.errors }" formControlName="g_06_a_posibilidad_conseguir_marihuana_tipo">
@@ -668,7 +653,7 @@
 
                                 <div class="mt-3">
                                   <div>
-                                    <label for="g_06_b_posibilidad_conseguir_cocaina_tipo" class="form-label">¿Qué tan fácil le sería conseguir cocaína?</label>
+                                    <label for="g_06_b_posibilidad_conseguir_cocaina_tipo" class="form-label">¿Con que facilidad podría conseguir cocaína?</label>
                                     <select class="form-select" id="g_06_b_posibilidad_conseguir_cocaina_tipo"
                                     [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_06_b_posibilidad_conseguir_cocaina_tipo')?.errors }" formControlName="g_06_b_posibilidad_conseguir_cocaina_tipo">
                                       <option value="g_06_b_No_podria_conseguir">No podria conseguir</option>
@@ -685,7 +670,7 @@
 
                                 <div class="mt-3">
                                   <div>
-                                    <label for="g_06_c_posibilidad_conseguir_basuco_tipo" class="form-label">¿Qué tan fácil le sería conseguir basuco?</label>
+                                    <label for="g_06_c_posibilidad_conseguir_basuco_tipo" class="form-label">¿Con que grado de facilidad podría conseguir basuco?</label>
                                     <select class="form-select" id="g_06_c_posibilidad_conseguir_basuco_tipo"
                                     [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_06_c_posibilidad_conseguir_basuco_tipo')?.errors }" formControlName="g_06_c_posibilidad_conseguir_basuco_tipo">
                                       <option value="g_06_c_No_podria_conseguir">No podria conseguir</option>

@@ -34,6 +34,7 @@ export class TesisFormComponent implements OnInit{
   public isNoAplicaDisabledAmi = false;
   public isNuncaFrecuencia = false;
   public isNoAplicaOfer = false;
+  public isSiComsumo = false;
 
   public botonSiguiente : boolean = false;
   public mostrarCaracteristicas : boolean = false;
@@ -117,7 +118,6 @@ export class TesisFormComponent implements OnInit{
         g_03_curiosidad_probar_sp_tipo: ['', [Validators.required]],
         g_04_probaria_sp_tipo: ['', [Validators.required]],
         g_05_posibilidad_probar_sp_tipo: ['', [Validators.required]],
-        bandera_conseguir_spi: ['', [Validators.required]],
         g_06_a_posibilidad_conseguir_marihuana_tipo: ['', [Validators.required]],
         g_06_b_posibilidad_conseguir_cocaina_tipo: ['', [Validators.required]],
         g_06_c_posibilidad_conseguir_basuco_tipo: ['', [Validators.required]],
@@ -254,6 +254,10 @@ export class TesisFormComponent implements OnInit{
       this.step3.get('frecuencia_consumo_marihuana_tipo')?.disable();
       this.step3.get('frecuencia_consumo_cocaina_tipo')?.disable();
       this.step3.get('frecuencia_consumo_basuco_tipo')?.disable();
+
+      this.step3.get('g_05_posibilidad_probar_sp_tipo')?.setValue("");
+      this.step3.get('g_05_posibilidad_probar_sp_tipo')?.enable();
+
     }else{
       this.isNuncaFrecuencia = true;
       this.step3.get('frecuencia_consumo_marihuana_tipo')?.setValue("");
@@ -262,10 +266,13 @@ export class TesisFormComponent implements OnInit{
       this.step3.get('frecuencia_consumo_marihuana_tipo')?.enable();
       this.step3.get('frecuencia_consumo_cocaina_tipo')?.enable();
       this.step3.get('frecuencia_consumo_basuco_tipo')?.enable();
+
+      this.step3.get('g_05_posibilidad_probar_sp_tipo')?.setValue("g_05_Si");
+      this.step3.get('g_05_posibilidad_probar_sp_tipo')?.disable();
     }
   }
 
-  banderaConseguirChanege(){
+  /*banderaConseguirChanege(){
     let valorSeleccionado = this.step3.get('bandera_conseguir_spi')?.value;
     console.log("Data al seleccionar: " + valorSeleccionado);
     if (valorSeleccionado === "bandera_conseguir_spi_No") {
@@ -283,7 +290,7 @@ export class TesisFormComponent implements OnInit{
       this.step3.get('g_06_b_posibilidad_conseguir_cocaina_tipo')?.enable();
       this.step3.get('g_06_c_posibilidad_conseguir_basuco_tipo')?.enable();
     }
-  }
+  }*/
 
   ofertSpiChanege(){
     let valorSeleccionado = this.step3.get('g_07_alguien_ofrecio_comprar_probar_sp_tipo')?.value;
@@ -317,12 +324,18 @@ export class TesisFormComponent implements OnInit{
       });
       return
     }
-    this.loading = true;
-    this.spinner.show()
 
     const formData = this.gesPredictForm.getRawValue();
-    let flattenedData: { [key: string]: string } = {};
-    for (const step in formData) {
+    //let flattenedData: { [key: string]: string } = {};
+
+    const flattenedData = {
+      ...formData.step1,
+      ...formData.step2,
+      ...formData.step3,
+    };
+
+
+    /*for (const step in formData) {
       if (formData.hasOwnProperty(step)) {
         const stepData = formData[step];
         for (const key in stepData) {
@@ -331,13 +344,38 @@ export class TesisFormComponent implements OnInit{
           }
         }
       }
-    }
+    }*/
 
     console.log(flattenedData);
 
+    if (flattenedData.bandera_frecuencia_consumo == "bandera_frecuencia_consumo_Si" &&
+      flattenedData.frecuencia_consumo_marihuana_tipo == "Nunca" &&
+      flattenedData.frecuencia_consumo_cocaina_tipo == "Nunca" &&
+      flattenedData.frecuencia_consumo_basuco_tipo == "Nunca") {
+        swal.fire({
+          icon: 'error',
+          title: "Debido a que su respuesta relacionada a si ha consumido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca' al mismo tiempo",
+          showConfirmButton: true,
+        });
+        return;
+    }
 
-    delete flattenedData['bandera_frecuencia_consumo'];
-    delete flattenedData['bandera_conseguir_spi'];
+    if (flattenedData.g_07_alguien_ofrecio_comprar_probar_sp_tipo == "g_07_Si" &&
+      flattenedData.g_08_a_ofrecieron_marihuana_imp_tipo == "g_08_a_Nunca_me_han_ofrecido" &&
+      flattenedData.g_08_b_ofrecieron_cocaina_imp_tipo == "g_08_b_Nunca_me_han_ofrecido" &&
+      flattenedData.g_08_c_ofrecieron_basuco_imp_tipo == "g_08_c_Nunca_me_han_ofrecido") {
+        swal.fire({
+          icon: 'error',
+          title: "Debido a que su respuesta relacionada a si le han ofrecido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca me han ofrecido' a mismo tiempo.",
+          showConfirmButton: true,
+        });
+        return;
+    }
+    //delete flattenedData['bandera_frecuencia_consumo'];
+    //delete flattenedData['bandera_conseguir_spi'];
+
+    this.loading = true;
+    this.spinner.show()
 
     this.registro = flattenedData
 
