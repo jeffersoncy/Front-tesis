@@ -15,6 +15,8 @@ import { VariableSignificado } from 'src/app/core/models/variable_significado';
 })
 export class IndexComponent {
   public variablesSignificado: VariableSignificado[] = [];
+  isHovered: boolean = false; //boton predecir
+
   constructor(private _tesisService: TesisService, private router: Router, private elRef: ElementRef) { }
 
   ngOnInit(): void {
@@ -56,6 +58,29 @@ export class IndexComponent {
 
   dirigirFormulario() {
     this.router.navigate(['/forms/tesis-predict'])
+  }
+
+  dirigirGraficos() {
+    this.router.navigate(['/tesis-graphs'])
+  }
+
+  dirigirMapa() {
+    this.router.navigate(['/tesis-maps'])
+  }
+
+  onMouseOver() { // boton
+    this.isHovered = true;
+  }
+
+  onMouseOut() { // boton
+    this.isHovered = false;
+  }
+
+  scrollTo(section: string) {
+    const element = this.elRef.nativeElement.querySelector(`#${section}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
 }

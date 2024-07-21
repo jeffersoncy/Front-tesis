@@ -1,1 +1,107 @@
-           
+.proposito {
+    margin-left: 60px;
+    margin-bottom: 90px;
+}
+
+.titulo {
+    margin-left: 60px;
+    margin-bottom: 95px;
+}
+
+
+.boton-interactivo { 
+    background-color: #3498db ;
+    background-image: linear-gradient(to bottom, #8fc6eb, #3498db );
+    color: #08273b;
+    border: 1px solid #186fa9;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-right: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra para efecto 3D */
+    margin-bottom: 95px;
+    margin-left: 210px;
+}
+
+/* 3498db azul mas clarito */
+
+.boton-interactivo:hover {
+    background-color: #3498db;
+    background-image: linear-gradient(to bottom, #85bce1, #3498db);
+    box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra para efecto 3D más pronunciada */
+    transform: translateY(-2px);
+}
+
+.boton-interactivo:active {
+    box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto 3D cuando está activo */
+    transform: translateY(0);
+}
+
+.boton-interactivo i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+
+.caracteristicas {
+    margin-left: 60px;
+    font-size: 14px;
+}
+
+
+  .menu {
+    width: 340px;
+    margin: 0 auto; /* Para centrar el menú horizontalmente */
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Para centrar el contenido horizontalmente */
+    padding: 15px;
+    background-color: #08273b;
+    color: white;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    margin-top: 15px;
+  }
+  
+  .menu-item i {
+    margin-right: 10px;
+  }
+  
+  .menu-item:hover {
+    background-color: #3498db;
+  }
+
+  h2, h3, h4 {
+    color: #333;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  h2 i, h3 i, h4 i {
+    color: #08273b;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  
+  /* Hover Effects */
+h2:hover, h3:hover, h4:hover {
+    color: #3498db;
+  }
+
+  h2:hover i, h3:hover i, h4:hover i {
+    transform: scale(1.2);
+  }

@@ -1,4 +1,166 @@
-.table thead.custom-thead th {
-  background-color: #1b242d; /* Color de fondo personalizado */
-  color: white !important; /* Color del texto con mayor especificidad */
+.container {
+  padding: 20px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s ease;
+  margin-bottom:  20px;
+}
+
+h2, h3, h4 {
+  color: #333;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+h2 i, h3 i, h4 i {
+  color: #08273b;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+ul, ol {
+  margin: 10px 0;
+  padding-left: 20px;
+  transition: opacity 0.3s ease;
+}
+
+ul li, ol li {
+  margin-bottom: 5px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+/* Hover Effects */
+h2:hover, h3:hover, h4:hover {
+  color: #3498db;
+}
+
+h2:hover i, h3:hover i, h4:hover i {
+  transform: scale(1.2);
+}
+
+.container:hover {
+  background-color: #fff;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in effect */
+.container section {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  margin-bottom: 50px;
+}
+
+.container section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Images */
+.responsive-img {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0px 0;
+  max-width: 80%;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  max-width: 80%; 
+  height: auto;   /* Mantiene la proporción de la imagen */
+  border-radius: 25px;
+}
+
+.contenedor-imagen {
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
+  margin: 20px 0;          /* Espacio arriba y abajo del contenedor */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #08273b; /* Azul oscuro */
+  color: white; /* Color del texto en blanco para contraste */
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: #f4f4f4; /* Color de fondo al pasar el cursor */
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Estilos para la tabla compacta */
+.table-responsive {
+  /* Sin estilos de scroll para la tabla completa */
+}
+
+/* Estilo específico para la tabla con scroll */
+.scrollable-content {
+  max-height: 300px; /* Ajusta la altura máxima según sea necesario */
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+.scrollable-table {
+  width: 100%; /* Asegura que la tabla ocupe todo el ancho disponible */
+}
+
+.scrollable-table thead th {
+  background-color: #08273b; /* Azul oscuro para el encabezado */
+  color: white; /* Texto en blanco para contraste */
+  text-align: left; /* Alineación del texto a la izquierda */
+  padding: 8px; /* Espaciado interno de las celdas */
+}
+
+.scrollable-table tbody td {
+  padding: 8px; /* Espaciado interno de las celdas */
+}
+
+.scrollable-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Fondo gris claro para filas pares */
+}
+
+.scrollable-table tbody tr:hover {
+  background-color: #e2e2e2; /* Fondo gris más oscuro al pasar el cursor */
+}
+
+/* Establecer el tamaño de las columnas manualmente */
+.scrollable-table .col-key {
+  width: 20%; /* Ajusta el ancho de la columna 'Clave' según sea necesario */
+}
+
+.scrollable-table .col-meaning {
+  width: 80%; /* Ajusta el ancho de la columna 'Significado' según sea necesario */
 }

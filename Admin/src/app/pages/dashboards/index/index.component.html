@@ -9,122 +9,86 @@
                 <div style="position: absolute; top: 20px; left: 0; width: 100%; height: 100px; background-color: #08273b; z-index: 2; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 0 20px;">
                     <!-- Contenido del bloque azul -->
                     <div>
-                        <h3 style="color: white;">¡Descubre lo que nuestra aplicación tiene para ofrecer!</h3>
-                        <p style="color: white;">Obtén una visión completa de nuestra aplicación y su impacto en la prevención del consumo de sustancias. Accede a contenido detallado, videos instructivos de la aplicación y el significado de las variables del modelo utilizado.</p>
+                        <h4 style="color: white;">¡Descubre lo que nuestra aplicación tiene para ofrecer!</h4>
+                        <p style="color: white; font-size: 13px;">Obtén una visión completa de nuestra aplicación y su impacto en la prevención del consumo de sustancias. Accede a contenido detallado e información del significado de las variables del modelo utilizado.</p>
                     </div>
                     <!-- Botón de "Más Información" -->
                     <button style="background-color: #3498db; color: white; border: none; border-radius: 5px; padding: 8px 16px; cursor: pointer;" (click)="dirigirInfoComponente()">Más Información</button>
                 </div>
-                <br><br><br><br><br><br><br>
-                <h2 style="color: #08273b; text-align: left;">Un Futuro sin Riesgos: Tu Apoyo en la Prevención de las Adicciones</h2><br><br><br>
-                <p style="color: #08273b; text-align: left; font-size: 16px;">Nuestra aplicación previene el consumo de sustancias psicoactivas, <br>con predicciones de riesgo e información de cuales fueron los factores de riesgo mas influyentes.</p><br><br>
+                <br><br><br><br><br><br><br><br>
+                <h4 class = "titulo" style="color: #08273b; text-align: left; ">Un Futuro sin Riesgos: Tu Apoyo en la Prevención de las Adicciones</h4>
+                <p class = "proposito" style="color: #08273b; text-align: left; font-size: 14px;">Nuestra aplicación previene el consumo de sustancias psicoactivas, con predicciones <br> de riesgo e información de cuales fueron los factores de riesgo mas influyentes.</p>
                 <!-- Otro contenido aquí si es necesario -->
-                <!-- Botón "Predecir" -->
-                <button style="background-color: #08273b; color: white; border: none; border-radius: 10px; padding: 15px 30px; font-size: 18px; font-weight: bold; margin-top: 0px; margin-right: 50px; cursor: pointer;" (click)="dirigirFormulario()">Interactuar con el modelo</button>
-                <br><br><br>
-                <!-- Beneficios de la app -->
-                <div style="display: flex; flex-direction: row;">
+                <!-- Botón "Predecir" rediseñado -->
+                <button (click)="dirigirFormulario()" class="boton-interactivo">
+                    <i class="fas fa-play"></i> <!-- Icono de play --> Interactuar con el modelo
+                </button><!-- Beneficios de la app -->
+                <div class = "caracteristicas" style="display: flex; flex-direction: row;">
                     <!-- Icono y texto 1 -->
                     <div style="display: flex; align-items: center; margin-right: 20px;">
                         <img src="../../../../assets/images/tesis/verify.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
-                        <span style="color: #08273b; font-size: 16px;">Prevención personalizada</span>
+                        <span style="color: #08273b; font-size: 14px;">Prevención personalizada</span>
                     </div>
                     <!-- Icono y texto 2 -->
                     <div style="display: flex; align-items: center; margin-right: 20px;">
                         <img src="../../../../assets/images/tesis/verify.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
-                        <span style="color: #08273b; font-size: 16px;">Datos Significativos</span>
+                        <span style="color: #08273b; font-size: 14px;">Datos Significativos</span>
                     </div>
                     <!-- Icono y texto 3 -->
                     <div style="display: flex; align-items: center; margin-right: 20px;">
                         <img src="../../../../assets/images/tesis/verify.png" alt="Icono" style="width: 30px; height: 30px; margin-right: 5px;">
-                        <span style="color: #08273b; font-size: 16px;">Intervención Rápida</span>
+                        <span style="color: #08273b; font-size: 14px;">Intervención Rápida</span>
                     </div>
                 </div>
             </div>
         </div>
     </div><!--end col-->
-    <div id="informacion" class="row">
-        <div class="col-lg-12">
-            <div class="card" id="contactList" style="height: 830px; position: relative; background-image: url('../../../../assets/images/tesis/stop-drug.jpg'); background-size: cover; overflow: hidden;">
-
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.1); z-index: 1;"></div>
-
-                <!-- Contenido dentro de la tarjeta -->
-                <div class="card-body" style="position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <br><br>
-                    <h2 style="color: white; text-align: center;">Información sobre la aplicación</h2>
-                    <br>
-                    <p style="color: white; text-align: center; font-size: 15px;">El consumo de sustancias psicoactivas en Colombia es un problema que ha crecido durante el pasar de los años, donde los jóvenes que dia a dia buscan experimentar nuevas experiencias se encuentran con este tipo de sustancias como por ejemplo, Marihuana, Cocaína y Basuco, sustancias que se han convertido en algo común en la vida, sin olvidar que esta problemática no solo se presenta para el consumo sino también para el mercado de estas(Sustancias), pues su comercio ha aumentado cada vez mas, además, es de resaltar que algunas personas que consumen este tipo de sustancias en algún momento dejan de consumirlas por sí mismos, mientras que otras personas se ven afectadas directamente y no logran dejar de consumirlas, afectando las relaciones sociales, familiares y del trabajo, lo cual también afecta la salud de persona, tanto física como mentalmente.</p>
-                    <p style="color: white; text-align: center; font-size: 15px;">Por ende, el propósito de esta aplicación es proporcionar una herramienta que identifique y apoye a personas que están en riesgo, educar y concientizar al público sobre los riesgos asociados y contribuir al análisis de datos e investigación en el campo de la Inteligencia Artificial, generalmente se centra en los siguientes objetivos:</p>
-                    <p style="color: white; text-align: center; font-size: 15px;">Nuestra principal meta es prevenir el consumo de sustancias psicoactivas en Colombia, enfocándonos en diferente tipos de grupos que se ven afectados en mayor medida como los jóvenes. Para ello, la aplicación proporcionará información de acuerdo con la predicción sobre el riesgo en el que se encuentra la persona (muy bajo, bajo, medio, alto y muy alto), además de los efectos nocivos de estas sustancias, así como consejos de evitar el consumo de dichas sustancias.</p>
-                    <p style="color: white; text-align: center; font-size: 15px;">La aplicación será una herramienta de gran ayuda a personas que puedan estar en riesgo de ingresar al consumo o que ya están presentando problemas relacionados a ello. Por lo cual, la aplicación tendrá como soporte los datos recolectados y aplicando algoritmos específicos, se pueden evaluar los factores de riesgo influyentes y proporcionar al usuario una retroalimentación personalizada.</p>
-                    <p style="color: white; text-align: center; font-size: 15px;">Otra gran utilidad es que la aplicación puede ayudar como herramienta educativa ya que los usuarios de la app pueden aumentar la conciencia sobre los riesgos asociados al consumo de sustancias psicoactivas y todos los efectos que puede traer como afectar la salud física y mental, las relaciones personales y rendimiento académico o rendimiento laboral según sea el caso.</p>
-                    <p style="color: white; text-align: center; font-size: 15px;">La aplicación puede contribuir a la investigación y análisis de tendencias relacionadas con el consumo de sustancias psicoactivas en Colombia. Esto puede ayudar a proporcionar información y a crear programas de prevención más efectivos por parte de las entidades de salud pública.</p>
-                    <!-- Otro contenido aquí si es necesario -->
-                    <br><br>
-                    <!-- Beneficios de la app -->
-
-
-            </div>
-          </div>
-        </div><!--end col-->
-      </div>
 </div><!--end row-->
 
 <div class="row justify-content-center text-center" >
-  <div class="col-xl-9 col-lg-6">
+  <div class="col-xl-8 col-lg-6" id="video">
       <div class="card card-height-100">
           <div class="card-header d-flex">
-              <h3 class="card-title flex-grow-1 mb-0">Video instructivo de la aplicación</h3>
+              <h2 (click)="scrollTo('video')" class="card-title flex-grow-1 mb-0" style="font-size: 18px;"><i class="fas fa-video"></i>Video instructivo de la aplicación</h2>
           </div>
           <div class="card-body px-0">
-            <iframe width="800" height="510" src="https://www.youtube.com/embed/vR5mzbhv6hY?si=IiFbtaWUCbWr3lii" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="650" height="400" src="https://www.youtube.com/embed/vR5mzbhv6hY?si=IiFbtaWUCbWr3lii" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
       </div>
   </div><!--end col-->
-  <div class="col-xl-3 col-lg-6 justify-content-center">
-      <div class="card " id="contactList">
+  <div class="col-xl-4 col-lg-6 justify-content-center">
+      <div class="card " id="contactList" id="funciones">
           <div class="card-header align-items-center d-flex">
-              <h3 class="card-title mb-0 flex-grow-1">Información sobre el set de datos utilizado</h3>
-          </div>
+              <h3 (click)="scrollTo('funciones')" class="card-title mb-0 flex-grow-1" style="font-size: 18px;"><i class="fas fa-tools"></i>Funciones y Herramientas</h3>
+          </div><br>
           <div class="card-body">
-            <p style="font-size: 15px;">El set de datos utilizado para la creación del modelo predictivo se tomó a partir de la Encuesta Nacional de Consumo de Sustancias Psicoactivas en Población General - ENCSPA- 2019, una ecuesta realizada por Departamento Administrativo Nacional de Estadística DANE.</p>
-            <p style="font-size: 15px;">La encuesta fue realizada con el fin de conocer la situación de las personas a partir de diferentes preguntas que se realizaron, tanto preguntas de caracter informativo como edad, etnia, lugar de vivienda, entre otros, asi mismo preguntas acerca del consumo de alcohol y sustancias psicoactivas ilegales.</p>
-            <p style="font-size: 15px;">Si desea conocer mas información sobre el set de datos usado puede ingresar al siguiente link: <a href="https://microdatos.dane.gov.co/index.php/catalog/680/study-description">Link de acceso al set de datos</a>.</p>
-          </div>
+            <div class="menu">
+                <a (click)="dirigirInfoComponente()" class="menu-item">
+                  <i class="fas fa-info-circle"></i>
+                  Información de la App
+                </a>
+                <a (click)="dirigirGraficos()" class="menu-item">
+                  <i class="fas fa-chart-bar"></i>
+                  Estadísticas y Gráficos
+                </a>
+                <a (click)="dirigirMapa()" class="menu-item">
+                  <i class="fas fa-map"></i>
+                  Mapa de Calor
+                </a>
+                <a (click)="dirigirFormulario()" class="menu-item">
+                  <i class="fas fa-file-alt"></i>
+                  Formulario para Predecir
+                </a>
+                <a href="https://microdatos.dane.gov.co/index.php/catalog/680/study-description" target="_blank" class="menu-item">
+                    <i class="fas fa-database"></i>
+                    Información Data Set
+                  </a>
+              </div>
+            </div><br><br><br>
       </div>
   </div><!--end col-->
 </div><!--end row-->
 
-<div class="row justify-content-center text-center" >
-  <div class="col-xl-12 col-lg-6 justify-content-center">
-      <div class="card " id="contactList" >
-          <div class="card-header align-items-center d-flex">
-              <h4 class="card-title mb-0 flex-grow-1">Variables del modelo</h4>
-          </div>
-          <div class="card-body">
-              <div class="table-responsive" style="min-height: 400px;max-height: 400px;min-width: 80%; max-width: 70%; margin-left: auto; margin-right: auto;">
-                  <table class="table table-striped table-hover mb-0">
-                      <thead class="text-muted table-light">
-                          <tr >
-                              <th scope="col" >Clave</th>
-                              <th scope="col" >Significado</th>
-                          </tr>
-                      </thead>
-                      <tbody class="list">
-                          <tr *ngFor="let variableSig of variablesSignificado">
-                              <td class="customer">
-                                  {{variableSig.clave}}
-                              </td>
-                              <td class="products">{{variableSig.significado}}</td>
-                          </tr><!-- end tr -->
-                      </tbody><!-- end tbody -->
-                  </table><!-- end table -->
-              </div>
-          </div>
-      </div>
-  </div><!--end col-->
-</div><!--end row-->
 
 
 
