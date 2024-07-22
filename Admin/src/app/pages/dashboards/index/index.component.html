@@ -45,9 +45,9 @@
     </div><!--end col-->
 </div><!--end row-->
 
-<div class="row justify-content-center text-center" >
-  <div class="col-xl-8 col-lg-6" id="video">
-      <div class="card card-height-100">
+<div class="row justify-content-center text-center d-flex align-items-stretch">
+  <div class="col-xl-8 col-lg-6 d-flex flex-column" id="video">
+      <div class="card card-height-100 flex-grow-1">
           <div class="card-header d-flex">
               <h2 (click)="scrollTo('video')" class="card-title flex-grow-1 mb-0" style="font-size: 18px;"><i class="fas fa-video"></i>Video instructivo de la aplicación</h2>
           </div>
@@ -56,35 +56,35 @@
           </div>
       </div>
   </div><!--end col-->
-  <div class="col-xl-4 col-lg-6 justify-content-center">
-      <div class="card " id="contactList" id="funciones">
+  <div class="col-xl-4 col-lg-6 d-flex flex-column justify-content-center" id="funciones">
+      <div class="card flex-grow-1" id="contactList" style="height: 96%;">
           <div class="card-header align-items-center d-flex">
               <h3 (click)="scrollTo('funciones')" class="card-title mb-0 flex-grow-1" style="font-size: 18px;"><i class="fas fa-tools"></i>Funciones y Herramientas</h3>
           </div><br>
-          <div class="card-body">
-            <div class="menu">
-                <a (click)="dirigirInfoComponente()" class="menu-item">
+          <div class="card-body d-flex flex-column">
+            <div class="menu d-flex flex-column flex-grow-1">
+                <a (click)="dirigirInfoComponente()" class="menu-item d-flex align-items-center justify-content-center flex-grow-1">
                   <i class="fas fa-info-circle"></i>
                   Información de la App
                 </a>
-                <a (click)="dirigirGraficos()" class="menu-item">
+                <a (click)="dirigirGraficos()" class="menu-item d-flex align-items-center justify-content-center flex-grow-1">
                   <i class="fas fa-chart-bar"></i>
                   Estadísticas y Gráficos
                 </a>
-                <a (click)="dirigirMapa()" class="menu-item">
+                <a (click)="dirigirMapa()" class="menu-item d-flex align-items-center justify-content-center flex-grow-1">
                   <i class="fas fa-map"></i>
                   Mapa de Calor
                 </a>
-                <a (click)="dirigirFormulario()" class="menu-item">
+                <a (click)="dirigirFormulario()" class="menu-item d-flex align-items-center justify-content-center flex-grow-1">
                   <i class="fas fa-file-alt"></i>
                   Formulario para Predecir
                 </a>
-                <a href="https://microdatos.dane.gov.co/index.php/catalog/680/study-description" target="_blank" class="menu-item">
+                <a href="https://microdatos.dane.gov.co/index.php/catalog/680/study-description" target="_blank" class="menu-item d-flex align-items-center justify-content-center flex-grow-1">
                     <i class="fas fa-database"></i>
                     Información Data Set
-                  </a>
+                </a>
               </div>
-            </div><br><br><br>
+            </div>
       </div>
   </div><!--end col-->
 </div><!--end row-->
