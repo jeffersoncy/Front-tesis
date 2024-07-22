@@ -9,7 +9,7 @@
 }
 
 
-.boton-interactivo { 
+.boton-interactivo {
     background-color: #3498db ;
     background-image: linear-gradient(to bottom, #8fc6eb, #3498db );
     color: #08273b;
@@ -60,7 +60,7 @@
     width: 340px;
     margin: 0 auto; /* Para centrar el menú horizontalmente */
   }
-  
+
   .menu-item {
     display: flex;
     align-items: center;
@@ -72,15 +72,18 @@
     border-radius: 5px;
     text-decoration: none;
     font-family: Arial, sans-serif;
-    margin-top: 15px;
   }
-  
+
   .menu-item i {
     margin-right: 10px;
   }
-  
+
   .menu-item:hover {
     background-color: #3498db;
+  }
+
+  .no-border .list-group-item {
+    border: none;
   }
 
   h2, h3, h4 {
@@ -96,7 +99,7 @@
     transition: transform 0.3s ease;
   }
 
-  
+
   /* Hover Effects */
 h2:hover, h3:hover, h4:hover {
     color: #3498db;
