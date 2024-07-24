@@ -26,6 +26,8 @@ export class TesisFormComponent implements OnInit{
   public validoFormulario !: boolean;
   public validoFormularioP1 !: boolean;
   public validoFormularioP2 !: boolean;
+  public validoFormularioFrec !: boolean;
+  public validoFormularioOfer !: boolean;
 
   public selectNoFamiliares = false;
   public selectNoAmigos = false;
@@ -135,6 +137,8 @@ export class TesisFormComponent implements OnInit{
     this.validoFormulario = false;
     this.validoFormularioP1 = false;
     this.validoFormularioP2 = false;
+    this.validoFormularioFrec = false;
+    this.validoFormularioOfer = false;
     this.registro = new Registro();
     this._strokedCircleChart('["--tb-success"]');
     this._distributedColumnChart('["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-dark", "--tb-info"]')
@@ -352,6 +356,7 @@ export class TesisFormComponent implements OnInit{
       flattenedData.frecuencia_consumo_marihuana_tipo == "Nunca" &&
       flattenedData.frecuencia_consumo_cocaina_tipo == "Nunca" &&
       flattenedData.frecuencia_consumo_basuco_tipo == "Nunca") {
+        this.validoFormularioFrec = true;
         swal.fire({
           icon: 'error',
           title: "Debido a que su respuesta relacionada a si ha consumido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca' al mismo tiempo",
@@ -360,10 +365,13 @@ export class TesisFormComponent implements OnInit{
         return;
     }
 
+    this.validoFormularioFrec = false;
+
     if (flattenedData.g_07_alguien_ofrecio_comprar_probar_sp_tipo == "g_07_Si" &&
       flattenedData.g_08_a_ofrecieron_marihuana_imp_tipo == "g_08_a_Nunca_me_han_ofrecido" &&
       flattenedData.g_08_b_ofrecieron_cocaina_imp_tipo == "g_08_b_Nunca_me_han_ofrecido" &&
       flattenedData.g_08_c_ofrecieron_basuco_imp_tipo == "g_08_c_Nunca_me_han_ofrecido") {
+        this.validoFormularioOfer = true;
         swal.fire({
           icon: 'error',
           title: "Debido a que su respuesta relacionada a si le han ofrecido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca me han ofrecido' a mismo tiempo.",
@@ -371,6 +379,7 @@ export class TesisFormComponent implements OnInit{
         });
         return;
     }
+    this.validoFormularioOfer = false;
     //delete flattenedData['bandera_frecuencia_consumo'];
     //delete flattenedData['bandera_conseguir_spi'];
 

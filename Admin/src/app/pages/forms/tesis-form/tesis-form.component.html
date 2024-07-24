@@ -476,7 +476,7 @@
                                 <div class="mt-3">
                                     <label for="frecuencia_consumo_marihuana_tipo" class="form-label">¿Con qué frecuencia consumió o ha consumido marihuana?</label>
                                     <select class="form-select" id="frecuencia_consumo_marihuana_tipo"
-                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('frecuencia_consumo_marihuana_tipo')?.errors }" formControlName="frecuencia_consumo_marihuana_tipo">
+                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('frecuencia_consumo_marihuana_tipo')?.errors || validoFormularioFrec }" formControlName="frecuencia_consumo_marihuana_tipo">
                                       <option value="Nunca">Nunca</option>
                                       <option value="Alguna vez en su vida">Alguna vez en su vida</option>
                                       <option value="Una vez en el año">Una vez en el año</option>
@@ -495,7 +495,7 @@
                                   <div>
                                     <label for="frecuencia_consumo_cocaina_tipo" class="form-label">¿Con que regularidad consumio o ha consumido cocaína?</label>
                                     <select class="form-select" id="frecuencia_consumo_cocaina_tipo"
-                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('frecuencia_consumo_cocaina_tipo')?.errors }" formControlName="frecuencia_consumo_cocaina_tipo">
+                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('frecuencia_consumo_cocaina_tipo')?.errors || validoFormularioFrec}" formControlName="frecuencia_consumo_cocaina_tipo">
                                       <option value="Nunca">Nunca</option>
                                       <option value="Alguna vez en su vida">Alguna vez en su vida</option>
                                       <option value="Una vez en el año">Una vez en el año</option>
@@ -515,7 +515,7 @@
                                   <div>
                                     <label for="frecuencia_consumo_basuco_tipo" class="form-label">¿Qué tan a menudo llego a consumir basuco?</label>
                                     <select class="form-select" id="frecuencia_consumo_basuco_tipo"
-                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('frecuencia_consumo_basuco_tipo')?.errors }" formControlName="frecuencia_consumo_basuco_tipo">
+                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('frecuencia_consumo_basuco_tipo')?.errors || validoFormularioFrec}" formControlName="frecuencia_consumo_basuco_tipo">
                                       <option value="Nunca">Nunca</option>
                                       <option value="Alguna vez en su vida">Alguna vez en su vida</option>
                                       <option value="Una vez en el año">Una vez en el año</option>
@@ -704,7 +704,7 @@
                                   <div>
                                     <label for="g_08_a_ofrecieron_marihuana_imp_tipo" class="form-label">¿Hace cuánto tiempo le ofrecieron marihuana?</label>
                                     <select class="form-select" id="g_08_a_ofrecieron_marihuana_imp_tipo"
-                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_08_a_ofrecieron_marihuana_imp_tipo')?.errors }" formControlName="g_08_a_ofrecieron_marihuana_imp_tipo">
+                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_08_a_ofrecieron_marihuana_imp_tipo')?.errors || validoFormularioOfer}" formControlName="g_08_a_ofrecieron_marihuana_imp_tipo">
                                       <option value="g_08_a_No_aplica" [attr.disabled]="isNoAplicaOfer ? true : null">No aplica</option>
                                       <option value="g_08_a_Nunca_me_han_ofrecido">Nunca me han ofrecido</option>
                                       <option value="g_08_a_Mas_12_meses">Mas de 12 meses</option>
@@ -722,7 +722,7 @@
                                   <div>
                                     <label for="g_08_b_ofrecieron_cocaina_imp_tipo" class="form-label">¿Hace cuánto tiempo le ofrecieron cocaína?</label>
                                     <select class="form-select" id="g_08_b_ofrecieron_cocaina_imp_tipo"
-                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_08_b_ofrecieron_cocaina_imp_tipo')?.errors }" formControlName="g_08_b_ofrecieron_cocaina_imp_tipo">
+                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_08_b_ofrecieron_cocaina_imp_tipo')?.errors || validoFormularioOfer}" formControlName="g_08_b_ofrecieron_cocaina_imp_tipo">
                                       <option value="g_08_b_No_aplica" [attr.disabled]="isNoAplicaOfer ? true : null">No aplica</option>
                                       <option value="g_08_b_Nunca_me_han_ofrecido">Nunca me han ofrecido</option>
                                       <option value="g_08_b_Mas_12_meses">Mas de 12 meses</option>
@@ -740,7 +740,7 @@
                                   <div>
                                     <label for="g_08_c_ofrecieron_basuco_imp_tipo" class="form-label">¿Hace cuánto tiempo le ofrecieron basuco?</label>
                                     <select class="form-select" id="g_08_c_ofrecieron_basuco_imp_tipo"
-                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_08_c_ofrecieron_basuco_imp_tipo')?.errors }" formControlName="g_08_c_ofrecieron_basuco_imp_tipo">
+                                    [ngClass]="{ 'is-invalid' : validoFormularioP2 && step3.get('g_08_c_ofrecieron_basuco_imp_tipo')?.errors || validoFormularioOfer}" formControlName="g_08_c_ofrecieron_basuco_imp_tipo">
                                       <option value="g_08_c_No_aplica" [attr.disabled]="isNoAplicaOfer ? true : null">No aplica</option>
                                       <option value="g_08_c_Nunca_me_han_ofrecido">Nunca me han ofrecido</option>
                                       <option value="g_08_c_Mas_12_meses">Mas de 12 meses</option>
