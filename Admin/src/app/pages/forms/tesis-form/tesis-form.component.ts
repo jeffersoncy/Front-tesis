@@ -252,6 +252,7 @@ export class TesisFormComponent implements OnInit{
     let valorSeleccionado = this.step3.get('bandera_frecuencia_consumo')?.value;
     console.log("Data al seleccionar: " + valorSeleccionado);
     if (valorSeleccionado === "bandera_frecuencia_consumo_No") {
+      this.validoFormularioFrec = false;
       this.step3.get('frecuencia_consumo_marihuana_tipo')?.setValue("Nunca");
       this.step3.get('frecuencia_consumo_cocaina_tipo')?.setValue("Nunca");
       this.step3.get('frecuencia_consumo_basuco_tipo')?.setValue("Nunca");
@@ -300,6 +301,7 @@ export class TesisFormComponent implements OnInit{
     let valorSeleccionado = this.step3.get('g_07_alguien_ofrecio_comprar_probar_sp_tipo')?.value;
     console.log("Data al seleccionar: " + valorSeleccionado);
     if (valorSeleccionado === "g_07_No") {
+      this.validoFormularioOfer = false;
       this.step3.get('g_08_a_ofrecieron_marihuana_imp_tipo')?.setValue("g_08_a_No_aplica");
       this.step3.get('g_08_b_ofrecieron_cocaina_imp_tipo')?.setValue("g_08_b_No_aplica");
       this.step3.get('g_08_c_ofrecieron_basuco_imp_tipo')?.setValue("g_08_c_No_aplica");
@@ -338,17 +340,6 @@ export class TesisFormComponent implements OnInit{
       ...formData.step3,
     };
 
-
-    /*for (const step in formData) {
-      if (formData.hasOwnProperty(step)) {
-        const stepData = formData[step];
-        for (const key in stepData) {
-          if (stepData.hasOwnProperty(key)) {
-            flattenedData[key] = stepData[key];
-          }
-        }
-      }
-    }*/
 
     console.log(flattenedData);
 
