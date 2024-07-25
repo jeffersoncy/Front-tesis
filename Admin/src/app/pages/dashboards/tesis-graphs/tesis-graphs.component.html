@@ -3,8 +3,8 @@
     <div class="col-xl-6">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title mb-0">Conteo de variables por personas</h4><br>
-                <h4 class="card-title mb-0">{{ tituloGraficoConteo }}</h4><br>
+                <h4 class="card-title mb-0"><i class="fas fa-chart-bar"></i> Conteo de variables por personas</h4><br>
+                <p>Esta gráfica muestra la distribución de personas por variables categóricas. Por defecto, se muestra la distribución por departamento, pero puedes seleccionar otras variables categóricas para ver cómo se distribuyen las personas según esas categorías.</p>
             </div><!-- end card header -->
 
             <select [(ngModel)]="variable_param" class="form-select" id="variable_param" (change)="consultarDatosParametro()">
@@ -26,7 +26,8 @@
     <div class="col-xl-6">
         <div class="card">
             <div class="card-header">
-                <br><br><h4 class="card-title mb-0">Riesgo de consumo de sustancias psicoactivas vs tipo de sexo</h4><br><br>
+                <h4 class="card-title mb-0"><i class="fas fa-chart-bar"></i> Riesgo de consumo de sustancias psicoactivas vs tipo de sexo</h4><br>
+                <p>Esta gráfica ilustra el riesgo de consumo de sustancias psicoactivas, desglosado por sexo (hombre y mujer). Las barras indican la cantidad de personas en cada nivel de riesgo, destacando las diferencias en el consumo de sustancias entre hombres y mujeres.</p>
             </div><!-- end card header -->
 
             <div class="card-body">
@@ -48,7 +49,8 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title mb-0">Comparacion de variables</h4><br>
+                <h4 class="card-title mb-0"><i class="fas fa-chart-bar"></i> Comparacion de variables</h4><br>
+                <p>Esta gráfica muestra la relación entre diferentes variables categóricas. Por defecto, se compara el nivel educativo con la frecuencia de consumo de marihuana, pero puedes seleccionar otras variables para analizar distintas relaciones y comportamientos en los datos.</p>
                 <h4 class="card-title mb-0">{{ titulo }}</h4><br>
             </div><!-- end card header -->
 
