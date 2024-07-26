@@ -55,6 +55,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TesisFormComponent } from './tesis-form/tesis-form.component';
 
 import { GoogleChartsModule } from 'angular-google-charts';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -92,7 +94,9 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     DropzoneModule,
     FlatpickrModule.forRoot(),
     GoogleChartsModule.forRoot(),
-    NgApexchartsModule
+    NgApexchartsModule,
+    AccordionModule.forRoot(),
+    CollapseModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

@@ -821,6 +821,242 @@
                          [grid]="distributedColumnChart.grid" dir="ltr">kjfdkj</apx-chart>
             </div>
           </div>
+          
+          <div class="row">
+            <div class="col-xxl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Left Icon Accordions</h4>
+                    </div><!-- end card header -->
+                    <div class="card-body">
+                        <p class="text-muted">Use <code>lefticon-accordion</code> class to show the icon on the left side of the
+                            accordion.</p>
+                        <accordion [closeOthers]="true" class="accordion lefticon-accordion custom-accordionwithicon accordion-border-box"
+                            id="accordionlefticon">
+                            <accordion-group class="accordion-item" [isOpen]="isFirstOpen">
+                                <h2 accordion-heading class="accordion-header" id="accordionlefticonExample1">
+                                    <button class="accordion-button" type="button">
+                                        What is User Interface Design?
+                                    </button>
+                                </h2>
+                                <div id="accor_lefticonExamplecollapse1" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                        squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua nulla assumenda
+                                        shoreditch et.
+                                    </div>
+                                </div>
+                            </accordion-group>
+                            <accordion-group class="accordion-item">
+                                <h2 accordion-heading class="accordion-header" id="accordionlefticonExample2">
+                                    <button class="accordion-button" type="button">
+                                        What is Digital Marketing?
+                                    </button>
+                                </h2>
+                                <div id="accor_lefticonExamplecollapse2" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
+                                        fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget
+                                        bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce
+                                        vulputate eleifend sapien.
+                                    </div>
+                                </div>
+                            </accordion-group>
+                            <accordion-group class="accordion-item">
+                                <h2 accordion-heading class="accordion-header" id="accordionlefticonExample3">
+                                    <button class="accordion-button" type="button">
+                                        Where does it come from ?
+                                    </button>
+                                </h2>
+                                <div id="accor_lefticonExamplecollapse3" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in
+                                        faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer
+                                        lacinia. Nam pretium turpis et arcu arcu tortor, suscipit eget, imperdiet nec, imperdiet
+                                        iaculis aliquam ultrices mauris.
+                                    </div>
+                                </div>
+                            </accordion-group>
+                        </accordion>
+                    </div><!-- end card-body -->
+                    <div class="card-body bg-light border-bottom border-top bg-opacity-25">
+                        <h5 class="fs-xs text-muted mb-0">HTML Preview</h5>
+                    </div>
+                    <div class="card-body">
+                        <pre class="language-markup" style="height: 310px;"><code>&lt;!-- Left Icon Accordions --&gt;
+        &lt;accordion class=&quot;accordion lefticon-accordion custom-accordionwithicon accordion-border-box&quot;
+        id=&quot;accordionlefticon&quot;&gt;
+        &lt;accordion-group class=&quot;accordion-item&quot; [isOpen]=&quot;isFirstOpen&quot;&gt;
+            &lt;h2 accordion-heading class=&quot;accordion-header&quot; id=&quot;accordionlefticonExample1&quot;&gt;
+                &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot;&gt;
+                    What is User Interface Design?
+                &lt;/button&gt;
+            &lt;/h2&gt;
+            &lt;div id=&quot;accor_lefticonExamplecollapse1&quot; class=&quot;accordion-collapse collapse show&quot;&gt;
+                &lt;div class=&quot;accordion-body&quot;&gt;
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                    squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua nulla assumenda
+                    shoreditch et.
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/accordion-group&gt;
+        &lt;accordion-group class=&quot;accordion-item&quot;&gt;
+            &lt;h2 accordion-heading class=&quot;accordion-header&quot; id=&quot;accordionlefticonExample2&quot;&gt;
+                &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot;&gt;
+                    What is Digital Marketing?
+                &lt;/button&gt;
+            &lt;/h2&gt;
+            &lt;div id=&quot;accor_lefticonExamplecollapse2&quot; class=&quot;accordion-collapse collapse show&quot;&gt;
+                &lt;div class=&quot;accordion-body&quot;&gt;
+                    Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
+                    fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget
+                    bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce
+                    vulputate eleifend sapien.
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/accordion-group&gt;
+        &lt;accordion-group class=&quot;accordion-item&quot;&gt;
+            &lt;h2 accordion-heading class=&quot;accordion-header&quot; id=&quot;accordionlefticonExample3&quot;&gt;
+                &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot;&gt;
+                    Where does it come from ?
+                &lt;/button&gt;
+            &lt;/h2&gt;
+            &lt;div id=&quot;accor_lefticonExamplecollapse3&quot; class=&quot;accordion-collapse collapse show&quot;&gt;
+                &lt;div class=&quot;accordion-body&quot;&gt;
+                    Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in
+                    faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer
+                    lacinia. Nam pretium turpis et arcu arcu tortor, suscipit eget, imperdiet nec, imperdiet
+                    iaculis aliquam ultrices mauris.
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/accordion-group&gt;
+                        &lt;/accordion&gt;;</code></pre>
+                    </div>
+                </div><!-- end card -->
+            </div>
+            <!--end col-->
+        
+            <div class="col-xxl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Accordions Bordered</h4>
+                    </div><!-- end card header -->
+                    <div class="card-body">
+                        <p class="text-muted">Use <code>custom-accordion-border</code> class to create the border at the
+                            accordion.</p>
+                        <accordion [closeOthers]="true"
+                            class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-success"
+                            id="accordionBordered">
+                            <accordion-group class="accordion-item" [isOpen]="isFirstOpen">
+                                <h2 accordion-heading class="accordion-header" id="accordionborderedExample1">
+                                    <button class="accordion-button" type="button">
+                                        What is User Interface Design?
+                                    </button>
+                                </h2>
+                                <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                        squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua nulla assumenda
+                                        shoreditch et.
+                                    </div>
+                                </div>
+                            </accordion-group>
+                            <accordion-group class="accordion-item">
+                                <h2 accordion-heading class="accordion-header" id="accordionborderedExample2">
+                                    <button class="accordion-button" type="button">
+                                        What is Digital Marketing?
+                                    </button>
+                                </h2>
+                                <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
+                                        fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget
+                                        bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce
+                                        vulputate eleifend sapien.
+                                    </div>
+                                </div>
+                            </accordion-group>
+                            <accordion-group class="accordion-item">
+                                <h2 accordion-heading class="accordion-header" id="accordionborderedExample3">
+                                    <button class="accordion-button" type="button">
+                                        Where does it come from ?
+                                    </button>
+                                </h2>
+                                <div id="accor_borderedExamplecollapse3" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in
+                                        faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer
+                                        lacinia. Nam pretium turpis et arcu arcu tortor, suscipit eget, imperdiet nec, imperdiet
+                                        iaculis aliquam ultrices mauris.
+                                    </div>
+                                </div>
+                            </accordion-group>
+                        </accordion>
+                    </div><!-- end card-body -->
+                    <div class="card-body bg-light border-bottom border-top bg-opacity-25">
+                        <h5 class="fs-xs text-muted mb-0">HTML Preview</h5>
+                    </div>
+                    <div class="card-body">
+                        <pre class="language-markup" style="height: 310px;"><code>&lt;!-- Accordions Bordered --&gt;
+        &lt;accordion
+        class=&quot;accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-success&quot;
+        id=&quot;accordionBordered&quot;&gt;
+        &lt;accordion-group class=&quot;accordion-item&quot; [isOpen]=&quot;isFirstOpen&quot;&gt;
+            &lt;h2 accordion-heading class=&quot;accordion-header&quot; id=&quot;accordionborderedExample1&quot;&gt;
+                &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot;&gt;
+                    What is User Interface Design?
+                &lt;/button&gt;
+            &lt;/h2&gt;
+            &lt;div id=&quot;accor_borderedExamplecollapse1&quot; class=&quot;accordion-collapse collapse show&quot;&gt;
+                &lt;div class=&quot;accordion-body&quot;&gt;
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                    squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua nulla assumenda
+                    shoreditch et.
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/accordion-group&gt;
+        &lt;accordion-group class=&quot;accordion-item&quot;&gt;
+            &lt;h2 accordion-heading class=&quot;accordion-header&quot; id=&quot;accordionborderedExample2&quot;&gt;
+                &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot;&gt;
+                    What is Digital Marketing?
+                &lt;/button&gt;
+            &lt;/h2&gt;
+            &lt;div id=&quot;accor_borderedExamplecollapse2&quot; class=&quot;accordion-collapse collapse show&quot;&gt;
+                &lt;div class=&quot;accordion-body&quot;&gt;
+                    Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
+                    fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget
+                    bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce
+                    vulputate eleifend sapien.
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/accordion-group&gt;
+        &lt;accordion-group class=&quot;accordion-item&quot;&gt;
+            &lt;h2 accordion-heading class=&quot;accordion-header&quot; id=&quot;accordionborderedExample3&quot;&gt;
+                &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot;&gt;
+                    Where does it come from ?
+                &lt;/button&gt;
+            &lt;/h2&gt;
+            &lt;div id=&quot;accor_borderedExamplecollapse3&quot; class=&quot;accordion-collapse collapse show&quot;&gt;
+                &lt;div class=&quot;accordion-body&quot;&gt;
+                    Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in
+                    faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer
+                    lacinia. Nam pretium turpis et arcu arcu tortor, suscipit eget, imperdiet nec, imperdiet
+                    iaculis aliquam ultrices mauris.
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/accordion-group&gt;
+                        &lt;/accordion&gt;</code></pre>
+                    </div>
+                </div><!-- end card -->
+            </div>
+            <!--end col-->
+        </div>
+        <!--end row-->
+        
             <!--end row-->
             <div class="row">
               <div class="col-md-12">

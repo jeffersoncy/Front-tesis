@@ -19,6 +19,18 @@ import { icon } from 'leaflet';
   styleUrls: ['./tesis-form.component.scss']
 })
 export class TesisFormComponent implements OnInit{
+  isCollapsed = false;
+  horizontalCollapsed = false;
+  arrowCollapsed = false;
+  filterCollapsed = false;
+  blockCollapsed = false;
+  inlineCollapsed = false;
+  multiCollapseExample1 = false;
+  multiCollapseExample2 = false;
+
+  breadCrumbItems!: Array<{}>;
+  isFirstOpen = true
+
   @ViewChild(CdkStepper) stepper!: CdkStepper;
   selectedAccount = 'This is a placeholder';
   strokedCircleChart: any;
@@ -132,6 +144,11 @@ export class TesisFormComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+    this.breadCrumbItems = [
+      { label: 'Base UI' },
+      { label: 'Accordions', active: true }
+    ];
 
     this.obtenerListaDepartamentos()
     this.validoFormulario = false;
