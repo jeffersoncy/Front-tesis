@@ -29,7 +29,7 @@ export class TesisFormComponent implements OnInit{
   multiCollapseExample2 = false;
 
   breadCrumbItems!: Array<{}>;
-  isFirstOpen = true
+  isFirstOpen = false
 
   @ViewChild(CdkStepper) stepper!: CdkStepper;
   selectedAccount = 'This is a placeholder';

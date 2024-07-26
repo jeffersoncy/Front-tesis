@@ -2,28 +2,28 @@
     display: flex;
     flex-direction: row;
   }
-  
+
   .tabs {
     display: flex;
     flex-direction: column;
   }
-  
+
   .tabs div {
     cursor: pointer;
     padding: 8px;
   }
-  
+
   .tabs div:hover {
     background-color: #d9edf7; /* Azul claro al apuntar */
     border-radius: 5px; /* Bordes semicirculares */
   }
-  
+
   .tabs div.active {
-    background-color: #007bff; /* Azul cuando está seleccionado */
+    background-color: #08273b; /* Azul cuando está seleccionado */
     color: #fff; /* Texto blanco cuando está seleccionado */
     border-radius: 5px; /* Bordes semicirculares */
   }
-  
+
   .contenido {
     display: flex; /* Establece el contenedor como flexbox */
     flex-direction: column; /* Organiza los elementos en una columna */
@@ -31,7 +31,26 @@
     align-items: center; /* Centra verticalmente el contenido */
     margin: 0 auto; /* Centra el contenedor horizontalmente */
   }
-  
+
   .contenido > div {
     margin-top: 1px; /* Espacio entre los divs */
   }
+
+  /* archivo CSS o SCSS de tu componente */
+
+//#08273b
+
+.accordion-light .accordion-item {
+  border-color: #08273b !important; /* Cambia esto por el color de borde deseado */
+}
+
+.accordion-light .accordion-button {
+  color: #08273b !important; /* Cambia esto por el color de texto deseado */
+  border-right: 1px solid #08273b !important; /* Asegúrate de que el botón mantenga el borde correcto */
+  border-bottom: 1px solid #08273b !important; /* Asegúrate de que el botón mantenga el borde correcto */
+}
+
+.accordion-light .accordion-body {
+  border-bottom: 1px solid #08273b !important; /* Cambia el color del borde superior del cuerpo */
+  border-right: 1px solid #08273b !important; /* Cambia el color del borde superior del cuerpo */
+}
