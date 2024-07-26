@@ -54,3 +54,17 @@
   border-bottom: 1px solid #08273b !important; /* Cambia el color del borde superior del cuerpo */
   border-right: 1px solid #08273b !important; /* Cambia el color del borde superior del cuerpo */
 }
+
+/* Sobrescribir el color de fondo del botón btn-success */
+.btn-success {
+  background-color: #08273b !important; /* Nuevo color de fondo */
+  border-color: #08273b !important; /* Nuevo color de borde */
+}
+
+/* Sobrescribir el color de fondo del botón btn-success en estado hover */
+.btn-success:hover {
+  background-color: #0f4970 !important; /* Nuevo color de fondo al pasar el mouse */
+  border-color: #0f4970 !important; /* Nuevo color de borde al pasar el mouse */
+}
+
+
