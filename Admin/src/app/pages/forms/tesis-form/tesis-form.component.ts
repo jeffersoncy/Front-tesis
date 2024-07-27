@@ -367,8 +367,10 @@ export class TesisFormComponent implements OnInit{
         this.validoFormularioFrec = true;
         swal.fire({
           icon: 'error',
-          title: "Debido a que su respuesta relacionada a si ha consumido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca' al mismo tiempo",
+          title: "Atención",
+          text: "Debido a que su respuesta relacionada a si ha consumido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca' al mismo tiempo.",
           showConfirmButton: true,
+
         });
         return;
     }
@@ -382,7 +384,8 @@ export class TesisFormComponent implements OnInit{
         this.validoFormularioOfer = true;
         swal.fire({
           icon: 'error',
-          title: "Debido a que su respuesta relacionada a si le han ofrecido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca me han ofrecido' a mismo tiempo.",
+          title: "Atención",
+          text: "Debido a que su respuesta relacionada a si le han ofrecido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca me han ofrecido' a mismo tiempo.",
           showConfirmButton: true,
         });
         return;

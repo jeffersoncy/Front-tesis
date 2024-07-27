@@ -818,55 +818,9 @@
                          [dataLabels]="distributedColumnChart.dataLabels" [plotOptions]="distributedColumnChart.plotOptions"
                          [yaxis]="distributedColumnChart.yaxis" [xaxis]="distributedColumnChart.xaxis"
                          [legend]="distributedColumnChart.legend" [colors]="distributedColumnChart.colors"
-                         [grid]="distributedColumnChart.grid" dir="ltr">kjfdkj</apx-chart>
+                         [grid]="distributedColumnChart.grid" dir="ltr"></apx-chart>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-xxl-12">
-                <div class="card">
-                    <div class="card-body">
-                        <accordion [closeOthers]="true"
-                            class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-light"
-                            id="accordionBordered">
-                            <accordion-group class="accordion-item accordion-light" [isOpen]="isFirstOpen">
-                                <h2 accordion-heading class="accordion-header" id="accordionborderedExample1">
-                                    <button class="accordion-button" type="button">
-                                        What is User Interface Design?
-                                    </button>
-                                </h2>
-                                <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show">
-                                    <div class="accordion-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                                        squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
-                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua nulla assumenda
-                                        shoreditch et.
-                                    </div>
-                                </div>
-                            </accordion-group>
-                            <accordion-group class="accordion-item accordion-light">
-                                <h2 accordion-heading class="accordion-header" id="accordionborderedExample2">
-                                    <button class="accordion-button" type="button">
-                                        What is Digital Marketing?
-                                    </button>
-                                </h2>
-                                <div id="accor_borderedExamplecollapse2" class="accordion-collapse collapse show">
-                                    <div class="accordion-body">
-                                        Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
-                                        fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget
-                                        bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce
-                                        vulputate eleifend sapien.
-                                    </div>
-                                </div>
-                            </accordion-group>
-                        </accordion>
-                    </div><!-- end card-body -->
-
-                </div><!-- end card -->
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
 
             <!--end row-->
             <div class="row">
@@ -892,12 +846,67 @@
                     </div>
                   </div>
                 </div>
-              </div><br><br><br><br>
+              </div>
+            </div>
+
+          
+            <div class="row">
+              <div class="col-xxl-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <accordion [closeOthers]="true"
+                              class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box accordion-light"
+                              id="accordionBordered">
+                              <accordion-group class="accordion-item accordion-light" [isOpen]="isFirstOpen">
+                                  <h2 accordion-heading class="accordion-header" id="accordionborderedExample1">
+                                      <button class="accordion-button" type="button">
+                                        <i class="fas fa-chart-bar"></i>   Factores Influyentes en la Predicción - ¿Qué significa esta sección?
+                                      </button>
+                                  </h2>
+                                  <div id="accor_borderedExamplecollapse1" class="accordion-collapse collapse show">
+                                      <div class="accordion-body">
+                                        <p>Esta sección muestra los factores específicos que influyeron en la predicción de su 
+                                        riesgo de consumo de sustancias psicoactivas. Estos factores fueron identificados 
+                                        por el modelo como los más relevantes basándose en sus respuestas.</p>                                 
+                                        <h4 style="font-size: 14px;"><i class="fas fa-info-circle"></i>  ¿Cómo interpretar los resultados?</h4>
+                                        <p><strong>Lista de Factores:</strong> A la izquierda, se enumeran los factores clave, como la frecuencia
+                                        de consumo de alguna sustancia en especial, o si alguien le ofreció comprar o probar 
+                                        sustancias psicoactivas. El factor resaltado en azul indica cúal de ellos tuvo la mayor
+                                        influencia en su predicción específica.
+                                        </p>
+                                        <p><strong>Porcentaje de Incidencia:</strong> A la derecha, se presenta un gráfico circular que muestra
+                                        el porcentaje de incidencia basado en sus respuestas. Este porcentaje refleja la 
+                                        probabilidad calculada de su riesgo.
+                                        </p>
+  
+                                        <h4 style="font-size: 14px;"><i class="fas fa-exclamation-circle"></i>  ¿Por qué es importante?</h4>
+                                        <p>Conocer estos factores puede ayudarle a entender qué aspectos de su comportamiento o
+                                        entorno son más críticos en la evaluación del riesgo. Esta información puede ser útil 
+                                        para tomar decisiones informadas y buscar ayuda si es necesario.
+                                        </p>
+                                        <h4 style="font-size: 14px;"><i class="fas fa-lightbulb"></i>  Ejemplo de Interpretación:</h4>
+                                        <p><strong>Factor más Influyente:</strong> Si "Alguien le ofreció comprar o probar SPI" está resaltado,
+                                        significa que esta situación específica tuvo impacto significativo en su evaluación de riesgo.
+                                        </p>
+                                        <p><strong>Porcentaje de Incidencia:</strong> Un porcentaje de 10.05% indica que este factor tiene un 
+                                        10.05% de influencia en la predicción, contribuyendo a la determinación de su nivel de 
+                                        riesgo como "Muy Bajo, Bajo, Medio, Alto o Muy Alto".
+                                        </p>
+                                      </div>
+                                  </div>
+                              </accordion-group>
+                          </accordion>
+                      </div><!-- end card-body -->
+  
+                  </div><!-- end card -->
+              </div>
+              <!--end col-->
+          </div>
+          <!--end row-->
               <!-- <div class="col-md-12" class="d-flex align-items-start gap-3 mt-4"> -->
                 <div class="col-md-12" style="display: flex;justify-content: center;align-items: center;">
                   <button type="button" class="btn btn-success mt-3" (click)="reiniciarForm()">Volver a predecir</button>
                 </div>
-            </div>
         </div><!-- end card-body -->
     </div><!-- end card -->
   </div>

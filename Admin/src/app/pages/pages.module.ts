@@ -13,10 +13,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule,
-    AccordionModule.forRoot(),
-    CollapseModule.forRoot(),
-
+    SharedModule
   ]
 })
 export class PagesModule { }
