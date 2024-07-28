@@ -385,7 +385,7 @@ export class TesisFormComponent implements OnInit{
         swal.fire({
           icon: 'error',
           title: "Atención",
-          text: "Debido a que su respuesta relacionada a si le han ofrecido algun tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca me han ofrecido' a mismo tiempo.",
+          text: "Debido a que su respuesta relacionada a si le han ofrecido algún tipo de sustancia es afirmativa, las siguientes tres preguntas no pueden ser 'Nunca me han ofrecido' al mismo tiempo.",
           showConfirmButton: true,
         });
         return;
